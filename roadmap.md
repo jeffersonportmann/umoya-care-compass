@@ -5,6 +5,7 @@
 - [ ] E-Mail klären: care@umoya.care im Code, Originalseite nennt umoya.care@gmail.com bei "How"
 - [ ] KI-Platzhalterfotos (hero, healing, villa, bowl, mandala, el-*) durch echte uMoya-Bilder ersetzen
 - [ ] Selbst formulierte Texte bestätigen: 100% Confidential / Weekly Plan reviews / 1:1 Dedicated team, 24-Stunden-Antwort, isiZulu-Bedeutung, Tagesablauf, "Ihr sprecht direkt mit den Gründern", Stichworte in "What is included", neue Vergleichs-Stichwörter, neue Hero-Headline und -Subline
+- [ ] /who: Eigene Profilseiten je Teammitglied (/who/rahul-singh usw.) — Content noch intensiv ausbauen (Lebenslauf, Ansatz, Zitate)
 - [ ] /who: Rahul-Foto ersetzen — das jetzige Gruppenfoto ist nicht Rahul; echtes Foto folgt vom Nutzer
 - [ ] Startseite-Titelbild: Höhe feinjustieren — soll weder zu hoch noch zu kurz sein (aktuell 82 % der Bildschirmhöhe)
 
