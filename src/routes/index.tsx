@@ -19,10 +19,10 @@ const voices = [
 ];
 
 const compare = [
-  { from: "Care designed for many guests", to: "Care designed around one person" },
-  { from: "A fixed programme to follow", to: "A plan that evolves with you every week" },
-  { from: "Medicine or holistic care", to: "Medicine and holistic care as one team" },
-  { from: "Shared spaces and schedules", to: "A private home that is yours alone" },
+  { from: "Care designed for many guests", fk: "shared lounges · set times · a front desk", to: "Care designed around one person", tk: "one home · your hours · your team" },
+  { from: "A fixed programme to follow", fk: "the same schedule for every guest", to: "A plan that evolves with you every week", tk: "reviewed weekly · adjusted as you change" },
+  { from: "Medicine or holistic care", fk: "two worlds · separate referrals", to: "Medicine and holistic care as one team", tk: "doctors and healers · one table" },
+  { from: "Shared spaces and schedules", fk: "other guests · open doors", to: "A private home that is yours alone", tk: "your door · your kitchen · your pace" },
 ];
 
 const day = [
@@ -121,17 +121,21 @@ function Index() {
             <p className="eyebrow text-primary">Why one client at a time</p>
             <h2 className="mx-auto mt-6 max-w-3xl text-5xl leading-tight">In a group, you keep performing. Alone, you can finally put the mask down.</h2>
           </div>
-          <div className="mt-16 overflow-hidden rounded-[2.5rem] border border-border bg-card">
-            <div className="grid grid-cols-[1fr_auto_1fr] items-center border-b border-border px-6 py-6 md:px-12">
-              <p className="eyebrow text-muted-foreground">The familiar approach</p>
-              <span className="w-12 md:w-20" />
-              <p className="eyebrow text-primary">The uMoya approach</p>
+          <div className="mx-auto mt-16 max-w-5xl overflow-hidden rounded-[2.5rem] border border-border bg-card">
+            <div className="grid grid-cols-2 border-b border-border">
+              <p className="eyebrow px-8 py-8 text-muted-foreground md:px-12">The familiar approach</p>
+              <p className="eyebrow border-l border-border bg-primary/5 px-8 py-8 text-primary md:px-12">The uMoya approach</p>
             </div>
             {compare.map((c) => (
-              <div key={c.from} className="grid grid-cols-[1fr_auto_1fr] items-center border-b border-border px-6 py-8 last:border-0 md:px-12">
-                <p className="font-light text-muted-foreground">{c.from}</p>
-                <span className="mx-4 flex h-10 w-10 items-center justify-center rounded-full border border-accent text-accent md:mx-8">→</span>
-                <p className="font-display text-2xl leading-snug md:text-3xl">{c.to}</p>
+              <div key={c.from} className="grid grid-cols-2 border-b border-border last:border-b-0">
+                <div className="flex flex-col justify-center px-8 py-8 md:px-12 md:py-9">
+                  <p className="text-base font-light leading-relaxed text-muted-foreground md:text-lg">{c.from}</p>
+                  <p className="mt-3 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground/80">{c.fk}</p>
+                </div>
+                <div className="flex flex-col justify-center border-l border-border bg-primary/5 px-8 py-8 md:px-12 md:py-9">
+                  <p className="font-display text-xl leading-snug md:text-2xl">{c.to}</p>
+                  <p className="mt-3 text-[0.7rem] uppercase tracking-[0.18em] text-primary/85">{c.tk}</p>
+                </div>
               </div>
             ))}
           </div>
