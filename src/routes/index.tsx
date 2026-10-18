@@ -87,7 +87,7 @@ function Index() {
           <p className="eyebrow text-primary">Perhaps this sounds familiar</p>
           <div className="mt-14 grid gap-10 md:grid-cols-3">
             {voices.map((v, i) => (
-              <figure key={v.t} className={`border-l-2 border-accent pl-8 ${i === 1 ? "md:mt-16" : ""} ${i === 2 ? "md:mt-32" : ""}`}>
+              <figure key={v.t} className={`border-l-2 border-accent pl-8 ${i === 0 ? "md:mt-32" : ""} ${i === 1 ? "md:mt-16" : ""}`}>
                 <blockquote className="font-display text-3xl italic leading-snug md:text-4xl">“{v.q}”</blockquote>
                 <figcaption className="eyebrow mt-6 text-muted-foreground">{v.t}</figcaption>
               </figure>
