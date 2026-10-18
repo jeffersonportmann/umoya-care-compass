@@ -1,5 +1,5 @@
-import { Link } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { Link, useLocation } from "@tanstack/react-router";
+import { useEffect, useState, type ReactNode } from "react";
 import logo from "../assets/umoya-logo.png.asset.json";
 
 export const EMAIL = "care@umoya.care";
@@ -16,11 +16,25 @@ const nav = [
 ] as const;
 
 export function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  const path = useLocation({ select: (l) => l.pathname });
+
+  useEffect(() => {
+    setOpen(false);
+  }, [path]);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
-    <header className="absolute inset-x-0 top-0 z-20">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-6 text-primary-foreground md:px-10">
+    <header className="absolute inset-x-0 top-0 z-30">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-5 text-primary-foreground md:px-10 md:py-6">
         <Link to="/" aria-label="uMoya Home">
-          <img src={logo.url} alt="uMoya" className="h-16 w-auto md:h-20" />
+          <img src={logo.url} alt="uMoya" className="h-14 w-auto md:h-20" />
         </Link>
         <nav className="hidden gap-8 eyebrow md:flex">
           {nav.map((n) => (
@@ -29,15 +43,53 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <a href={WHATSAPP} target="_blank" rel="noreferrer" className="eyebrow border border-primary-foreground/50 px-5 py-3 transition hover:bg-primary-foreground hover:text-foreground">
+        <a href={WHATSAPP} target="_blank" rel="noreferrer" className="eyebrow hidden border border-primary-foreground/50 px-5 py-3 transition hover:bg-primary-foreground hover:text-foreground md:inline-block">
           Enquire
         </a>
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          aria-label="Open menu"
+          aria-expanded={open}
+          className="flex h-12 w-12 shrink-0 flex-col items-center justify-center gap-[6px] md:hidden"
+        >
+          <span className="h-px w-8 bg-current" />
+          <span className="h-px w-8 bg-current" />
+          <span className="h-px w-5 bg-current" />
+        </button>
       </div>
-      <nav className="flex justify-center gap-5 eyebrow text-primary-foreground md:hidden">
-        {nav.map((n) => (
-          <Link key={n.to} to={n.to} className="opacity-80">{n.label}</Link>
-        ))}
-      </nav>
+
+      {open && (
+        <div className="fixed inset-0 z-50 flex flex-col bg-secondary text-secondary-foreground md:hidden">
+          <div className="flex items-center justify-between px-6 py-5">
+            <img src={logo.url} alt="uMoya" className="h-14 w-auto" />
+            <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="relative flex h-12 w-12 items-center justify-center">
+              <span className="absolute h-px w-7 rotate-45 bg-current" />
+              <span className="absolute h-px w-7 -rotate-45 bg-current" />
+            </button>
+          </div>
+          <nav className="flex flex-1 flex-col justify-center gap-1 px-6">
+            {nav.map((n, i) => (
+              <Link
+                key={n.to}
+                to={n.to}
+                className="flex items-baseline justify-between gap-4 border-b border-secondary-foreground/15 py-4 font-display text-4xl leading-none transition hover:text-accent"
+                activeProps={{ className: "text-accent" }}
+                activeOptions={{ exact: true }}
+              >
+                {n.label}
+                <span className="eyebrow text-xs opacity-40">0{i + 1}</span>
+              </Link>
+            ))}
+          </nav>
+          <div className="px-6 pb-10 pt-8">
+            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="eyebrow block bg-primary px-6 py-4 text-center text-primary-foreground">
+              Enquire
+            </a>
+            <p className="eyebrow mt-5 text-center opacity-60">{PHONE} · {EMAIL}</p>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
