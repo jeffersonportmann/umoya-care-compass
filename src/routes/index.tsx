@@ -49,6 +49,35 @@ function Index() {
         </>}
       />
 
+      {/* What uMoya is — the one-glance explanation */}
+      <section className="relative overflow-hidden">
+        <Ornament className="-left-48 -top-48 h-[32rem] w-[32rem]" />
+        <div className="relative mx-auto max-w-4xl px-6 py-24 text-center md:px-10 md:py-32">
+          <p className="eyebrow text-primary">What uMoya is</p>
+          <h2 className="mt-8 text-4xl leading-[1.15] md:text-6xl">
+            uMoya means <em className="italic text-accent">breath</em> — the quiet force that carries you.
+            <span className="mt-6 block text-3xl font-normal leading-snug text-foreground/90 md:text-4xl">
+              It is also the name of a private healing home in Cape Town.
+            </span>
+          </h2>
+          <p className="mx-auto mt-10 max-w-2xl font-light leading-relaxed text-muted-foreground md:text-lg">
+            For 28 days, one person — or one couple — lives in a private home with a small team of medical doctors and holistic healers devoted only to them. No groups. No schedule to perform. Nothing to organise. Only the space and care a deeply exhausted body and mind need to recover.
+          </p>
+          <div className="mt-14 grid gap-10 border-t border-border pt-12 sm:grid-cols-3">
+            {[
+              ["One guest at a time", "A whole home and team, only for you"],
+              ["Medicine and healing together", "Clinical care and deep healing in one hand"],
+              ["28 days to reset", "A plan that evolves with you every week"],
+            ].map(([t, d]) => (
+              <div key={t}>
+                <p className="font-display text-2xl leading-snug">{t}</p>
+                <p className="mt-2 font-light text-sm text-muted-foreground">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Recognition */}
       <section className="relative overflow-hidden">
         <Ornament className="-right-40 -top-40 h-[34rem] w-[34rem]" />
