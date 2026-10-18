@@ -44,7 +44,7 @@ export function SiteHeader() {
 
 export function PageHero({ img, eyebrow, title, sub, tall }: { img: string; eyebrow: string; title: ReactNode; sub?: ReactNode; tall?: boolean }) {
   return (
-    <section className={`relative flex items-end overflow-hidden ${tall ? "min-h-[86vh]" : "min-h-[64vh]"}`}>
+    <section className={`relative flex items-end overflow-hidden ${tall ? "min-h-screen" : "min-h-[64vh]"}`}>
       <img src={img} alt="" className="absolute inset-0 h-full w-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-overlay via-overlay/40 to-overlay/40" />
       <div className="relative mx-auto w-full max-w-7xl px-6 pb-16 pt-32 text-primary-foreground md:px-10 md:pb-20">
