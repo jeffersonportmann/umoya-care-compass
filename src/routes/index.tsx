@@ -81,7 +81,7 @@ function Index() {
       <SectionBreak />
 
       {/* Recognition */}
-      <section className="relative overflow-hidden bg-card/60">
+      <section className="relative overflow-hidden bg-card">
         <Ornament className="-right-40 -top-40 h-[34rem] w-[34rem]" />
         <div className="relative mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-36">
           <p className="eyebrow text-primary">Perhaps this sounds familiar</p>
