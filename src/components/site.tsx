@@ -114,3 +114,13 @@ export function meta(title: string, description: string) {
     ],
   };
 }
+
+export function Ornament({ className = "" }: { className?: string }) {
+  return (
+    <div aria-hidden className={`pointer-events-none absolute rounded-full border border-accent/30 ${className}`}>
+      <div className="absolute inset-[12%] rounded-full border border-accent/25" />
+      <div className="absolute inset-[26%] rounded-full border border-accent/20" />
+      <div className="absolute inset-[40%] rounded-full bg-accent/10" />
+    </div>
+  );
+}
