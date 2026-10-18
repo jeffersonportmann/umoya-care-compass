@@ -34,7 +34,7 @@ export function SiteHeader() {
     <header className="absolute inset-x-0 top-0 z-30">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-5 text-primary-foreground md:px-10 md:py-6">
         <Link to="/" aria-label="uMoya Home">
-          <img src={logo.url} alt="uMoya" className="h-14 w-auto md:h-20" />
+          <img src={logo.url} alt="uMoya" className="h-16 w-auto md:h-20" />
         </Link>
         <nav className="hidden gap-8 eyebrow md:flex">
           {nav.map((n) => (
@@ -62,7 +62,7 @@ export function SiteHeader() {
       {open && (
         <div className="fixed inset-0 z-50 flex flex-col bg-secondary text-secondary-foreground md:hidden">
           <div className="flex items-center justify-between px-6 py-5">
-            <img src={logo.url} alt="uMoya" className="h-14 w-auto" />
+            <img src={logo.url} alt="uMoya" className="h-16 w-auto" />
             <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="relative flex h-12 w-12 items-center justify-center">
               <span className="absolute h-px w-7 rotate-45 bg-current" />
               <span className="absolute h-px w-7 -rotate-45 bg-current" />
@@ -99,7 +99,7 @@ export function PageHero({ img, eyebrow, title, sub, tall, scrim = "soft" }: { i
     <section className={`relative flex items-end overflow-hidden ${tall ? "min-h-[82vh]" : "min-h-[52vh]"}`}>
       <img src={img} alt="" className="absolute inset-0 h-full w-full object-cover" />
       <div className={`absolute inset-0 ${scrim === "strong" ? "bg-gradient-to-t from-overlay via-overlay/75 to-overlay/65" : "bg-gradient-to-t from-overlay via-overlay/40 to-overlay/40"}`} />
-      <div className={`relative mx-auto w-full max-w-7xl px-6 text-primary-foreground md:px-10 ${tall ? "pt-36 pb-16 md:pt-40 md:pb-24" : "pt-28 pb-10 md:pb-12"}`}>
+      <div className={`relative mx-auto w-full max-w-7xl px-6 text-primary-foreground md:px-10 ${tall ? "pt-36 pb-16 md:pt-40 md:pb-24" : "pt-32 pb-10 md:pb-12"}`}>
         <p className="eyebrow animate-rise opacity-90">{eyebrow}</p>
         <h1 className="animate-rise mt-6 max-w-4xl text-5xl leading-[0.95] md:text-8xl">{title}</h1>
         {sub && <div className="animate-rise mt-8 max-w-xl text-lg font-light opacity-90">{sub}</div>}
