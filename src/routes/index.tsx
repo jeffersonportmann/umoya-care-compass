@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero.jpg";
 import healing from "@/assets/healing.jpg";
+import bowl from "@/assets/bowl.jpg";
 import villa from "@/assets/villa.jpg";
 import ravi from "@/assets/team-ravi.jpg";
 import shereen from "@/assets/team-shereen.jpg";
@@ -80,6 +81,11 @@ function Index() {
         <div className="relative mx-auto grid max-w-7xl gap-16 px-6 py-28 md:grid-cols-[1.2fr_1fr] md:px-10 md:py-36">
           <h2 className="text-5xl leading-[1.05] md:text-7xl">This is not weakness. It is a nervous system that has been on <em className="italic text-accent">alert</em> for too long.</h2>
           <div className="self-end space-y-6 font-light leading-relaxed opacity-85">
+            <div className="relative mb-10 w-56 md:w-72">
+              <img src={bowl} alt="Singing bowl with still water" loading="lazy" width={1024} height={1024} className="aspect-square w-full rounded-full object-cover" />
+              <div aria-hidden className="absolute -inset-5 rounded-full border border-accent/40" />
+              <div aria-hidden className="absolute -inset-10 rounded-full border border-accent/20" />
+            </div>
             <p>No amount of willpower switches it off. What it needs is safety, time and people who look at the whole of you — body, mind and spirit.</p>
             <p>That is the only thing uMoya is built for.</p>
           </div>
