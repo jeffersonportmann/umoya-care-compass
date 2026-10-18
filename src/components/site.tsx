@@ -128,17 +128,19 @@ export function Ornament({ className = "" }: { className?: string }) {
 /** Quiet band that closes one section and opens the next. */
 export function SectionBreak({ tone = "light" }: { tone?: "light" | "dark" }) {
   const blend = tone === "dark" ? "from-background to-secondary" : "from-background to-card";
+  const wash = tone === "dark"
+    ? "bg-[radial-gradient(ellipse_72%_58%_at_50%_50%,color-mix(in_oklab,var(--color-primary)_30%,transparent),transparent_72%)]"
+    : "bg-[radial-gradient(ellipse_72%_58%_at_50%_50%,color-mix(in_oklab,var(--color-primary)_20%,transparent),transparent_72%)]";
   return (
-    <div aria-hidden className={`relative flex h-56 items-center justify-center overflow-hidden bg-gradient-to-b ${blend}`}>
-      <svg className="absolute inset-x-0 bottom-0 h-3/4 w-full" viewBox="0 0 1440 240" preserveAspectRatio="none">
-        <path className="fill-primary/8" d="M0,240 L0,150 C240,86 470,168 720,138 C960,110 1200,52 1440,128 L1440,240 Z" />
-        <path className="fill-primary/12" d="M0,240 L0,198 C280,150 540,214 780,190 C1010,168 1230,132 1440,182 L1440,240 Z" />
-        <path className="fill-none stroke-accent/20" strokeWidth="1.5" d="M0,198 C280,150 540,214 780,190 C1010,168 1230,132 1440,182" />
-      </svg>
-      <div className="absolute h-px w-full max-w-3xl bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
-      <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-accent/30">
-        <div className="absolute inset-[24%] rounded-full border border-accent/20" />
-        <div className="h-1.5 w-1.5 rounded-full bg-accent" />
+    <div aria-hidden className={`relative flex h-52 items-center justify-center overflow-hidden bg-gradient-to-b ${blend}`}>
+      <div className={`absolute inset-0 ${wash}`} />
+      <div className="relative flex items-center gap-6">
+        <span className="h-px w-16 bg-gradient-to-r from-transparent to-accent/45 md:w-28" />
+        <span className="relative flex h-14 w-14 items-center justify-center rounded-full border border-accent/30">
+          <span className="absolute inset-[26%] rounded-full border border-accent/20" />
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+        </span>
+        <span className="h-px w-16 bg-gradient-to-l from-transparent to-accent/45 md:w-28" />
       </div>
     </div>
   );

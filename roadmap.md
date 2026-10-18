@@ -2,6 +2,7 @@
 
 ## Open
 - [ ] Blog: Artikel vollständig auf der neuen Seite lesbar machen (heute nur Karten mit Link auf umoya.care)
+- [ ] Startseite, Vergleich: kleine Stichwörter unter jeder Aussage (vertieft das Verständnis)
 - [ ] Startseite: Zier-Trennung soll weiche braune Note sein, kein Balken (wird gerade gebaut)
 - [ ] E-Mail klären: care@umoya.care im Code, Originalseite nennt umoya.care@gmail.com bei "How"
 - [ ] KI-Platzhalterfotos (hero, healing, villa, bowl, mandala, el-*) durch echte uMoya-Bilder ersetzen
