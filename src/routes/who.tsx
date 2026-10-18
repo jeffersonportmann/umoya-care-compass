@@ -39,7 +39,7 @@ function Who() {
             <div className="relative mx-auto w-full max-w-sm">
               <img src={p.img} alt={p.n} loading="lazy" className="shape-arch relative aspect-[4/5] w-full object-cover" />
               <div aria-hidden className={`shape-arch absolute -inset-4 border border-accent/40 ${i % 2 ? "translate-x-3" : "-translate-x-3"}`} />
-              <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-background px-5 py-2 eyebrow text-muted-foreground shadow-sm">{p.l}</span>
+              <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-background px-5 py-2 eyebrow text-muted-foreground shadow-sm">{p.l}</span>
             </div>
             <div>
               <p className="eyebrow text-primary">{p.r}</p>
