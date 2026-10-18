@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import villa from "@/assets/villa.jpg";
 import healing from "@/assets/healing.jpg";
-import bowl from "@/assets/bowl.jpg";
+import wholeYou from "@/assets/whole-you.jpg";
 import { Page, PageHero, meta, Ornament } from "@/components/site";
 
 export const Route = createFileRoute("/what")({
@@ -33,7 +33,7 @@ function What() {
           </div>
           <div className="relative mx-auto aspect-square w-full max-w-md">
             <div className="absolute inset-0 rounded-full border border-accent/50" />
-            <img src={bowl} alt="Singing bowl with still water" loading="lazy" width={1024} height={1024} className="absolute left-[18%] top-[18%] h-[64%] w-[64%] rounded-full object-cover" />
+            <img src={wholeYou} alt="Guest resting peacefully by a private villa pool" loading="lazy" width={1024} height={1024} className="absolute left-[18%] top-[18%] h-[64%] w-[64%] rounded-full object-cover" />
             {circle.map((c, i) => {
               const a = (i / circle.length) * Math.PI * 2 - Math.PI / 2;
               return (
