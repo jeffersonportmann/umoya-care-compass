@@ -15,7 +15,15 @@ const steps = [
   { t: "Implement, Adapt.", d: ["The 28 day plan is a guide. Every week we adapt and implement changes to our approach based on a 360 degree feedback system."] },
 ];
 
-const included = ["Live-in care guide", "Alternative therapy care", "Traditional healer care", "Sacred rituals and ceremonies", "Private villa accommodation", "Private chef meals", "Personal trainer & gym access", "Airport and local transport", "Planned outings and visits", "24/7 support"];
+type Included = { t: string; k: string };
+
+const included: [Included, Included][] = [
+  [{ t: "Live-in care guide", k: "one named coordinator · day and night" }, { t: "24/7 support", k: "someone answers, always" }],
+  [{ t: "Alternative therapy care", k: "Reiki · sound baths · breathwork" }, { t: "Traditional healer care", k: "isiZulu healing · ancestral ritual" }],
+  [{ t: "Sacred rituals and ceremonies", k: "sunrise walks · fire ceremony" }, { t: "Planned outings and visits", k: "Cape Point · vineyards · islands" }],
+  [{ t: "Private villa accommodation", k: "your own room · terrace · sea view" }, { t: "Private chef meals", k: "three meals a day · your pantry" }],
+  [{ t: "Personal trainer & gym access", k: "daily movement · ocean runs" }, { t: "Airport and local transport", k: "car and driver · no driving yourself" }],
+];
 
 function How() {
   return (
@@ -31,7 +39,7 @@ function How() {
             <div aria-hidden className="absolute left-8 right-8 top-8 hidden h-px bg-accent/50 md:block" />
             {steps.map((s, i) => (
               <div key={s.t} className="relative">
-                <span className={`relative flex h-16 w-16 items-center justify-center rounded-full font-display text-3xl ring-8 ring-background ${i === 0 ? "bg-primary text-primary-foreground" : "bg-accent/25 text-primary"}`}>{i + 1}</span>
+                <span className={`relative flex h-16 w-16 items-center justify-center rounded-full font-sans text-2xl font-medium tracking-normal ring-8 ring-background ${i === 0 ? "bg-primary text-primary-foreground" : "bg-accent/25 text-primary"}`}>{i + 1}</span>
                 <h3 className="mt-8 text-4xl">{s.t}</h3>
                 <div className="mt-5 space-y-3 text-sm font-light leading-relaxed text-muted-foreground">
                   {s.d.map((x) => <p key={x}>{x}</p>)}
@@ -73,15 +81,20 @@ function How() {
           <p className="eyebrow text-primary">What is included</p>
           <h2 className="mt-6 text-5xl">Everything, so you can think of nothing.</h2>
         </div>
-        <ul className="relative mx-auto mt-16 grid max-w-4xl gap-x-20 sm:grid-cols-2">
-          {included.map((x, i) => (
-            <li key={x} className={`flex items-baseline gap-5 border-b border-accent/25 py-5 text-left ${i < 2 ? "sm:border-t" : ""} ${i % 2 === 0 ? "sm:border-r sm:pr-10" : "sm:pl-10"}`}>
-              <span aria-hidden className="mt-[0.35rem] inline-block h-1.5 w-1.5 shrink-0 rotate-45 bg-accent" />
-              <span className="font-display text-xl leading-relaxed">{x}</span>
-            </li>
+        <div className="relative mx-auto mt-16 max-w-3xl border-t border-accent/30 px-8 sm:px-12">
+          <span aria-hidden className="absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-accent/25 sm:block" />
+          {included.map((row, i) => (
+            <div key={i} className="grid gap-y-6 border-b border-accent/20 py-6 sm:grid-cols-2 sm:gap-x-16">
+              {row.map((x) => (
+                <div key={x.t}>
+                  <p className="font-display text-xl leading-snug tracking-wide">{x.t}</p>
+                  <p className="mt-2 text-sm font-light text-muted-foreground">{x.k}</p>
+                </div>
+              ))}
+            </div>
           ))}
-        </ul>
-        <p className="relative mt-12 text-sm font-light italic text-muted-foreground">Specific medical or psychiatric care can be coordinated upon request.</p>
+        </div>
+        <p className="relative mt-12 text-center text-sm font-light italic text-muted-foreground">Specific medical or psychiatric care can be coordinated upon request.</p>
       </section>
     </Page>
   );
