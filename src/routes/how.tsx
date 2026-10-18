@@ -32,21 +32,24 @@ function How() {
 
       <section className="relative overflow-hidden">
         <Ornament className="-right-40 -top-32 h-[30rem] w-[30rem]" />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
+        <div className="relative mx-auto max-w-5xl px-6 py-24 md:px-10 md:py-32">
           <div className="text-center">
             <p className="eyebrow text-primary">One gentle step at a time</p>
             <h2 className="mx-auto mt-5 max-w-2xl text-5xl leading-tight">You only need to take the <em className="italic text-primary">first one.</em></h2>
           </div>
-          <ol className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="mt-16 grid gap-8 md:grid-cols-2">
             {steps.map((s, i) => (
-              <li key={s.t} className="flex flex-col rounded-[2rem] border border-accent/25 bg-card/60 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                <div className="flex items-center gap-4">
-                  <span className="font-sans text-xs font-medium tracking-[0.3em] text-primary">STEP</span>
-                  <span className="font-sans text-xs font-medium tracking-[0.3em] text-accent">0{i + 1}</span>
+              <li key={s.t} className="flex flex-col rounded-[2.5rem] border border-accent/25 bg-card/70 p-10 shadow-sm transition duration-500 hover:-translate-y-1.5 hover:border-accent/45 hover:shadow-lg md:p-12">
+                <div className="flex items-center gap-5">
+                  <span className="eyebrow text-primary">Step</span>
+                  <span aria-hidden className="h-px flex-1 bg-gradient-to-r from-accent/70 via-accent/30 to-transparent" />
                 </div>
-                <h3 className="mt-6 text-3xl leading-tight">{s.t}</h3>
-                <div className="mt-4 h-px w-10 bg-accent/60" />
-                <div className="mt-5 space-y-2.5 text-sm font-light leading-relaxed text-muted-foreground">
+                <div className="mt-8 flex items-end gap-6">
+                  <span className="bg-gradient-to-br from-primary to-accent bg-clip-text font-display text-7xl leading-none text-transparent md:text-8xl">0{i + 1}</span>
+                  <h3 className="pb-1 text-3xl leading-tight tracking-wide md:text-4xl">{s.t}</h3>
+                </div>
+                <div className="mt-8 h-px w-full bg-gradient-to-r from-accent/45 via-accent/20 to-transparent" />
+                <div className="mt-7 space-y-3.5 text-[0.95rem] font-light leading-relaxed tracking-[0.01em] text-muted-foreground">
                   {s.d.map((x) => <p key={x}>{x}</p>)}
                 </div>
               </li>
@@ -55,9 +58,31 @@ function How() {
         </div>
       </section>
 
+      <section className="relative mx-auto max-w-6xl overflow-hidden px-6 py-28 md:py-36">
+        <Ornament className="-left-56 -top-40 h-[34rem] w-[34rem]" />
+        <div className="relative text-center">
+          <p className="eyebrow text-primary">What is included</p>
+          <h2 className="mt-6 text-5xl">Everything, so you can think of nothing.</h2>
+        </div>
+        <div className="relative mx-auto mt-16 max-w-3xl border-t border-accent/30 px-8 sm:px-12">
+          <span aria-hidden className="absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-accent/25 sm:block" />
+          {included.map((row, i) => (
+            <div key={i} className="grid gap-y-6 border-b border-accent/20 py-6 sm:grid-cols-2 sm:gap-x-16">
+              {row.map((x) => (
+                <div key={x.t}>
+                  <p className="font-display text-xl leading-snug tracking-wide">{x.t}</p>
+                  <p className="mt-2 text-sm font-light text-muted-foreground">{x.k}</p>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+        <p className="relative mt-12 text-center text-sm font-light italic text-muted-foreground">Specific medical or psychiatric care can be coordinated upon request.</p>
+      </section>
+
       <section className="relative overflow-hidden bg-secondary text-secondary-foreground">
         <Ornament className="-bottom-52 -left-52 h-[40rem] w-[40rem]" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-16 px-6 py-24 md:grid-cols-[1.1fr_0.9fr] md:px-10 md:py-32">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-16 px-6 py-28 md:grid-cols-[1.1fr_0.9fr] md:px-10 md:py-36">
           <div>
             <p className="eyebrow text-accent">Discreet private care in Camps Bay</p>
             <h2 className="mt-5 text-5xl leading-[1.05] md:text-6xl">Our 28 Day<br /><em className="font-light italic text-accent">Care Plan</em></h2>
@@ -88,28 +113,6 @@ function How() {
             </div>
           </div>
         </div>
-      </section>
-
-      <section className="relative mx-auto max-w-6xl overflow-hidden px-6 py-28 md:py-36">
-        <Ornament className="-left-56 -top-40 h-[34rem] w-[34rem]" />
-        <div className="relative text-center">
-          <p className="eyebrow text-primary">What is included</p>
-          <h2 className="mt-6 text-5xl">Everything, so you can think of nothing.</h2>
-        </div>
-        <div className="relative mx-auto mt-16 max-w-3xl border-t border-accent/30 px-8 sm:px-12">
-          <span aria-hidden className="absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-accent/25 sm:block" />
-          {included.map((row, i) => (
-            <div key={i} className="grid gap-y-6 border-b border-accent/20 py-6 sm:grid-cols-2 sm:gap-x-16">
-              {row.map((x) => (
-                <div key={x.t}>
-                  <p className="font-display text-xl leading-snug tracking-wide">{x.t}</p>
-                  <p className="mt-2 text-sm font-light text-muted-foreground">{x.k}</p>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-        <p className="relative mt-12 text-center text-sm font-light italic text-muted-foreground">Specific medical or psychiatric care can be coordinated upon request.</p>
       </section>
     </Page>
   );
