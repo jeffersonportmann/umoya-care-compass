@@ -95,8 +95,8 @@ function BlogPage() {
         title="Blogs"
         sub="Thoughts on healing, recovery and holistic care — from our team in Cape Town."
       />
-      <section className="mx-auto max-w-7xl px-6 py-24 md:px-10">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+      <section className="mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-14">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((p) => (
             <a
               key={p.url}
@@ -105,17 +105,17 @@ function BlogPage() {
               rel="noreferrer"
               className="group flex flex-col overflow-hidden border border-border bg-card transition hover:shadow-xl"
             >
-              <div className="m-6 mb-0 aspect-[4/3] overflow-hidden border border-border">
+              <div className="m-5 mb-0 aspect-[4/3] overflow-hidden border border-border">
                 <img
                   src={p.img}
                   alt={p.title}
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                 />
               </div>
-              <div className="flex flex-1 flex-col p-8">
+              <div className="flex flex-1 flex-col p-6">
                 <h2 className="text-2xl leading-snug">{p.title}</h2>
-                <p className="mt-4 flex-1 font-light text-muted-foreground">{p.excerpt}</p>
-                <p className="eyebrow mt-6 opacity-60">
+                <p className="mt-3 flex-1 font-light text-muted-foreground">{p.excerpt}</p>
+                <p className="eyebrow mt-4 opacity-60">
                   Umoya Care · {p.date} · {p.read}
                 </p>
               </div>
