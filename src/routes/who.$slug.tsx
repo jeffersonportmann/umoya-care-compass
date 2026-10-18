@@ -14,7 +14,7 @@ export const Route = createFileRoute("/who/$slug")({
     const { member } = loaderData;
     return meta(
       `${member.n} | ${member.r} at uMoya`,
-      `${member.n}, ${member.r} at uMoya in Cape Town — ${member.d.slice(0, 120)}…`,
+      `${member.n}, ${member.r} at uMoya — ${member.d.slice(0, 120)}…`,
     );
   },
   component: MemberPage,
@@ -30,7 +30,7 @@ function MemberPage() {
       <PageHero
         img={member.img ?? villa}
         scrim="strong"
-        eyebrow={`${member.r} · Cape Town`}
+        eyebrow={`${member.r} · ${member.l}`}
         title={<><em className="italic">{first}</em> {member.n.split(" ").slice(1).join(" ")}</>}
         sub="One of the four partners who hold uMoya together — and the people in it."
       />
