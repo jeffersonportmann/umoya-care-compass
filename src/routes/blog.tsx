@@ -95,8 +95,8 @@ function BlogPage() {
         title="Blogs"
         sub="Thoughts on healing, recovery and holistic care — from our team in Cape Town."
       />
-      <section className="mx-auto max-w-7xl px-6 py-24 md:px-10">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+      <section className="mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-14">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((p) => (
             <a
               key={p.url}
