@@ -15,7 +15,18 @@ const steps = [
   { t: "Implement, Adapt.", d: ["The 28 day plan is a guide. Every week we adapt and implement changes to our approach based on a 360 degree feedback system."] },
 ];
 
-const included = ["Live-in care guide", "Alternative therapy care", "Traditional healer care", "Sacred rituals and ceremonies", "Private villa accommodation", "Private chef meals", "Personal trainer & gym access", "Airport and local transport", "Planned outings and visits", "24/7 support"];
+const included = [
+  { t: "Live-in care guide", k: "one named coordinator · day and night" },
+  { t: "Alternative therapy care", k: "Reiki · sound baths · breathwork" },
+  { t: "Traditional healer care", k: "isiZulu healing · ancestral ritual" },
+  { t: "Sacred rituals and ceremonies", k: "sunrise walks · fire ceremony" },
+  { t: "Private villa accommodation", k: "your own room · terrace · sea view" },
+  { t: "Private chef meals", k: "three meals a day · your pantry" },
+  { t: "Personal trainer & gym access", k: "daily movement · ocean runs" },
+  { t: "Airport and local transport", k: "car and driver · no driving yourself" },
+  { t: "Planned outings and visits", k: "Cape Point · vineyards · islands" },
+  { t: "24/7 support", k: "someone answers, always" },
+];
 
 function How() {
   return (
@@ -73,12 +84,16 @@ function How() {
           <p className="eyebrow text-primary">What is included</p>
           <h2 className="mt-6 text-5xl">Everything, so you can think of nothing.</h2>
         </div>
-        <div className="relative mx-auto mt-16 max-w-3xl border-t border-accent/30">
+        <div className="relative mx-auto mt-16 max-w-3xl border-t border-accent/30 px-8 sm:px-12">
           <span aria-hidden className="absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-accent/25 sm:block" />
           {[0, 1, 2, 3, 4].map((i) => (
-            <div key={i} className="grid gap-y-1 border-b border-accent/20 py-5 sm:grid-cols-2 sm:gap-x-16 sm:py-6">
-              <p className="font-display text-xl leading-snug tracking-wide">{included[i]}</p>
-              <p className="font-display text-xl leading-snug tracking-wide">{included[i + 5]}</p>
+            <div key={i} className="grid gap-y-6 border-b border-accent/20 py-6 sm:grid-cols-2 sm:gap-x-16">
+              {[included[i], included[i + 5]].map((x) => (
+                <div key={x.t}>
+                  <p className="font-display text-xl leading-snug tracking-wide">{x.t}</p>
+                  <p className="mt-2 text-sm font-light text-muted-foreground">{x.k}</p>
+                </div>
+              ))}
             </div>
           ))}
         </div>
