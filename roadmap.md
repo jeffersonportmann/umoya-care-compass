@@ -9,6 +9,10 @@
 
 
 ## Done
+- [x] /how: Schritt-Karten grösser (2×2), "STEP"-Zeile mit Gold-Linie, grosse Gradient-Nummern, Preis-Abschnitt jetzt als Letztes
+- [x] Zürich / Schweiz überall entfernt — nur noch Kapstadt (Startseite, /who, /how, Footer)
+- [x] Partner-Optionalität im Text: "You come alone, or with a partner — that choice is entirely yours" (Startseite) + "A partner is welcome, never required" (/how)
+- [x] Startseite: elegante Trennung zwischen "What uMoya is" und "Perhaps this sounds familiar" (Punktmuster + Zierlinie + Kreis-Motiv, weicher Farbverlauf)
 - [x] "What is included" auf /how: schlichte Stichworte je Punkt, proportionale Tabelle ohne Diamantpunkte
 - [x] /what 360°-Kreis: passendes Symbol (Elemente-Kreis/Mandala) statt Pool-Liege
 - [x] /who: alle Teambilder in derselben Form wie Shereen (Kiesel)
