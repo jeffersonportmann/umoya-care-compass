@@ -30,7 +30,7 @@ function Who() {
       <section className="mx-auto grid max-w-7xl gap-x-12 gap-y-20 px-6 pb-32 md:grid-cols-2 md:px-10">
         {team.map((p) => (
           <article key={p.n}>
-            <img src={p.img} alt={p.n} loading="lazy" className="aspect-[4/5] w-full object-cover" />
+            <img src={p.img} alt={p.n} loading="lazy" className="shape-arch aspect-[4/5] w-full object-cover" />
             <p className="eyebrow mt-8 text-primary">{p.r}</p>
             <h2 className="mt-3 text-4xl">{p.n}</h2>
             <p className="mt-1 text-sm text-muted-foreground">{p.l}</p>

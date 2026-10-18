@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero.jpg";
 import healing from "@/assets/healing.jpg";
+import bowl from "@/assets/bowl.jpg";
 import villa from "@/assets/villa.jpg";
 import ravi from "@/assets/team-ravi.jpg";
 import shereen from "@/assets/team-shereen.jpg";
@@ -80,6 +81,11 @@ function Index() {
         <div className="relative mx-auto grid max-w-7xl gap-16 px-6 py-28 md:grid-cols-[1.2fr_1fr] md:px-10 md:py-36">
           <h2 className="text-5xl leading-[1.05] md:text-7xl">This is not weakness. It is a nervous system that has been on <em className="italic text-accent">alert</em> for too long.</h2>
           <div className="self-end space-y-6 font-light leading-relaxed opacity-85">
+            <div className="relative mb-10 w-56 md:w-72">
+              <img src={bowl} alt="Singing bowl with still water" loading="lazy" width={1024} height={1024} className="aspect-square w-full rounded-full object-cover" />
+              <div aria-hidden className="absolute -inset-5 rounded-full border border-accent/40" />
+              <div aria-hidden className="absolute -inset-10 rounded-full border border-accent/20" />
+            </div>
             <p>No amount of willpower switches it off. What it needs is safety, time and people who look at the whole of you — body, mind and spirit.</p>
             <p>That is the only thing uMoya is built for.</p>
           </div>
@@ -121,7 +127,7 @@ function Index() {
                 { img: shereen, n: "Shereen Singh", r: "Integrative healing" },
               ].map((p, i) => (
                 <figure key={p.n} className={i === 1 ? "mt-16" : ""}>
-                  <img src={p.img} alt={p.n} loading="lazy" className="aspect-[3/4] w-full object-cover" />
+                  <img src={p.img} alt={p.n} loading="lazy" className="shape-arch aspect-[3/4] w-full object-cover" />
                   <figcaption className="mt-4">
                     <p className="font-display text-2xl">{p.n}</p>
                     <p className="eyebrow mt-1 text-muted-foreground">{p.r}</p>
@@ -136,8 +142,9 @@ function Index() {
       {/* Day */}
       <section className="mx-auto grid max-w-7xl items-center gap-16 px-6 py-28 md:grid-cols-2 md:px-10 md:py-36">
         <div className="relative">
-          <img src={healing} alt="Calm healing room with sound bowls" loading="lazy" width={1024} height={1280} className="aspect-[4/5] w-full object-cover" />
-          <div className="absolute -bottom-8 -right-4 bg-accent px-8 py-6 text-accent-foreground md:-right-10">
+          <img src={healing} alt="Calm healing room with sound bowls" loading="lazy" width={1024} height={1280} className="shape-arch relative aspect-[4/5] w-full object-cover" />
+          <div aria-hidden className="shape-arch pointer-events-none absolute -inset-4 -z-0 border border-accent/50" />
+          <div className="absolute -bottom-6 -right-4 z-10 rounded-full flex h-36 w-36 flex-col items-center justify-center text-center bg-accent text-accent-foreground md:-right-10">
             <p className="font-display text-5xl">28</p>
             <p className="eyebrow">days, at your pace</p>
           </div>
@@ -158,7 +165,7 @@ function Index() {
       </section>
 
       {/* Invitation */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden rounded-t-[50%_5rem]">
         <img src={villa} alt="Private villa in Cape Town" loading="lazy" width={1600} height={1008} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-overlay" />
         <div className="relative mx-auto max-w-4xl px-6 py-36 text-center text-primary-foreground">
