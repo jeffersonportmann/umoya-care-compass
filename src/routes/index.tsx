@@ -19,10 +19,10 @@ const voices = [
 ];
 
 const compare = [
-  { from: "Care designed for many guests", to: "Care designed around one person" },
-  { from: "A fixed programme to follow", to: "A plan that evolves with you every week" },
-  { from: "Medicine or holistic care", to: "Medicine and holistic care as one team" },
-  { from: "Shared spaces and schedules", to: "A private home that is yours alone" },
+  { from: "Care designed for many guests", fk: "shared lounges · set times · a front desk", to: "Care designed around one person", tk: "one home · your hours · your team" },
+  { from: "A fixed programme to follow", fk: "the same schedule for every guest", to: "A plan that evolves with you every week", tk: "reviewed weekly · adjusted as you change" },
+  { from: "Medicine or holistic care", fk: "two worlds · separate referrals", to: "Medicine and holistic care as one team", tk: "doctors and healers · one table" },
+  { from: "Shared spaces and schedules", fk: "other guests · open doors", to: "A private home that is yours alone", tk: "your door · your kitchen · your pace" },
 ];
 
 const day = [
@@ -128,8 +128,14 @@ function Index() {
             </div>
             {compare.map((c) => (
               <div key={c.from} className="grid grid-cols-2 border-b border-border last:border-b-0">
-                <p className="flex items-center px-8 py-8 text-base font-light leading-relaxed text-muted-foreground md:px-12 md:py-9 md:text-lg">{c.from}</p>
-                <p className="flex items-center border-l border-border bg-primary/5 px-8 py-8 font-display text-xl leading-snug md:px-12 md:py-9 md:text-2xl">{c.to}</p>
+                <div className="flex flex-col justify-center px-8 py-8 md:px-12 md:py-9">
+                  <p className="text-base font-light leading-relaxed text-muted-foreground md:text-lg">{c.from}</p>
+                  <p className="mt-3 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground/60">{c.fk}</p>
+                </div>
+                <div className="flex flex-col justify-center border-l border-border bg-primary/5 px-8 py-8 md:px-12 md:py-9">
+                  <p className="font-display text-xl leading-snug md:text-2xl">{c.to}</p>
+                  <p className="mt-3 text-[0.7rem] uppercase tracking-[0.18em] text-primary/70">{c.tk}</p>
+                </div>
               </div>
             ))}
           </div>
