@@ -115,9 +115,15 @@ function BlogPage() {
               <div className="flex flex-1 flex-col p-6">
                 <h2 className="text-2xl leading-snug">{p.title}</h2>
                 <p className="mt-3 flex-1 font-light text-muted-foreground">{p.excerpt}</p>
-                <p className="eyebrow mt-4 opacity-60">
-                  Umoya Care · {p.date} · {p.read}
-                </p>
+                <div className="mt-6 flex items-end justify-between gap-4 border-t border-border pt-4">
+                  <p className="eyebrow opacity-60">
+                    Umoya Care · {p.date} · {p.read}
+                  </p>
+                  <span className="eyebrow inline-flex shrink-0 items-center gap-2 text-primary">
+                    Read more
+                    <span aria-hidden className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </span>
+                </div>
               </div>
             </a>
           ))}
