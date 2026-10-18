@@ -7,30 +7,39 @@ import shereen from "@/assets/team-shereen.jpg";
 import { Page, PageHero, meta, EMAIL, WHATSAPP } from "@/components/site";
 
 export const Route = createFileRoute("/")({
-  head: () => meta("uMoya Cape Town | Private 1:1 Healing Sanctuary", "One client. One dedicated medical and holistic team. One private villa in Cape Town. Discreet, integrative recovery from burnout, crisis and exhaustion."),
+  head: () => meta("uMoya Cape Town | Private 1:1 Healing Sanctuary", "One client at a time. A private villa in Cape Town and a medical and holistic team devoted only to you. Quiet, discreet recovery from burnout, crisis and exhaustion."),
   component: Index,
 });
 
-const mirror = [
-  { t: "Burnout", d: "Functioning on the outside, empty on the inside. Your nervous system can no longer find the off switch." },
-  { t: "A turning point", d: "Separation, loss or a crisis of meaning — the moment when carrying on as before is no longer an option." },
-  { t: "Tried everything", d: "Therapy, holidays, time off. Yet your body still holds on to the stress." },
+const voices = [
+  { q: "I can't switch off anymore — not even on holiday.", t: "Burnout" },
+  { q: "Everyone thinks I'm fine. I'm not.", t: "Hidden exhaustion" },
+  { q: "I've tried therapy, rest, time away. My body still won't let go.", t: "Stuck" },
 ];
 
 const compare = [
-  ["Shared with strangers", "A private villa — only for you"],
-  ["Fixed schedules and menus", "A private chef tuned to your body"],
-  ["Clinical atmosphere", "A home by the ocean in Cape Town"],
-  ["Rotating staff", "A live-in care guide and a dedicated team"],
-  ["Medicine or holistic care", "Both, working together, every week"],
+  ["Shared spaces, shared schedules", "A private villa that is only yours"],
+  ["You adapt to the programme", "The programme adapts to you — every week"],
+  ["Medicine or holistic care", "Both, working as one team"],
+  ["Being seen by others", "Being seen only by the people caring for you"],
 ];
 
 const day = [
-  { time: "Morning", d: "Wake to the ocean. Gentle breathwork, then breakfast prepared by your private chef." },
-  { time: "Midday", d: "A deep healing session with Shereen, and a clinical check-in with Dr Ravi." },
-  { time: "Afternoon", d: "A sound bath, a walk on Table Mountain — or simply silence, with no phone ringing." },
-  { time: "Evening", d: "Reflection with your live-in care guide. No pressure. Only space to breathe." },
+  { time: "Morning", d: "Waking slowly. Breathwork, then a breakfast prepared for your body." },
+  { time: "Midday", d: "A healing session, and a quiet clinical check-in." },
+  { time: "Afternoon", d: "Nature, a sound bath — or simply nothing at all." },
+  { time: "Evening", d: "A conversation with your care guide. Or silence. Your choice." },
 ];
+
+function Ornament({ className = "" }: { className?: string }) {
+  return (
+    <div aria-hidden className={`pointer-events-none absolute rounded-full border border-accent/30 ${className}`}>
+      <div className="absolute inset-[12%] rounded-full border border-accent/25" />
+      <div className="absolute inset-[26%] rounded-full border border-accent/20" />
+      <div className="absolute inset-[40%] rounded-full bg-accent/10" />
+    </div>
+  );
+}
 
 function Index() {
   return (
@@ -38,94 +47,125 @@ function Index() {
       <PageHero
         tall
         img={hero}
-        eyebrow="Private 1:1 Healing Sanctuary · Cape Town & Zurich"
+        eyebrow="One client at a time · Cape Town & Zurich"
         title={<>When exhaustion runs deeper than <em className="italic">sleep</em> can fix.</>}
         sub={<>
-          <p>One client. One dedicated medical and holistic team. One private villa in Cape Town. Recovery in complete discretion.</p>
+          <p>A private place to stop. A small team devoted only to you. Time for your body and mind to remember how to rest.</p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href={`mailto:${EMAIL}?subject=Confidential%20enquiry`} className="eyebrow inline-block bg-primary px-8 py-4 text-primary-foreground transition hover:bg-primary/85">Request a confidential conversation</a>
+            <a href={`mailto:${EMAIL}?subject=Confidential%20conversation`} className="eyebrow inline-block bg-primary px-8 py-4 text-primary-foreground transition hover:bg-primary/85">Start a quiet conversation</a>
             <Link to="/how" className="eyebrow inline-block border border-primary-foreground/60 px-8 py-4 transition hover:bg-primary-foreground hover:text-foreground">How it works</Link>
           </div>
         </>}
       />
 
-      <section className="mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-36">
-        <p className="eyebrow text-primary">You are in the right place if…</p>
-        <h2 className="mt-6 max-w-3xl text-5xl leading-tight">Whatever life event. Our priority is <em className="italic">you</em>.</h2>
-        <div className="mt-16 grid gap-px overflow-hidden border border-border bg-border md:grid-cols-3">
-          {mirror.map((m, i) => (
-            <div key={m.t} className="bg-background p-10 md:p-12">
-              <span className="font-display text-5xl text-accent">0{i + 1}</span>
-              <h3 className="mt-6 text-3xl">{m.t}</h3>
-              <p className="mt-4 font-light leading-relaxed text-muted-foreground">{m.d}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-card">
-        <div className="mx-auto max-w-6xl px-6 py-28 md:px-10">
-          <p className="eyebrow text-primary">The single-client difference</p>
-          <h2 className="mt-6 max-w-3xl text-5xl leading-tight">No groups. No masks. Your whole team focused on one person.</h2>
-          <div className="mt-14 border border-border">
-            <div className="grid grid-cols-2 border-b border-border bg-background">
-              <p className="eyebrow p-6 text-muted-foreground">Typical clinic or retreat</p>
-              <p className="eyebrow p-6 text-primary">uMoya</p>
-            </div>
-            {compare.map(([a, b]) => (
-              <div key={a} className="grid grid-cols-2 border-b border-border last:border-0">
-                <p className="p-6 font-light text-muted-foreground line-through decoration-border">{a}</p>
-                <p className="p-6 text-xl font-display">{b}</p>
-              </div>
+      {/* Recognition */}
+      <section className="relative overflow-hidden">
+        <Ornament className="-right-40 -top-40 h-[34rem] w-[34rem]" />
+        <div className="relative mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-36">
+          <p className="eyebrow text-primary">Perhaps this sounds familiar</p>
+          <div className="mt-14 grid gap-10 md:grid-cols-3">
+            {voices.map((v, i) => (
+              <figure key={v.t} className={`border-l-2 border-accent pl-8 ${i === 1 ? "md:mt-16" : ""} ${i === 2 ? "md:mt-32" : ""}`}>
+                <blockquote className="font-display text-3xl italic leading-snug md:text-4xl">“{v.q}”</blockquote>
+                <figcaption className="eyebrow mt-6 text-muted-foreground">{v.t}</figcaption>
+              </figure>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-36">
-        <p className="eyebrow text-primary">Medicine meets holistic depth</p>
-        <h2 className="mt-6 max-w-3xl text-5xl leading-tight">You don't have to choose between modern medicine and deep healing.</h2>
-        <div className="mt-16 grid gap-12 md:grid-cols-2">
-          {[
-            { img: ravi, n: "Dr Ravi Govender", r: "Clinical safety, diagnostics and medical oversight." },
-            { img: shereen, n: "Shereen Singh", r: "Somatic work, reiki, sound healing and nervous-system regulation." },
-          ].map((p) => (
-            <div key={p.n} className="flex items-center gap-8">
-              <img src={p.img} alt={p.n} loading="lazy" className="h-40 w-32 object-cover" />
-              <div>
-                <h3 className="text-3xl">{p.n}</h3>
-                <p className="mt-3 font-light text-muted-foreground">{p.r}</p>
-              </div>
-            </div>
-          ))}
+      {/* Reframe */}
+      <section className="relative overflow-hidden bg-secondary text-secondary-foreground">
+        <Ornament className="-bottom-52 -left-52 h-[40rem] w-[40rem]" />
+        <div className="relative mx-auto grid max-w-7xl gap-16 px-6 py-28 md:grid-cols-[1.2fr_1fr] md:px-10 md:py-36">
+          <h2 className="text-5xl leading-[1.05] md:text-7xl">This is not weakness. It is a nervous system that has been on <em className="italic text-accent">alert</em> for too long.</h2>
+          <div className="self-end space-y-6 font-light leading-relaxed opacity-85">
+            <p>No amount of willpower switches it off. What it needs is safety, time and people who look at the whole of you — body, mind and spirit.</p>
+            <p>That is the only thing uMoya is built for.</p>
+          </div>
         </div>
-        <Link to="/who" className="eyebrow mt-12 inline-block text-primary hover:underline">Meet the full team →</Link>
       </section>
 
-      <section className="mx-auto grid max-w-7xl items-center gap-16 px-6 pb-28 md:grid-cols-2 md:px-10 md:pb-36">
-        <img src={healing} alt="Calm healing room with sound bowls" loading="lazy" width={1024} height={1280} className="aspect-[4/5] w-full object-cover" />
+      {/* Difference */}
+      <section className="mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-36">
+        <p className="eyebrow text-primary">Why one client at a time</p>
+        <h2 className="mt-6 max-w-3xl text-5xl leading-tight">In a group you keep performing. Alone, you can finally put the mask down.</h2>
+        <div className="mt-16 grid md:grid-cols-2">
+          <div className="border border-border p-10 md:p-14">
+            <p className="eyebrow text-muted-foreground">Most places</p>
+            <ul className="mt-8 space-y-6">
+              {compare.map(([a]) => <li key={a} className="font-light text-muted-foreground">{a}</li>)}
+            </ul>
+          </div>
+          <div className="bg-primary p-10 text-primary-foreground md:p-14">
+            <p className="eyebrow opacity-80">uMoya</p>
+            <ul className="mt-8 space-y-6">
+              {compare.map(([a, b]) => <li key={a} className="font-display text-2xl">{b}</li>)}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* People */}
+      <section className="bg-card">
+        <div className="mx-auto max-w-7xl px-6 py-28 md:px-10">
+          <div className="grid gap-16 md:grid-cols-[1fr_1.4fr] md:items-center">
+            <div>
+              <p className="eyebrow text-primary">The people beside you</p>
+              <h2 className="mt-6 text-5xl leading-tight">You don't have to choose between medicine and deeper healing.</h2>
+              <Link to="/who" className="eyebrow mt-10 inline-block text-primary hover:underline">Meet the team →</Link>
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              {[
+                { img: ravi, n: "Dr Ravi Govender", r: "Clinical care & safety" },
+                { img: shereen, n: "Shereen Singh", r: "Integrative healing" },
+              ].map((p, i) => (
+                <figure key={p.n} className={i === 1 ? "mt-16" : ""}>
+                  <img src={p.img} alt={p.n} loading="lazy" className="aspect-[3/4] w-full object-cover" />
+                  <figcaption className="mt-4">
+                    <p className="font-display text-2xl">{p.n}</p>
+                    <p className="eyebrow mt-1 text-muted-foreground">{p.r}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Day */}
+      <section className="mx-auto grid max-w-7xl items-center gap-16 px-6 py-28 md:grid-cols-2 md:px-10 md:py-36">
+        <div className="relative">
+          <img src={healing} alt="Calm healing room with sound bowls" loading="lazy" width={1024} height={1280} className="aspect-[4/5] w-full object-cover" />
+          <div className="absolute -bottom-8 -right-4 bg-accent px-8 py-6 text-accent-foreground md:-right-10">
+            <p className="font-display text-5xl">28</p>
+            <p className="eyebrow">days, at your pace</p>
+          </div>
+        </div>
         <div>
-          <p className="eyebrow text-primary">A day at uMoya</p>
-          <h2 className="mt-6 text-5xl leading-tight">Space to breathe again.</h2>
-          <ol className="mt-10 divide-y divide-border border-y border-border">
+          <p className="eyebrow text-primary">A day, gently</p>
+          <h2 className="mt-6 text-5xl leading-tight">Nothing you have to achieve.</h2>
+          <ol className="relative mt-12 space-y-10 border-l border-accent/50 pl-10">
             {day.map((d) => (
-              <li key={d.time} className="grid grid-cols-[7rem_1fr] gap-4 py-6">
-                <span className="eyebrow pt-1 text-accent">{d.time}</span>
-                <p className="font-light text-muted-foreground">{d.d}</p>
+              <li key={d.time} className="relative">
+                <span className="absolute -left-[2.85rem] top-1.5 h-3 w-3 rounded-full bg-accent ring-4 ring-background" />
+                <p className="eyebrow text-accent">{d.time}</p>
+                <p className="mt-2 font-light text-muted-foreground">{d.d}</p>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
+      {/* Invitation */}
       <section className="relative overflow-hidden">
-        <img src={villa} alt="Private villa in Camps Bay" loading="lazy" width={1600} height={1008} className="absolute inset-0 h-full w-full object-cover" />
+        <img src={villa} alt="Private villa in Cape Town" loading="lazy" width={1600} height={1008} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-overlay" />
         <div className="relative mx-auto max-w-4xl px-6 py-36 text-center text-primary-foreground">
-          <h2 className="text-5xl md:text-7xl">Swiss discretion. <em className="italic text-accent">African heart.</em></h2>
-          <p className="mx-auto mt-8 max-w-2xl font-light opacity-90">100% confidential. You speak directly with our founders — no assistants, no sales funnel, nothing shared.</p>
+          <h2 className="text-5xl md:text-7xl">You don't need the right words <em className="italic text-accent">yet.</em></h2>
+          <p className="mx-auto mt-8 max-w-2xl font-light opacity-90">A first conversation is simply that — a conversation. Confidential, without obligation, at whatever pace feels right.</p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a href={`mailto:${EMAIL}?subject=Confidential%20enquiry`} className="eyebrow inline-block bg-primary px-8 py-4 text-primary-foreground transition hover:bg-primary/85">Request a confidential conversation</a>
+            <a href={`mailto:${EMAIL}?subject=Confidential%20conversation`} className="eyebrow inline-block bg-primary px-8 py-4 text-primary-foreground transition hover:bg-primary/85">Write to us</a>
             <a href={WHATSAPP} target="_blank" rel="noreferrer" className="eyebrow inline-block border border-primary-foreground/60 px-8 py-4 transition hover:bg-primary-foreground hover:text-foreground">WhatsApp</a>
           </div>
         </div>
