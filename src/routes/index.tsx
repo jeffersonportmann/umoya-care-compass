@@ -121,17 +121,15 @@ function Index() {
             <p className="eyebrow text-primary">Why one client at a time</p>
             <h2 className="mx-auto mt-6 max-w-3xl text-5xl leading-tight">In a group, you keep performing. Alone, you can finally put the mask down.</h2>
           </div>
-          <div className="mt-16 overflow-hidden rounded-[2.5rem] border border-border bg-card">
-            <div className="grid grid-cols-[1fr_auto_1fr] items-center border-b border-border px-6 py-6 md:px-12">
-              <p className="eyebrow text-muted-foreground">The familiar approach</p>
-              <span className="w-12 md:w-20" />
-              <p className="eyebrow text-primary">The uMoya approach</p>
+          <div className="mx-auto mt-16 max-w-5xl overflow-hidden rounded-[2.5rem] border border-border bg-card">
+            <div className="grid grid-cols-2 border-b border-border">
+              <p className="eyebrow px-8 py-6 text-muted-foreground md:px-12">The familiar approach</p>
+              <p className="eyebrow border-l border-border bg-primary/5 px-8 py-6 text-primary md:px-12">The uMoya approach</p>
             </div>
             {compare.map((c) => (
-              <div key={c.from} className="grid grid-cols-[1fr_auto_1fr] items-center border-b border-border px-6 py-8 last:border-0 md:px-12">
-                <p className="font-light text-muted-foreground">{c.from}</p>
-                <span className="mx-4 flex h-10 w-10 items-center justify-center rounded-full border border-accent text-accent md:mx-8">→</span>
-                <p className="font-display text-2xl leading-snug md:text-3xl">{c.to}</p>
+              <div key={c.from} className="grid grid-cols-2 border-b border-border last:border-b-0">
+                <p className="flex items-center px-8 py-8 text-base font-light leading-relaxed text-muted-foreground md:px-12 md:py-9 md:text-lg">{c.from}</p>
+                <p className="flex items-center border-l border-border bg-primary/5 px-8 py-8 font-display text-xl leading-snug md:px-12 md:py-9 md:text-2xl">{c.to}</p>
               </div>
             ))}
           </div>
