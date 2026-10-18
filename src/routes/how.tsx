@@ -9,7 +9,7 @@ export const Route = createFileRoute("/how")({
 });
 
 const steps = [
-  { t: "Understand.", d: ["Call or WhatsApp on " + PHONE + ".", "Email us at care@umoya.care.", "A video call to understand your needs, wherever you are.", "We listen first. Nothing is planned before we understand."] },
+  { t: "Understand.", d: ["Call or WhatsApp on " + PHONE + ", or write to care@umoya.care.", "Then a video call, wherever you are, to understand your needs. We listen first — nothing is planned before we understand."] },
   { t: "Prepare.", d: ["We will work with you to prepare our 28 day program. This will serve as our roadmap, however we will continually adapt and improve the program based on our 360 degree feedback system."] },
   { t: "Finalise.", d: ["Finalise dates, home space, payments and agree logistics. Prepare full onboarding deck with name and contact details of your coordinator. Once you land in Cape Town, uMoya will take over."] },
   { t: "Implement, Adapt.", d: ["The 28 day plan is a guide. Every week we adapt and implement changes to our approach based on a 360 degree feedback system."] },
@@ -39,14 +39,14 @@ function How() {
           </div>
           <ol className="mt-16 grid gap-8 md:grid-cols-2">
             {steps.map((s, i) => (
-              <li key={s.t} className="flex flex-col rounded-[2.5rem] border border-accent/25 bg-card/70 p-10 shadow-sm transition duration-500 hover:-translate-y-1.5 hover:border-accent/45 hover:shadow-lg md:p-12">
+              <li key={s.t} className="flex flex-col rounded-[2.5rem] border border-accent/25 bg-card p-10 shadow-sm transition duration-500 hover:-translate-y-1.5 hover:border-accent/45 hover:shadow-lg md:p-12">
                 <div className="flex items-center gap-5">
                   <span className="eyebrow text-primary">Step</span>
                   <span aria-hidden className="h-px flex-1 bg-gradient-to-r from-accent/70 via-accent/30 to-transparent" />
                 </div>
-                <div className="mt-8 flex items-start gap-6">
+                <div className="mt-8 flex items-center gap-6">
                   <span className="shrink-0 bg-gradient-to-br from-primary to-accent bg-clip-text font-display text-7xl leading-[0.72] text-transparent md:text-8xl">0{i + 1}</span>
-                  <h3 className="pt-2 text-3xl leading-[1.1] tracking-wide md:text-4xl">{s.t}</h3>
+                  <h3 className="text-3xl leading-[1.1] tracking-wide md:text-4xl">{s.t}</h3>
                 </div>
                 <div className="mt-8 h-px w-full bg-gradient-to-r from-accent/45 via-accent/20 to-transparent" />
                 <div className="mt-7 space-y-3.5 text-[0.95rem] font-light leading-relaxed tracking-[0.01em] text-muted-foreground">
