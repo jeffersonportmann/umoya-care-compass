@@ -125,6 +125,62 @@ export function Ornament({ className = "" }: { className?: string }) {
   );
 }
 
+/** Cape Town's ridge — Lion's Head, the flat plateau, Devil's Peak — as a soft creamy wash. */
+export function MountainRange({ className = "" }: { className?: string }) {
+  return (
+    <div aria-hidden className={`pointer-events-none absolute inset-x-0 bottom-0 h-[74%] overflow-hidden ${className}`}>
+      <svg viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice" className="h-full w-full">
+        <defs>
+          <linearGradient id="umoya-ridge-far" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="var(--color-accent)" stopOpacity="0.20" />
+            <stop offset="1" stopColor="var(--color-accent)" stopOpacity="0.02" />
+          </linearGradient>
+          <linearGradient id="umoya-ridge-mid" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="var(--color-primary)" stopOpacity="0.16" />
+            <stop offset="1" stopColor="var(--color-primary)" stopOpacity="0.02" />
+          </linearGradient>
+          <linearGradient id="umoya-ridge-near" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="var(--color-primary)" stopOpacity="0.26" />
+            <stop offset="1" stopColor="var(--color-primary)" stopOpacity="0.04" />
+          </linearGradient>
+          <filter id="umoya-blur" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="26" />
+          </filter>
+          <filter id="umoya-blur-sm" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="9" />
+          </filter>
+        </defs>
+
+        {/* low sun behind the peak */}
+        <circle cx="1210" cy="168" r="120" fill="var(--color-accent)" opacity="0.16" filter="url(#umoya-blur)" />
+
+        {/* distant ridges */}
+        <path d="M0,330 C140,316 240,286 360,282 C500,278 590,304 710,296 C840,288 920,254 1050,248 C1180,242 1290,268 1440,254 L1440,420 L0,420 Z" fill="url(#umoya-ridge-far)" />
+
+        {/* Lion's Head · the plateau · Devil's Peak, rising left to right */}
+        <path
+          d="M0,388 C70,378 120,318 165,262 C180,244 196,244 212,266 C246,312 276,318 310,306 C344,294 356,246 392,220 C412,206 442,204 480,206 L730,212 C764,214 786,244 812,276 C842,312 876,318 912,302 C962,280 1010,222 1068,176 C1094,156 1122,150 1148,168 C1180,190 1214,232 1258,258 C1310,288 1372,282 1440,266 L1440,420 L0,420 Z"
+          fill="url(#umoya-ridge-mid)"
+        />
+        {/* the tablecloth */}
+        <ellipse cx="560" cy="212" rx="190" ry="15" fill="var(--color-card)" opacity="0.6" filter="url(#umoya-blur-sm)" />
+        {/* a hairline along the ridge */}
+        <path
+          d="M0,388 C70,378 120,318 165,262 C180,244 196,244 212,266 C246,312 276,318 310,306 C344,294 356,246 392,220 C412,206 442,204 480,206 L730,212 C764,214 786,244 812,276 C842,312 876,318 912,302 C962,280 1010,222 1068,176 C1094,156 1122,150 1148,168 C1180,190 1214,232 1258,258 C1310,288 1372,282 1440,266"
+          fill="none"
+          stroke="var(--color-accent)"
+          strokeOpacity="0.26"
+          strokeWidth="1.5"
+        />
+
+        {/* foothills */}
+        <path d="M0,414 C110,406 200,382 320,376 C450,370 540,394 670,388 C800,382 890,356 1020,346 C1150,336 1250,358 1440,348 L1440,420 L0,420 Z" fill="url(#umoya-ridge-near)" />
+      </svg>
+      <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-card to-transparent" />
+    </div>
+  );
+}
+
 /** Quiet band that closes one section and opens the next. */
 export function SectionBreak({ tone = "light" }: { tone?: "light" | "dark" }) {
   const blend = tone === "dark" ? "from-background to-secondary" : "from-background to-card";
