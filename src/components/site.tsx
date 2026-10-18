@@ -132,7 +132,7 @@ export function SectionBreak({ tone = "light" }: { tone?: "light" | "dark" }) {
     ? "bg-[radial-gradient(ellipse_72%_58%_at_50%_50%,color-mix(in_oklab,var(--color-primary)_30%,transparent),transparent_72%)]"
     : "bg-[radial-gradient(ellipse_72%_58%_at_50%_50%,color-mix(in_oklab,var(--color-primary)_20%,transparent),transparent_72%)]";
   return (
-    <div aria-hidden className={`relative flex h-52 items-center justify-center overflow-hidden bg-gradient-to-b ${blend}`}>
+    <div aria-hidden className={`relative flex h-44 items-center justify-center overflow-hidden bg-gradient-to-b ${blend}`}>
       <div className={`absolute inset-0 ${wash}`} />
       <div className="relative flex items-center gap-6">
         <span className="h-px w-16 bg-gradient-to-r from-transparent to-accent/45 md:w-28" />

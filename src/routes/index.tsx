@@ -130,11 +130,11 @@ function Index() {
               <div key={c.from} className="grid grid-cols-2 border-b border-border last:border-b-0">
                 <div className="flex flex-col justify-center px-8 py-8 md:px-12 md:py-9">
                   <p className="text-base font-light leading-relaxed text-muted-foreground md:text-lg">{c.from}</p>
-                  <p className="mt-3 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground/60">{c.fk}</p>
+                  <p className="mt-3 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground/80">{c.fk}</p>
                 </div>
                 <div className="flex flex-col justify-center border-l border-border bg-primary/5 px-8 py-8 md:px-12 md:py-9">
                   <p className="font-display text-xl leading-snug md:text-2xl">{c.to}</p>
-                  <p className="mt-3 text-[0.7rem] uppercase tracking-[0.18em] text-primary/70">{c.tk}</p>
+                  <p className="mt-3 text-[0.7rem] uppercase tracking-[0.18em] text-primary/85">{c.tk}</p>
                 </div>
               </div>
             ))}
