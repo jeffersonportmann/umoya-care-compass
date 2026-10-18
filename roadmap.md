@@ -7,6 +7,10 @@
 - [ ] KI-Platzhalterfotos (hero, healing, villa, bowl, mandala, el-*) durch echte uMoya-Bilder ersetzen
 - [ ] Selbst formulierte Texte bestätigen: 100% Confidential / Weekly Plan reviews / 1:1 Dedicated team, 24-Stunden-Antwort, isiZulu-Bedeutung, Tagesablauf, "Ihr sprecht direkt mit den Gründern", Stichworte in "What is included"
 
+- [ ] /who: Rahul-Foto ersetzen — das jetzige Gruppenfoto ist nicht Rahul (gehört weiter unten); echtes Foto folgt vom Nutzer
+- [ ] /who: Standorte nicht mehr auf/über den Teambildern anzeigen
+- [ ] /who: Teamtexte lesbarer machen (mehr zu lesen, grössere Schrift)
+
 ## Done
 - [x] "What is included" auf /how: schlichte Stichworte je Punkt, proportionale Tabelle ohne Diamantpunkte
 - [x] /what 360°-Kreis: passendes Symbol (Elemente-Kreis/Mandala) statt Pool-Liege
