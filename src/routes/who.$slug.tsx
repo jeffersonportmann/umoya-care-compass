@@ -14,7 +14,7 @@ export const Route = createFileRoute("/who/$slug")({
     const { member } = loaderData;
     return meta(
       `${member.n} | ${member.r} at uMoya`,
-      `${member.n}, ${member.r} at uMoya in Cape Town — ${member.d.slice(0, 120)}…`,
+      `${member.n}, ${member.r} at uMoya — ${member.d.slice(0, 120)}…`,
     );
   },
   component: MemberPage,
@@ -30,14 +30,15 @@ function MemberPage() {
       <PageHero
         img={member.img ?? villa}
         scrim="strong"
-        eyebrow={`${member.r} · Cape Town`}
+        eyebrow={`${member.r} · ${member.l}`}
         title={<><em className="italic">{first}</em> {member.n.split(" ").slice(1).join(" ")}</>}
         sub="One of the four partners who hold uMoya together — and the people in it."
       />
 
       <section className="relative overflow-hidden">
-        <Ornament className="-right-40 -top-24 h-[28rem] w-[28rem]" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 py-24 md:grid-cols-[0.85fr_1.15fr] md:gap-20 md:px-10">
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-gradient-to-b from-card to-transparent" />
+        <Ornament className="-right-40 top-10 h-[28rem] w-[28rem]" />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 pt-20 pb-16 md:grid-cols-[0.85fr_1.15fr] md:gap-20 md:px-10">
           <div className="relative mx-auto w-full max-w-sm">
             {member.img ? (
               <img src={member.img} alt={member.n} className="shape-pebble relative aspect-[4/5] w-full object-cover" />
@@ -71,13 +72,12 @@ function MemberPage() {
         </div>
       </section>
 
-      <SectionBreak tone="light" />
+      <SectionBreak />
 
-      <section className="mx-auto max-w-6xl px-6 pb-24 md:px-10">
+      <section className="mx-auto max-w-6xl px-6 pb-12 md:px-10">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="eyebrow text-primary">The people beside {first}</p>
-            <h2 className="mt-3 font-display text-3xl md:text-4xl">The rest of the team</h2>
+            <h2 className="font-display text-3xl md:text-4xl">The rest of the team</h2>
           </div>
           <Link to="/who" className="eyebrow text-primary transition hover:opacity-70">
             ← Back to all four partners

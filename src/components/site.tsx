@@ -1,5 +1,5 @@
-import { Link } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { Link, useLocation } from "@tanstack/react-router";
+import { useEffect, useState, type ReactNode } from "react";
 import logo from "../assets/umoya-logo.png.asset.json";
 
 export const EMAIL = "care@umoya.care";
@@ -16,9 +16,23 @@ const nav = [
 ] as const;
 
 export function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  const path = useLocation({ select: (l) => l.pathname });
+
+  useEffect(() => {
+    setOpen(false);
+  }, [path]);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
-    <header className="absolute inset-x-0 top-0 z-20">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-6 text-primary-foreground md:px-10">
+    <header className="absolute inset-x-0 top-0 z-30">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 pt-[calc(1.25rem_+_env(safe-area-inset-top))] pb-5 text-primary-foreground md:px-10 md:py-6">
         <Link to="/" aria-label="uMoya Home">
           <img src={logo.url} alt="uMoya" className="h-16 w-auto md:h-20" />
         </Link>
@@ -29,15 +43,53 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <a href={WHATSAPP} target="_blank" rel="noreferrer" className="eyebrow border border-primary-foreground/50 px-5 py-3 transition hover:bg-primary-foreground hover:text-foreground">
+        <a href={WHATSAPP} target="_blank" rel="noreferrer" className="eyebrow hidden border border-primary-foreground/50 px-5 py-3 transition hover:bg-primary-foreground hover:text-foreground md:inline-block">
           Enquire
         </a>
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          aria-label="Open menu"
+          aria-expanded={open}
+          className="flex h-12 w-12 shrink-0 flex-col items-center justify-center gap-[6px] md:hidden"
+        >
+          <span className="h-px w-8 bg-current" />
+          <span className="h-px w-8 bg-current" />
+          <span className="h-px w-5 bg-current" />
+        </button>
       </div>
-      <nav className="flex justify-center gap-5 eyebrow text-primary-foreground md:hidden">
-        {nav.map((n) => (
-          <Link key={n.to} to={n.to} className="opacity-80">{n.label}</Link>
-        ))}
-      </nav>
+
+      {open && (
+        <div className="fixed inset-0 z-50 flex flex-col bg-secondary text-secondary-foreground md:hidden">
+          <div className="flex items-center justify-between px-6 pt-[calc(1.25rem_+_env(safe-area-inset-top))] pb-5">
+            <img src={logo.url} alt="uMoya" className="h-16 w-auto" />
+            <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="relative flex h-12 w-12 items-center justify-center">
+              <span className="absolute h-px w-7 rotate-45 bg-current" />
+              <span className="absolute h-px w-7 -rotate-45 bg-current" />
+            </button>
+          </div>
+          <nav className="flex flex-1 flex-col justify-center gap-1 px-6">
+            {nav.map((n, i) => (
+              <Link
+                key={n.to}
+                to={n.to}
+                className="flex items-baseline justify-between gap-4 border-b border-secondary-foreground/15 py-5 font-display text-4xl leading-none transition hover:text-accent"
+                activeProps={{ className: "text-accent" }}
+                activeOptions={{ exact: true }}
+              >
+                {n.label}
+                <span className="eyebrow text-sm opacity-60">0{i + 1}</span>
+              </Link>
+            ))}
+          </nav>
+          <div className="px-6 pb-10 pt-8">
+            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="eyebrow block bg-primary px-6 py-4 text-center text-primary-foreground">
+              Enquire
+            </a>
+            <p className="mt-5 text-center text-sm font-light opacity-80">{PHONE} · {EMAIL}</p>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
@@ -47,18 +99,19 @@ export function PageHero({ img, eyebrow, title, sub, tall, scrim = "soft" }: { i
     <section className={`relative flex items-end overflow-hidden ${tall ? "min-h-[82vh]" : "min-h-[52vh]"}`}>
       <img src={img} alt="" className="absolute inset-0 h-full w-full object-cover" />
       <div className={`absolute inset-0 ${scrim === "strong" ? "bg-gradient-to-t from-overlay via-overlay/75 to-overlay/65" : "bg-gradient-to-t from-overlay via-overlay/40 to-overlay/40"}`} />
-      <div className={`relative mx-auto w-full max-w-7xl px-6 text-primary-foreground md:px-10 ${tall ? "pt-36 pb-16 md:pt-40 md:pb-24" : "pt-28 pb-10 md:pb-12"}`}>
+      <div className={`relative mx-auto w-full max-w-7xl px-6 text-primary-foreground md:px-10 ${tall ? "pt-36 pb-16 md:pt-40 md:pb-24" : "pt-32 pb-10 md:pb-12"}`}>
         <p className="eyebrow animate-rise opacity-90">{eyebrow}</p>
         <h1 className="animate-rise mt-6 max-w-4xl text-5xl leading-[0.95] md:text-8xl">{title}</h1>
         {sub && <div className="animate-rise mt-8 max-w-xl text-lg font-light opacity-90">{sub}</div>}
       </div>
+      <div aria-hidden className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/45 to-transparent" />
     </section>
   );
 }
 
-export function SiteFooter() {
+export function SiteFooter({ curve = false }: { curve?: boolean }) {
   return (
-    <footer className="bg-secondary text-secondary-foreground">
+    <footer className={`bg-secondary text-secondary-foreground ${curve ? "rounded-t-[2.5rem] md:rounded-t-[3.5rem]" : ""}`}>
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-10">
         <p className="eyebrow text-accent">Explore uMoya</p>
         <h2 className="mt-4 text-5xl md:text-7xl">Begin your journey.</h2>
@@ -92,12 +145,13 @@ export function SiteFooter() {
   );
 }
 
-export function Page({ children }: { children: ReactNode }) {
+export function Page({ children, seam = "none" }: { children: ReactNode; seam?: "light" | "none" }) {
   return (
     <main className="relative bg-background text-foreground">
       <SiteHeader />
       {children}
-      <SiteFooter />
+      {seam === "light" && <SectionBreak />}
+      <SiteFooter curve={seam === "light"} />
     </main>
   );
 }
@@ -182,21 +236,19 @@ export function MountainRange({ className = "" }: { className?: string }) {
 }
 
 /** Quiet band that closes one section and opens the next. */
-export function SectionBreak({ tone = "light" }: { tone?: "light" | "dark" }) {
-  const blend = tone === "dark" ? "from-background to-secondary" : "from-background to-card";
-  const wash = tone === "dark"
-    ? "bg-[radial-gradient(ellipse_72%_58%_at_50%_50%,color-mix(in_oklab,var(--color-primary)_30%,transparent),transparent_72%)]"
-    : "bg-[radial-gradient(ellipse_72%_58%_at_50%_50%,color-mix(in_oklab,var(--color-primary)_20%,transparent),transparent_72%)]";
+export function SectionBreak({ to = "background" }: { to?: "background" | "card" }) {
+  const fill = to === "card" ? "bg-card" : "bg-background";
+  const wash = to === "card" ? "bg-gradient-to-b from-background via-card to-card" : "";
   return (
-    <div aria-hidden className={`relative flex h-44 items-center justify-center overflow-hidden bg-gradient-to-b ${blend}`}>
-      <div className={`absolute inset-0 ${wash}`} />
-      <div className="relative flex items-center gap-6">
-        <span className="h-px w-16 bg-gradient-to-r from-transparent to-accent/45 md:w-28" />
-        <span className="relative flex h-14 w-14 items-center justify-center rounded-full border border-accent/30">
+    <div aria-hidden className={`relative flex items-center justify-center overflow-hidden ${fill}`}>
+      {wash && <div className={`pointer-events-none absolute inset-0 ${wash}`} />}
+      <div className="relative flex w-full max-w-3xl items-center gap-6 px-8 py-16 md:gap-10 md:px-10 md:py-20">
+        <span className="h-px flex-1 bg-gradient-to-r from-transparent to-accent/45" />
+        <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/30">
           <span className="absolute inset-[26%] rounded-full border border-accent/20" />
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
         </span>
-        <span className="h-px w-16 bg-gradient-to-l from-transparent to-accent/45 md:w-28" />
+        <span className="h-px flex-1 bg-gradient-to-l from-transparent to-accent/45" />
       </div>
     </div>
   );
