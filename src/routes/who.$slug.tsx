@@ -77,8 +77,7 @@ function MemberPage() {
       <section className="mx-auto max-w-6xl px-6 pb-24 md:px-10">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="eyebrow text-primary">The people beside {first}</p>
-            <h2 className="mt-3 font-display text-3xl md:text-4xl">The rest of the team</h2>
+            <h2 className="font-display text-3xl md:text-4xl">The rest of the team</h2>
           </div>
           <Link to="/who" className="eyebrow text-primary transition hover:opacity-70">
             ← Back to all four partners

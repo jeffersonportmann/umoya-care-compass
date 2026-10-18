@@ -1,7 +1,8 @@
 # Roadmap
 
 ## Open
-- [ ] /who Profilseiten: Übergänge (Hero → Inhalt, Inhalt → "The rest of the team" → Footer) sehen nicht gut aus — neu gestalten
+- [ ] /who Profilseiten: Übergänge (Hero → Inhalt, Inhalt → Team-Abschnitt → Footer) — Schlieren-Effekt entfernt, neu geprüft
+- [ ] /who Profilseiten: Zeile "The people beside …" entfernt (Nutzer-Wunsch)
 - [ ] Blog: Artikel vollständig auf der neuen Seite lesbar machen (heute nur Karten mit Link auf umoya.care)
 - [ ] E-Mail klären: care@umoya.care im Code, Originalseite nennt umoya.care@gmail.com bei "How"
 - [ ] KI-Platzhalterfotos (hero, healing, villa, bowl, mandala, el-*) durch echte uMoya-Bilder ersetzen

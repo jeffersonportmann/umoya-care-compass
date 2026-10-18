@@ -185,15 +185,19 @@ export function MountainRange({ className = "" }: { className?: string }) {
 
 /** Quiet band that closes one section and opens the next. */
 export function SectionBreak({ tone = "light", to = "background" }: { tone?: "light" | "dark"; to?: "background" | "card" }) {
-  const fill = tone === "dark" ? "bg-secondary" : to === "card" ? "bg-card" : "bg-background";
-  const wash = tone === "dark"
-    ? "bg-gradient-to-b from-background via-secondary to-secondary"
-    : to === "card"
-      ? "bg-gradient-to-b from-background via-card to-card"
-      : "bg-gradient-to-b from-transparent via-primary/8 to-transparent";
+  if (tone === "dark") {
+    return (
+      <div aria-hidden className="bg-background">
+        <div className="mx-auto h-px max-w-3xl bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+        <div className="h-16 bg-gradient-to-b from-background to-secondary" />
+      </div>
+    );
+  }
+  const fill = to === "card" ? "bg-card" : "bg-background";
+  const wash = to === "card" ? "bg-gradient-to-b from-background via-card to-card" : "";
   return (
     <div aria-hidden className={`relative flex items-center justify-center overflow-hidden ${fill}`}>
-      <div className={`pointer-events-none absolute inset-0 ${wash}`} />
+      {wash && <div className={`pointer-events-none absolute inset-0 ${wash}`} />}
       <div className="relative flex w-full max-w-3xl items-center gap-6 px-8 py-20 md:gap-10 md:px-10 md:py-24">
         <span className="h-px flex-1 bg-gradient-to-r from-transparent to-accent/45" />
         <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/30">
