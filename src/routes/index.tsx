@@ -5,7 +5,7 @@ import bowl from "@/assets/bowl.jpg";
 import villa from "@/assets/villa.jpg";
 import ravi from "@/assets/team-ravi.jpg";
 import shereen from "@/assets/team-shereen.jpg";
-import { Page, PageHero, meta, EMAIL, WHATSAPP } from "@/components/site";
+import { Page, PageHero, meta, EMAIL, WHATSAPP, Ornament } from "@/components/site";
 
 export const Route = createFileRoute("/")({
   head: () => meta("uMoya Cape Town | Private 1:1 Healing Sanctuary", "One client at a time. A private villa in Cape Town and a medical and holistic team devoted only to you. Quiet, discreet recovery from burnout, crisis and exhaustion."),
@@ -31,16 +31,6 @@ const day = [
   { time: "Afternoon", d: "Nature, a sound bath — or simply nothing at all." },
   { time: "Evening", d: "A conversation with your care guide. Or silence. Your choice." },
 ];
-
-function Ornament({ className = "" }: { className?: string }) {
-  return (
-    <div aria-hidden className={`pointer-events-none absolute rounded-full border border-accent/30 ${className}`}>
-      <div className="absolute inset-[12%] rounded-full border border-accent/25" />
-      <div className="absolute inset-[26%] rounded-full border border-accent/20" />
-      <div className="absolute inset-[40%] rounded-full bg-accent/10" />
-    </div>
-  );
-}
 
 function Index() {
   return (
