@@ -73,16 +73,13 @@ function How() {
           <p className="eyebrow text-primary">What is included</p>
           <h2 className="mt-6 text-5xl">Everything, so you can think of nothing.</h2>
         </div>
-        <div className="relative mx-auto mt-16 grid max-w-3xl gap-x-16 border-t border-accent/30 sm:grid-cols-2">
-          <span aria-hidden className="absolute inset-y-0 left-1/2 hidden w-px bg-accent/30 sm:block" />
-          {[included.slice(0, 5), included.slice(5)].map((col, ci) => (
-            <ul key={ci} className="flex flex-col">
-              {col.map((x) => (
-                <li key={x} className="border-b border-accent/20 py-6 font-display text-xl leading-snug tracking-wide">
-                  {x}
-                </li>
-              ))}
-            </ul>
+        <div className="relative mx-auto mt-16 max-w-3xl border-t border-accent/30">
+          <span aria-hidden className="absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-accent/25 sm:block" />
+          {[0, 1, 2, 3, 4].map((i) => (
+            <div key={i} className="grid gap-y-1 border-b border-accent/20 py-5 sm:grid-cols-2 sm:gap-x-16 sm:py-6">
+              <p className="font-display text-xl leading-snug tracking-wide">{included[i]}</p>
+              <p className="font-display text-xl leading-snug tracking-wide">{included[i + 5]}</p>
+            </div>
           ))}
         </div>
         <p className="relative mt-12 text-center text-sm font-light italic text-muted-foreground">Specific medical or psychiatric care can be coordinated upon request.</p>
