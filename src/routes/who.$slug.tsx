@@ -72,9 +72,9 @@ function MemberPage() {
         </div>
       </section>
 
-      <SectionBreak tone="light" />
+      <SectionBreak />
 
-      <section className="mx-auto max-w-6xl px-6 pb-24 md:px-10">
+      <section className="mx-auto max-w-6xl px-6 pb-12 md:px-10">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="font-display text-3xl md:text-4xl">The rest of the team</h2>

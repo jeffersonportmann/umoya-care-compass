@@ -98,7 +98,7 @@ export function Page({ children, seam = "none" }: { children: ReactNode; seam?: 
     <main className="relative bg-background text-foreground">
       <SiteHeader />
       {children}
-      {seam === "light" && <SectionBreak tone="dark" />}
+      {seam === "light" && <SectionBreak />}
       <SiteFooter />
     </main>
   );
@@ -184,21 +184,13 @@ export function MountainRange({ className = "" }: { className?: string }) {
 }
 
 /** Quiet band that closes one section and opens the next. */
-export function SectionBreak({ tone = "light", to = "background" }: { tone?: "light" | "dark"; to?: "background" | "card" }) {
-  if (tone === "dark") {
-    return (
-      <div aria-hidden className="bg-background">
-        <div className="mx-auto h-px max-w-3xl bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
-        <div className="h-16 bg-gradient-to-b from-background to-secondary" />
-      </div>
-    );
-  }
+export function SectionBreak({ to = "background" }: { to?: "background" | "card" }) {
   const fill = to === "card" ? "bg-card" : "bg-background";
   const wash = to === "card" ? "bg-gradient-to-b from-background via-card to-card" : "";
   return (
     <div aria-hidden className={`relative flex items-center justify-center overflow-hidden ${fill}`}>
       {wash && <div className={`pointer-events-none absolute inset-0 ${wash}`} />}
-      <div className="relative flex w-full max-w-3xl items-center gap-6 px-8 py-20 md:gap-10 md:px-10 md:py-24">
+      <div className="relative flex w-full max-w-3xl items-center gap-6 px-8 py-16 md:gap-10 md:px-10 md:py-20">
         <span className="h-px flex-1 bg-gradient-to-r from-transparent to-accent/45" />
         <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/30">
           <span className="absolute inset-[26%] rounded-full border border-accent/20" />
