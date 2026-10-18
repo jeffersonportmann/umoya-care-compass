@@ -34,7 +34,7 @@ function Who() {
       </section>
 
       <section className="mx-auto max-w-7xl space-y-28 px-6 pb-28 md:space-y-36 md:px-10">
-        {team.map((p) => (
+        {team.map((p, i) => (
           <article key={p.n} className={`grid items-center gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-20 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
             <div className="relative mx-auto w-full max-w-sm">
               <img src={p.img} alt={p.n} loading="lazy" className="shape-pebble relative aspect-[4/5] w-full object-cover" />
