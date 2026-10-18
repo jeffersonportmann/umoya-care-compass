@@ -15,17 +15,14 @@ const steps = [
   { t: "Implement, Adapt.", d: ["The 28 day plan is a guide. Every week we adapt and implement changes to our approach based on a 360 degree feedback system."] },
 ];
 
-const included = [
-  { t: "Live-in care guide", k: "one named coordinator · day and night" },
-  { t: "Alternative therapy care", k: "Reiki · sound baths · breathwork" },
-  { t: "Traditional healer care", k: "isiZulu healing · ancestral ritual" },
-  { t: "Sacred rituals and ceremonies", k: "sunrise walks · fire ceremony" },
-  { t: "Private villa accommodation", k: "your own room · terrace · sea view" },
-  { t: "Private chef meals", k: "three meals a day · your pantry" },
-  { t: "Personal trainer & gym access", k: "daily movement · ocean runs" },
-  { t: "Airport and local transport", k: "car and driver · no driving yourself" },
-  { t: "Planned outings and visits", k: "Cape Point · vineyards · islands" },
-  { t: "24/7 support", k: "someone answers, always" },
+type Included = { t: string; k: string };
+
+const included: [Included, Included][] = [
+  [{ t: "Live-in care guide", k: "one named coordinator · day and night" }, { t: "24/7 support", k: "someone answers, always" }],
+  [{ t: "Alternative therapy care", k: "Reiki · sound baths · breathwork" }, { t: "Traditional healer care", k: "isiZulu healing · ancestral ritual" }],
+  [{ t: "Sacred rituals and ceremonies", k: "sunrise walks · fire ceremony" }, { t: "Planned outings and visits", k: "Cape Point · vineyards · islands" }],
+  [{ t: "Private villa accommodation", k: "your own room · terrace · sea view" }, { t: "Private chef meals", k: "three meals a day · your pantry" }],
+  [{ t: "Personal trainer & gym access", k: "daily movement · ocean runs" }, { t: "Airport and local transport", k: "car and driver · no driving yourself" }],
 ];
 
 function How() {
@@ -86,9 +83,9 @@ function How() {
         </div>
         <div className="relative mx-auto mt-16 max-w-3xl border-t border-accent/30 px-8 sm:px-12">
           <span aria-hidden className="absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-accent/25 sm:block" />
-          {[0, 1, 2, 3, 4].map((i) => (
+          {included.map((row, i) => (
             <div key={i} className="grid gap-y-6 border-b border-accent/20 py-6 sm:grid-cols-2 sm:gap-x-16">
-              {[included[i], included[i + 5]].map((x) => (
+              {row.map((x) => (
                 <div key={x.t}>
                   <p className="font-display text-xl leading-snug tracking-wide">{x.t}</p>
                   <p className="mt-2 text-sm font-light text-muted-foreground">{x.k}</p>
