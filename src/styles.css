@@ -154,3 +154,7 @@
 }
 @keyframes rise { from { opacity: 0; transform: translateY(24px);} to { opacity: 1; transform: none;} }
 @utility animate-rise { animation: rise 1.2s cubic-bezier(.2,.7,.2,1) both; }
+/* Image shapes: arch (doorway / sanctuary), pebble (organic, earth), leaf */
+@utility shape-arch { border-radius: 999px 999px 0.5rem 0.5rem; overflow: hidden; }
+@utility shape-pebble { border-radius: 58% 42% 52% 48% / 46% 54% 46% 54%; overflow: hidden; }
+@utility shape-leaf { border-radius: 0 9rem 0 9rem; overflow: hidden; }

@@ -21,7 +21,7 @@ function What() {
       <PageHero img={villa} eyebrow="What to expect · Discreet private care" title={<>A holistic 360 approach with a focus on <em className="italic">You.</em></>} />
       <section className="mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-36">
         <div className="grid gap-16 md:grid-cols-[1fr_1.2fr]">
-          <img src={healing} alt="" loading="lazy" className="aspect-[4/5] w-full object-cover md:sticky md:top-10" />
+          <img src={healing} alt="" loading="lazy" className="shape-pebble aspect-[4/5] w-full object-cover md:sticky md:top-10" />
           <ol className="divide-y divide-border border-y border-border">
             {items.map((it, i) => (
               <li key={it.t} className="grid gap-4 py-10 md:grid-cols-[4rem_1fr]">
