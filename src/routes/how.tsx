@@ -44,9 +44,9 @@ function How() {
                   <span className="eyebrow text-primary">Step</span>
                   <span aria-hidden className="h-px flex-1 bg-gradient-to-r from-accent/70 via-accent/30 to-transparent" />
                 </div>
-                <div className="mt-8 flex items-end gap-6">
-                  <span className="bg-gradient-to-br from-primary to-accent bg-clip-text font-display text-7xl leading-none text-transparent md:text-8xl">0{i + 1}</span>
-                  <h3 className="pb-1 text-3xl leading-tight tracking-wide md:text-4xl">{s.t}</h3>
+                <div className="mt-8 flex items-start gap-6">
+                  <span className="shrink-0 bg-gradient-to-br from-primary to-accent bg-clip-text font-display text-7xl leading-[0.72] text-transparent md:text-8xl">0{i + 1}</span>
+                  <h3 className="pt-2 text-3xl leading-[1.1] tracking-wide md:text-4xl">{s.t}</h3>
                 </div>
                 <div className="mt-8 h-px w-full bg-gradient-to-r from-accent/45 via-accent/20 to-transparent" />
                 <div className="mt-7 space-y-3.5 text-[0.95rem] font-light leading-relaxed tracking-[0.01em] text-muted-foreground">
