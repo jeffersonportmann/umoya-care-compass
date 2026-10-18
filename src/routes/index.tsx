@@ -5,7 +5,7 @@ import bowl from "@/assets/bowl.jpg";
 import villa from "@/assets/villa.jpg";
 import ravi from "@/assets/team-ravi.jpg";
 import shereen from "@/assets/team-shereen.jpg";
-import { Page, PageHero, meta, EMAIL, WHATSAPP, Ornament, SectionBreak } from "@/components/site";
+import { Page, PageHero, meta, EMAIL, WHATSAPP, Ornament, SectionBreak, MountainRange } from "@/components/site";
 
 export const Route = createFileRoute("/")({
   head: () => meta("uMoya Cape Town | Private 1:1 Healing Sanctuary", "One client at a time. A private villa in Cape Town and a medical and holistic team devoted only to you. Quiet, discreet recovery from burnout, crisis and exhaustion."),
@@ -82,8 +82,8 @@ function Index() {
 
       {/* Recognition */}
       <section className="relative overflow-hidden bg-card">
-        <Ornament className="-right-40 -top-40 h-[34rem] w-[34rem]" />
-        <div className="relative mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-36">
+        <MountainRange />
+        <div className="relative mx-auto max-w-7xl px-6 pt-28 pb-44 md:px-10 md:pt-36 md:pb-56">
           <p className="eyebrow text-primary">Perhaps this sounds familiar</p>
           <div className="mt-14 grid gap-10 md:grid-cols-3">
             {voices.map((v, i) => (
