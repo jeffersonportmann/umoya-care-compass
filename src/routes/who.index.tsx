@@ -14,7 +14,7 @@ function Who() {
       <PageHero img={hero} eyebrow="WhoMoya? · Authentic private care" title={<>The people behind <em className="italic">uMoya.</em></>} sub="uMoya's core team is built on more than 200 years of trust & friendship." />
 
       <section className="relative overflow-hidden">
-        <Ornament className="-left-40 -top-20 h-[30rem] w-[30rem]" />
+        <Ornament className="-left-40 top-10 h-[30rem] w-[30rem]" />
         <div className="relative mx-auto max-w-4xl px-6 py-28 text-center">
           <p className="eyebrow text-primary">Four partners, one intention</p>
           <p className="mt-8 font-display text-3xl leading-snug md:text-4xl">
