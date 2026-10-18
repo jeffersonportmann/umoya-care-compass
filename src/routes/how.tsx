@@ -32,21 +32,26 @@ function How() {
 
       <section className="relative overflow-hidden">
         <Ornament className="-right-40 -top-32 h-[30rem] w-[30rem]" />
-        <div className="relative mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-36">
-          <p className="eyebrow text-primary">One gentle step at a time</p>
-          <h2 className="mt-6 max-w-2xl text-5xl leading-tight">You only need to take the first one.</h2>
-          <div className="relative mt-20 grid gap-14 md:grid-cols-4 md:gap-8">
-            <div aria-hidden className="absolute left-8 right-8 top-8 hidden h-px bg-accent/50 md:block" />
+        <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
+          <div className="text-center">
+            <p className="eyebrow text-primary">One gentle step at a time</p>
+            <h2 className="mx-auto mt-5 max-w-2xl text-5xl leading-tight">You only need to take the <em className="italic text-primary">first one.</em></h2>
+          </div>
+          <ol className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((s, i) => (
-              <div key={s.t} className="relative">
-                <span className={`relative flex h-16 w-16 items-center justify-center rounded-full font-sans text-2xl font-medium tracking-normal ring-8 ring-background ${i === 0 ? "bg-primary text-primary-foreground" : "bg-accent/25 text-primary"}`}>{i + 1}</span>
-                <h3 className="mt-8 text-4xl">{s.t}</h3>
-                <div className="mt-5 space-y-3 text-sm font-light leading-relaxed text-muted-foreground">
+              <li key={s.t} className="flex flex-col rounded-[2rem] border border-accent/25 bg-card/60 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                <div className="flex items-center gap-4">
+                  <span className="font-sans text-xs font-medium tracking-[0.3em] text-primary">STEP</span>
+                  <span className="font-sans text-xs font-medium tracking-[0.3em] text-accent">0{i + 1}</span>
+                </div>
+                <h3 className="mt-6 text-3xl leading-tight">{s.t}</h3>
+                <div className="mt-4 h-px w-10 bg-accent/60" />
+                <div className="mt-5 space-y-2.5 text-sm font-light leading-relaxed text-muted-foreground">
                   {s.d.map((x) => <p key={x}>{x}</p>)}
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
