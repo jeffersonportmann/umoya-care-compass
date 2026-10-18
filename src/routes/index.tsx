@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero.jpg";
 import healing from "@/assets/healing.jpg";
 import bowl from "@/assets/bowl.jpg";
-import wholeYou from "@/assets/whole-you.jpg";
 import villa from "@/assets/villa.jpg";
 import ravi from "@/assets/team-ravi.jpg";
 import shereen from "@/assets/team-shereen.jpg";
@@ -19,11 +18,11 @@ const voices = [
   { q: "I've tried therapy, rest, time away. My body still won't let go.", t: "Stuck" },
 ];
 
-const ideas = [
-  { t: "One guest, one home", d: "Care designed around a single person — in a private villa that is yours alone." },
-  { t: "A plan that listens", d: "Your plan is refined every week through 360° feedback, so care follows how you feel." },
-  { t: "Medicine and healing, together", d: "Clinical and holistic practitioners work as one team, around one person." },
-  { t: "Privacy as part of care", d: "Only the people caring for you. Nothing to perform, no one to explain yourself to." },
+const compare = [
+  { from: "Care designed for many guests", to: "Care designed around one person" },
+  { from: "A fixed programme to follow", to: "A plan that evolves with you every week" },
+  { from: "Medicine or holistic care", to: "Medicine and holistic care as one team" },
+  { from: "Shared spaces and schedules", to: "A private home that is yours alone" },
 ];
 
 const day = [
@@ -85,31 +84,25 @@ function Index() {
 
       {/* Difference */}
       <section className="relative overflow-hidden">
-        <Ornament className="-right-56 top-1/3 h-[38rem] w-[38rem]" />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 py-28 md:grid-cols-[0.9fr_1.1fr] md:gap-24 md:px-10 md:py-36">
-          <div className="relative mx-auto w-full max-w-md">
-            <img src={wholeYou} alt="Guest resting by a private villa pool" loading="lazy" width={1024} height={1024} className="shape-arch relative aspect-[4/5] w-full object-cover" />
-            <div aria-hidden className="shape-arch absolute -inset-4 border border-accent/50" />
-            <div className="absolute -bottom-8 -left-6 flex h-32 w-32 flex-col items-center justify-center rounded-full bg-primary text-center text-primary-foreground md:-left-10">
-              <p className="font-display text-5xl leading-none">1</p>
-              <p className="eyebrow mt-1 text-[0.6rem]">guest at a time</p>
-            </div>
+        <Ornament className="-right-56 top-1/4 h-[38rem] w-[38rem]" />
+        <div className="relative mx-auto max-w-6xl px-6 py-28 md:px-10 md:py-36">
+          <div className="text-center">
+            <p className="eyebrow text-primary">Why one client at a time</p>
+            <h2 className="mx-auto mt-6 max-w-3xl text-5xl leading-tight">In a group, you keep performing. Alone, you can finally put the mask down.</h2>
           </div>
-          <div>
-            <p className="eyebrow text-primary">A new way of caring</p>
-            <h2 className="mt-6 text-5xl leading-tight">Rethinking care from the person outward.</h2>
-            <p className="mt-6 max-w-lg font-light leading-relaxed text-muted-foreground">When everything is shaped around one person, you no longer have to keep performing. You can finally put the mask down.</p>
-            <ol className="mt-12 space-y-10">
-              {ideas.map((it, i) => (
-                <li key={it.t} className="grid grid-cols-[3.5rem_1fr] gap-6">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full border border-accent font-display text-2xl text-primary">{i + 1}</span>
-                  <div className="border-b border-border pb-8">
-                    <h3 className="text-3xl">{it.t}</h3>
-                    <p className="mt-3 font-light leading-relaxed text-muted-foreground">{it.d}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
+          <div className="mt-16 overflow-hidden rounded-[2.5rem] border border-border bg-card">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center border-b border-border px-6 py-6 md:px-12">
+              <p className="eyebrow text-muted-foreground">The familiar approach</p>
+              <span className="w-12 md:w-20" />
+              <p className="eyebrow text-primary">The uMoya approach</p>
+            </div>
+            {compare.map((c) => (
+              <div key={c.from} className="grid grid-cols-[1fr_auto_1fr] items-center border-b border-border px-6 py-8 last:border-0 md:px-12">
+                <p className="font-light text-muted-foreground">{c.from}</p>
+                <span className="mx-4 flex h-10 w-10 items-center justify-center rounded-full border border-accent text-accent md:mx-8">→</span>
+                <p className="font-display text-2xl leading-snug md:text-3xl">{c.to}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
