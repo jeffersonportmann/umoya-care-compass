@@ -39,7 +39,7 @@ function How() {
             <div aria-hidden className="absolute left-8 right-8 top-8 hidden h-px bg-accent/50 md:block" />
             {steps.map((s, i) => (
               <div key={s.t} className="relative">
-                <span className={`relative flex h-16 w-16 items-center justify-center rounded-full font-display text-3xl ring-8 ring-background ${i === 0 ? "bg-primary text-primary-foreground" : "bg-accent/25 text-primary"}`}>{i + 1}</span>
+                <span className={`relative flex h-16 w-16 items-center justify-center rounded-full font-sans text-2xl font-medium tracking-normal ring-8 ring-background ${i === 0 ? "bg-primary text-primary-foreground" : "bg-accent/25 text-primary"}`}>{i + 1}</span>
                 <h3 className="mt-8 text-4xl">{s.t}</h3>
                 <div className="mt-5 space-y-3 text-sm font-light leading-relaxed text-muted-foreground">
                   {s.d.map((x) => <p key={x}>{x}</p>)}
