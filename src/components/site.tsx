@@ -20,7 +20,7 @@ export function SiteHeader() {
     <header className="absolute inset-x-0 top-0 z-20">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-6 text-primary-foreground md:px-10">
         <Link to="/" aria-label="uMoya Home">
-          <img src={logo.url} alt="uMoya" className="h-14 w-auto md:h-16" />
+          <img src={logo.url} alt="uMoya" className="h-16 w-auto md:h-20" />
         </Link>
         <nav className="hidden gap-8 eyebrow md:flex">
           {nav.map((n) => (
