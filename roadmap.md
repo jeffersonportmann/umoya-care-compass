@@ -1,7 +1,6 @@
 # Roadmap
 
 ## Open
-- [ ] Rahmensprache variieren: nicht überall Torbogen (Startseite: Teamfotos, Tagesablauf-Bild); danach andere Seiten prüfen
 - [ ] Blog: Artikel vollständig auf der neuen Seite lesbar machen (heute nur Karten mit Link auf umoya.care)
 - [ ] Team-Fotos: Zuordnung bestätigen (Rahul nur als kleines Gruppenfoto)
 - [ ] E-Mail klären: care@umoya.care im Code, Originalseite nennt umoya.care@gmail.com bei "How"
