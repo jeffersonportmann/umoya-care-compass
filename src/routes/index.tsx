@@ -122,7 +122,7 @@ function Index() {
                 { img: shereen, n: "Shereen Singh", r: "Integrative healing" },
               ].map((p, i) => (
                 <figure key={p.n} className={i === 1 ? "mt-16" : ""}>
-                  <img src={p.img} alt={p.n} loading="lazy" className="shape-arch aspect-[3/4] w-full object-cover" />
+                  <img src={p.img} alt={p.n} loading="lazy" className={`${i === 0 ? "shape-arch" : "shape-pebble"} aspect-[3/4] w-full object-cover`} />
                   <figcaption className="mt-4">
                     <p className="font-display text-2xl">{p.n}</p>
                     <p className="eyebrow mt-1 text-muted-foreground">{p.r}</p>
@@ -137,8 +137,8 @@ function Index() {
       {/* Day */}
       <section className="mx-auto grid max-w-7xl items-center gap-16 px-6 py-28 md:grid-cols-2 md:px-10 md:py-36">
         <div className="relative">
-          <img src={healing} alt="Calm healing room with sound bowls" loading="lazy" width={1024} height={1280} className="shape-arch relative aspect-[4/5] w-full object-cover" />
-          <div aria-hidden className="shape-arch pointer-events-none absolute -inset-4 -z-0 border border-accent/50" />
+          <img src={healing} alt="Calm healing room with sound bowls" loading="lazy" width={1024} height={1280} className="shape-leaf relative aspect-[4/5] w-full object-cover" />
+          <div aria-hidden className="shape-leaf pointer-events-none absolute -inset-4 -z-0 border border-accent/50" />
           <div className="absolute -bottom-6 -right-4 z-10 rounded-full flex h-36 w-36 flex-col items-center justify-center text-center bg-accent text-accent-foreground md:-right-10">
             <p className="font-display text-5xl">28</p>
             <p className="eyebrow">days, at your pace</p>
