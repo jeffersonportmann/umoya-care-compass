@@ -1,5 +1,6 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import hero from "@/assets/healing.jpg";
+import villa from "@/assets/villa.jpg";
 import { PageHero, meta, Ornament, SectionBreak, WHATSAPP } from "@/components/site";
 import { findMember, team } from "@/data/team";
 
@@ -28,7 +29,8 @@ function MemberPage() {
   return (
     <>
       <PageHero
-        img={hero}
+        img={member.img ?? villa}
+        scrim="strong"
         eyebrow={`${member.r} · Cape Town`}
         title={<><em className="italic">{first}</em> {member.n.split(" ").slice(1).join(" ")}</>}
         sub="One of the four partners who hold uMoya together — and the people in it."
