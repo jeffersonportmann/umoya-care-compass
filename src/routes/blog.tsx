@@ -105,7 +105,7 @@ function BlogPage() {
               rel="noreferrer"
               className="group flex flex-col overflow-hidden border border-border bg-card transition hover:shadow-xl"
             >
-              <div className="shape-leaf m-6 mb-0 aspect-[4/3]">
+              <div className="m-6 mb-0 aspect-[4/3] overflow-hidden border border-border">
                 <img
                   src={p.img}
                   alt={p.title}
