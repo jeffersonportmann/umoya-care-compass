@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero.jpg";
 import healing from "@/assets/healing.jpg";
 import bowl from "@/assets/bowl.jpg";
+import wholeYou from "@/assets/whole-you.jpg";
 import villa from "@/assets/villa.jpg";
 import ravi from "@/assets/team-ravi.jpg";
 import shereen from "@/assets/team-shereen.jpg";
@@ -18,11 +19,11 @@ const voices = [
   { q: "I've tried therapy, rest, time away. My body still won't let go.", t: "Stuck" },
 ];
 
-const compare = [
-  ["Shared spaces, shared schedules", "A private villa that is only yours"],
-  ["You adapt to the programme", "The programme adapts to you — every week"],
-  ["Medicine or holistic care", "Both, working as one team"],
-  ["Being seen by others", "Being seen only by the people caring for you"],
+const ideas = [
+  { t: "One guest, one home", d: "Care designed around a single person — in a private villa that is yours alone." },
+  { t: "A plan that listens", d: "Your plan is refined every week through 360° feedback, so care follows how you feel." },
+  { t: "Medicine and healing, together", d: "Clinical and holistic practitioners work as one team, around one person." },
+  { t: "Privacy as part of care", d: "Only the people caring for you. Nothing to perform, no one to explain yourself to." },
 ];
 
 const day = [
@@ -83,21 +84,32 @@ function Index() {
       </section>
 
       {/* Difference */}
-      <section className="mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-36">
-        <p className="eyebrow text-primary">Why one client at a time</p>
-        <h2 className="mt-6 max-w-3xl text-5xl leading-tight">In a group you keep performing. Alone, you can finally put the mask down.</h2>
-        <div className="mt-16 grid md:grid-cols-2">
-          <div className="border border-border p-10 md:p-14">
-            <p className="eyebrow text-muted-foreground">Most places</p>
-            <ul className="mt-8 space-y-6">
-              {compare.map(([a]) => <li key={a} className="font-light text-muted-foreground">{a}</li>)}
-            </ul>
+      <section className="relative overflow-hidden">
+        <Ornament className="-right-56 top-1/3 h-[38rem] w-[38rem]" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 py-28 md:grid-cols-[0.9fr_1.1fr] md:gap-24 md:px-10 md:py-36">
+          <div className="relative mx-auto w-full max-w-md">
+            <img src={wholeYou} alt="Guest resting by a private villa pool" loading="lazy" width={1024} height={1024} className="shape-arch relative aspect-[4/5] w-full object-cover" />
+            <div aria-hidden className="shape-arch absolute -inset-4 border border-accent/50" />
+            <div className="absolute -bottom-8 -left-6 flex h-32 w-32 flex-col items-center justify-center rounded-full bg-primary text-center text-primary-foreground md:-left-10">
+              <p className="font-display text-5xl leading-none">1</p>
+              <p className="eyebrow mt-1 text-[0.6rem]">guest at a time</p>
+            </div>
           </div>
-          <div className="bg-primary p-10 text-primary-foreground md:p-14">
-            <p className="eyebrow opacity-80">uMoya</p>
-            <ul className="mt-8 space-y-6">
-              {compare.map(([a, b]) => <li key={a} className="font-display text-2xl">{b}</li>)}
-            </ul>
+          <div>
+            <p className="eyebrow text-primary">A new way of caring</p>
+            <h2 className="mt-6 text-5xl leading-tight">Rethinking care from the person outward.</h2>
+            <p className="mt-6 max-w-lg font-light leading-relaxed text-muted-foreground">When everything is shaped around one person, you no longer have to keep performing. You can finally put the mask down.</p>
+            <ol className="mt-12 space-y-10">
+              {ideas.map((it, i) => (
+                <li key={it.t} className="grid grid-cols-[3.5rem_1fr] gap-6">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full border border-accent font-display text-2xl text-primary">{i + 1}</span>
+                  <div className="border-b border-border pb-8">
+                    <h3 className="text-3xl">{it.t}</h3>
+                    <p className="mt-3 font-light leading-relaxed text-muted-foreground">{it.d}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
