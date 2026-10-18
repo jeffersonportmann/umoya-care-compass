@@ -1,7 +1,7 @@
 # Roadmap
 
 ## Open
-- [ ] Handy-Ansicht: Kopfzeile neu — Menü-Button statt sechs kleiner Nav-Wörter, großes ruhiges Menü, Knöpfe lesbar
+- [ ] Handy-Ansicht: Menü-Button + großes Menü ist drin — Feinschliff (Abstände, Kontaktzeile) vom Nutzer gegenlesen lassen
 - [ ] /who Profilseiten: Übergänge (Hero → Inhalt, Inhalt → Team-Abschnitt → Footer) — Schlieren-Effekt entfernt, neu geprüft
 - [ ] /who Profilseiten: Zeile "The people beside …" entfernt (Nutzer-Wunsch)
 - [ ] Blog: Artikel vollständig auf der neuen Seite lesbar machen (heute nur Karten mit Link auf umoya.care)
