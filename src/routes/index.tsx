@@ -39,9 +39,9 @@ function Index() {
         tall
         img={hero}
         eyebrow="One client at a time · Cape Town"
-        title={<>When exhaustion runs deeper than <em className="italic">sleep</em> can fix.</>}
+        title={<>What if the next <em className="italic">28 days</em> belonged only to you?</>}
         sub={<>
-          <p>A private place to stop. A small team devoted only to you. Time for your body and mind to remember how to rest.</p>
+          <p>A private home in Cape Town. One guest at a time. A small team of doctors and healers devoted entirely to you — and a month in which nothing at all is asked of you.</p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href={`mailto:${EMAIL}?subject=Confidential%20conversation`} className="eyebrow inline-block bg-primary px-8 py-4 text-primary-foreground transition hover:bg-primary/85">Start a quiet conversation</a>
             <Link to="/how" className="eyebrow inline-block border border-primary-foreground/60 px-8 py-4 transition hover:bg-primary-foreground hover:text-foreground">How it works</Link>
