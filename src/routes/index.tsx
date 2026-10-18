@@ -5,7 +5,7 @@ import bowl from "@/assets/bowl.jpg";
 import villa from "@/assets/villa.jpg";
 import ravi from "@/assets/team-ravi.jpg";
 import shereen from "@/assets/team-shereen.jpg";
-import { Page, PageHero, meta, EMAIL, WHATSAPP, Ornament } from "@/components/site";
+import { Page, PageHero, meta, EMAIL, WHATSAPP, Ornament, SectionBreak } from "@/components/site";
 
 export const Route = createFileRoute("/")({
   head: () => meta("uMoya Cape Town | Private 1:1 Healing Sanctuary", "One client at a time. A private villa in Cape Town and a medical and holistic team devoted only to you. Quiet, discreet recovery from burnout, crisis and exhaustion."),
@@ -78,8 +78,10 @@ function Index() {
         </div>
       </section>
 
+      <SectionBreak />
+
       {/* Recognition */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden bg-card/60">
         <Ornament className="-right-40 -top-40 h-[34rem] w-[34rem]" />
         <div className="relative mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-36">
           <p className="eyebrow text-primary">Perhaps this sounds familiar</p>

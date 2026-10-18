@@ -124,3 +124,18 @@ export function Ornament({ className = "" }: { className?: string }) {
     </div>
   );
 }
+
+/** Quiet band that closes one section and opens the next. */
+export function SectionBreak({ tone = "light" }: { tone?: "light" | "dark" }) {
+  const base = tone === "dark" ? "bg-secondary" : "bg-background";
+  return (
+    <div aria-hidden className={`relative flex h-36 items-center justify-center overflow-hidden ${base}`}>
+      <div className="pattern-dots absolute inset-0 [mask-image:radial-gradient(ellipse_58%_78%_at_50%_50%,black,transparent)]" />
+      <div className="absolute h-px w-full max-w-4xl bg-gradient-to-r from-transparent via-accent/45 to-transparent" />
+      <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-accent/35">
+        <div className="absolute inset-[22%] rounded-full border border-accent/25" />
+        <div className="h-1.5 w-1.5 rounded-full bg-accent" />
+      </div>
+    </div>
+  );
+}

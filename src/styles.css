@@ -158,3 +158,12 @@
 @utility shape-arch { border-radius: 999px 999px 0.5rem 0.5rem; overflow: hidden; }
 @utility shape-pebble { border-radius: 58% 42% 52% 48% / 46% 54% 46% 54%; overflow: hidden; }
 @utility shape-leaf { border-radius: 0 9rem 0 9rem; overflow: hidden; }
+/* Quiet patterns: dot weave and hairline diagonals, tinted with the accent token */
+@utility pattern-dots {
+  background-image: radial-gradient(color-mix(in oklab, var(--accent) 34%, transparent) 1px, transparent 1.4px);
+  background-size: 15px 15px;
+  background-position: center;
+}
+@utility pattern-hair {
+  background-image: repeating-linear-gradient(135deg, color-mix(in oklab, var(--accent) 22%, transparent) 0 1px, transparent 1px 13px);
+}
