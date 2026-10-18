@@ -1,5 +1,4 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
-import hero from "@/assets/healing.jpg";
 import villa from "@/assets/villa.jpg";
 import { PageHero, meta, Ornament, SectionBreak, WHATSAPP } from "@/components/site";
 import { findMember, team } from "@/data/team";
