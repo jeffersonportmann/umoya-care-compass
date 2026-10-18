@@ -32,7 +32,7 @@ export function SiteHeader() {
 
   return (
     <header className="absolute inset-x-0 top-0 z-30">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-5 text-primary-foreground md:px-10 md:py-6">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 pt-[calc(1.25rem_+_env(safe-area-inset-top))] pb-5 text-primary-foreground md:px-10 md:py-6">
         <Link to="/" aria-label="uMoya Home">
           <img src={logo.url} alt="uMoya" className="h-16 w-auto md:h-20" />
         </Link>
@@ -61,7 +61,7 @@ export function SiteHeader() {
 
       {open && (
         <div className="fixed inset-0 z-50 flex flex-col bg-secondary text-secondary-foreground md:hidden">
-          <div className="flex items-center justify-between px-6 py-5">
+          <div className="flex items-center justify-between px-6 pt-[calc(1.25rem_+_env(safe-area-inset-top))] pb-5">
             <img src={logo.url} alt="uMoya" className="h-16 w-auto" />
             <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="relative flex h-12 w-12 items-center justify-center">
               <span className="absolute h-px w-7 rotate-45 bg-current" />
@@ -78,7 +78,7 @@ export function SiteHeader() {
                 activeOptions={{ exact: true }}
               >
                 {n.label}
-                <span className="eyebrow text-xs opacity-40">0{i + 1}</span>
+                <span className="eyebrow text-sm opacity-60">0{i + 1}</span>
               </Link>
             ))}
           </nav>
@@ -86,7 +86,7 @@ export function SiteHeader() {
             <a href={WHATSAPP} target="_blank" rel="noreferrer" className="eyebrow block bg-primary px-6 py-4 text-center text-primary-foreground">
               Enquire
             </a>
-            <p className="eyebrow mt-5 text-center opacity-60">{PHONE} · {EMAIL}</p>
+            <p className="mt-5 text-center text-sm font-light opacity-80">{PHONE} · {EMAIL}</p>
           </div>
         </div>
       )}
