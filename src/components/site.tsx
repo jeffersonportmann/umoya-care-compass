@@ -184,11 +184,13 @@ export function MountainRange({ className = "" }: { className?: string }) {
 }
 
 /** Quiet band that closes one section and opens the next. */
-export function SectionBreak({ tone = "light" }: { tone?: "light" | "dark" }) {
-  const fill = tone === "dark" ? "bg-secondary" : "bg-background";
+export function SectionBreak({ tone = "light", to = "background" }: { tone?: "light" | "dark"; to?: "background" | "card" }) {
+  const fill = tone === "dark" ? "bg-secondary" : to === "card" ? "bg-card" : "bg-background";
   const wash = tone === "dark"
     ? "bg-gradient-to-b from-background via-secondary to-secondary"
-    : "bg-gradient-to-b from-transparent via-primary/8 to-transparent";
+    : to === "card"
+      ? "bg-gradient-to-b from-background via-card to-card"
+      : "bg-gradient-to-b from-transparent via-primary/8 to-transparent";
   return (
     <div aria-hidden className={`relative flex items-center justify-center overflow-hidden ${fill}`}>
       <div className={`pointer-events-none absolute inset-0 ${wash}`} />

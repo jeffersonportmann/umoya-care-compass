@@ -78,7 +78,7 @@ function Index() {
         </div>
       </section>
 
-      <SectionBreak />
+      <SectionBreak to="card" />
 
       {/* Recognition */}
       <section className="relative overflow-hidden bg-card">
