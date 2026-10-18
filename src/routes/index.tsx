@@ -122,7 +122,7 @@ function Index() {
                 { img: shereen, n: "Shereen Singh", r: "Integrative healing" },
               ].map((p, i) => (
                 <figure key={p.n} className={i === 1 ? "mt-16" : ""}>
-                  <img src={p.img} alt={p.n} loading="lazy" className={`${i === 0 ? "shape-arch" : "shape-pebble"} aspect-[3/4] w-full object-cover`} />
+                  <img src={p.img} alt={p.n} loading="lazy" className="shape-pebble aspect-[3/4] w-full object-cover" />
                   <figcaption className="mt-4">
                     <p className="font-display text-2xl">{p.n}</p>
                     <p className="eyebrow mt-1 text-muted-foreground">{p.r}</p>
