@@ -15,6 +15,7 @@ import { Route as HowRouteImport } from './routes/how'
 import { Route as WhatRouteImport } from './routes/what'
 import { Route as WhoRouteImport } from './routes/who'
 import { Route as WhyRouteImport } from './routes/why'
+import { Route as WhoSlugRouteImport } from './routes/who.$slug_'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,22 +47,29 @@ const WhyRoute = WhyRouteImport.update({
   path: '/why',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WhoSlugRoute = WhoSlugRouteImport.update({
+  id: '/$slug_',
+  path: '/$slug',
+  getParentRoute: () => WhoRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/how': typeof HowRoute
   '/what': typeof WhatRoute
-  '/who': typeof WhoRoute
+  '/who': typeof WhoRouteWithChildren
   '/why': typeof WhyRoute
+  '/who/$slug': typeof WhoSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
   '/how': typeof HowRoute
   '/what': typeof WhatRoute
-  '/who': typeof WhoRoute
+  '/who': typeof WhoRouteWithChildren
   '/why': typeof WhyRoute
+  '/who/$slug': typeof WhoSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -69,15 +77,24 @@ export interface FileRoutesById {
   '/blog': typeof BlogRoute
   '/how': typeof HowRoute
   '/what': typeof WhatRoute
-  '/who': typeof WhoRoute
+  '/who': typeof WhoRouteWithChildren
   '/why': typeof WhyRoute
+  '/who/$slug_': typeof WhoSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog' | '/how' | '/what' | '/who' | '/why'
+  fullPaths: '/' | '/blog' | '/how' | '/what' | '/who' | '/why' | '/who/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog' | '/how' | '/what' | '/who' | '/why'
-  id: '__root__' | '/' | '/blog' | '/how' | '/what' | '/who' | '/why'
+  to: '/' | '/blog' | '/how' | '/what' | '/who' | '/why' | '/who/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/blog'
+    | '/how'
+    | '/what'
+    | '/who'
+    | '/why'
+    | '/who/$slug_'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -85,7 +102,7 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRoute
   HowRoute: typeof HowRoute
   WhatRoute: typeof WhatRoute
-  WhoRoute: typeof WhoRoute
+  WhoRoute: typeof WhoRouteWithChildren
   WhyRoute: typeof WhyRoute
 }
 
@@ -133,15 +150,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/who/$slug_': {
+      id: '/who/$slug_'
+      path: '/$slug'
+      fullPath: '/who/$slug'
+      preLoaderRoute: typeof WhoSlugRouteImport
+      parentRoute: typeof WhoRoute
+    }
   }
 }
+
+interface WhoRouteChildren {
+  WhoSlugRoute: typeof WhoSlugRoute
+}
+
+const WhoRouteChildren: WhoRouteChildren = {
+  WhoSlugRoute: WhoSlugRoute,
+}
+
+const WhoRouteWithChildren = WhoRoute._addFileChildren(WhoRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRoute,
   HowRoute: HowRoute,
   WhatRoute: WhatRoute,
-  WhoRoute: WhoRoute,
+  WhoRoute: WhoRouteWithChildren,
   WhyRoute: WhyRoute,
 }
 export const routeTree = rootRouteImport
