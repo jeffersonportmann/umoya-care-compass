@@ -83,7 +83,7 @@ function MemberPage() {
         </div>
         <div className="mt-12 grid gap-10 md:grid-cols-3">
           {others.map((m) => (
-            <Link key={m.slug} to="/who/$slug_" params={{ slug: m.slug }} className="group block">
+              <Link key={m.slug} to="/who/$slug" params={{ slug: m.slug }} className="group block">
               <div className="relative">
                 {m.img ? (
                   <img src={m.img} alt={m.n} loading="lazy" className="shape-pebble aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-[1.02]" />

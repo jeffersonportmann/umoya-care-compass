@@ -42,7 +42,7 @@ function Who() {
               <p className="eyebrow mt-4 text-muted-foreground/80">{p.l}</p>
               <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-relaxed">{p.d}</p>
               <Link
-                to="/who/$slug_"
+                to="/who/$slug"
                 params={{ slug: p.slug }}
                 className="eyebrow mt-7 inline-flex items-center gap-3 text-primary transition hover:opacity-70"
               >
