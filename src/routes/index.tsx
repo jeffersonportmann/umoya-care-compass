@@ -165,7 +165,7 @@ function Index() {
       </section>
 
       {/* Invitation */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden rounded-t-[50%_5rem]">
         <img src={villa} alt="Private villa in Cape Town" loading="lazy" width={1600} height={1008} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-overlay" />
         <div className="relative mx-auto max-w-4xl px-6 py-36 text-center text-primary-foreground">
