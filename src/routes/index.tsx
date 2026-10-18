@@ -123,8 +123,8 @@ function Index() {
           </div>
           <div className="mx-auto mt-16 max-w-5xl overflow-hidden rounded-[2.5rem] border border-border bg-card">
             <div className="grid grid-cols-2 border-b border-border">
-              <p className="eyebrow px-8 py-6 text-muted-foreground md:px-12">The familiar approach</p>
-              <p className="eyebrow border-l border-border bg-primary/5 px-8 py-6 text-primary md:px-12">The uMoya approach</p>
+              <p className="eyebrow px-8 py-8 text-muted-foreground md:px-12">The familiar approach</p>
+              <p className="eyebrow border-l border-border bg-primary/5 px-8 py-8 text-primary md:px-12">The uMoya approach</p>
             </div>
             {compare.map((c) => (
               <div key={c.from} className="grid grid-cols-2 border-b border-border last:border-b-0">
