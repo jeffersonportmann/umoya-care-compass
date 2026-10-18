@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as HowRouteImport } from './routes/how'
+import { Route as WhatRouteImport } from './routes/what'
+import { Route as WhoRouteImport } from './routes/who'
+import { Route as WhyRouteImport } from './routes/why'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HowRoute = HowRouteImport.update({
+  id: '/how',
+  path: '/how',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhatRoute = WhatRouteImport.update({
+  id: '/what',
+  path: '/what',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhoRoute = WhoRouteImport.update({
+  id: '/who',
+  path: '/who',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhyRoute = WhyRouteImport.update({
+  id: '/why',
+  path: '/why',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/how': typeof HowRoute
+  '/what': typeof WhatRoute
+  '/who': typeof WhoRoute
+  '/why': typeof WhyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/how': typeof HowRoute
+  '/what': typeof WhatRoute
+  '/who': typeof WhoRoute
+  '/why': typeof WhyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/how': typeof HowRoute
+  '/what': typeof WhatRoute
+  '/who': typeof WhoRoute
+  '/why': typeof WhyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/how' | '/what' | '/who' | '/why'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/how' | '/what' | '/who' | '/why'
+  id: '__root__' | '/' | '/how' | '/what' | '/who' | '/why'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  HowRoute: typeof HowRoute
+  WhatRoute: typeof WhatRoute
+  WhoRoute: typeof WhoRoute
+  WhyRoute: typeof WhyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +88,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/how': {
+      id: '/how'
+      path: '/how'
+      fullPath: '/how'
+      preLoaderRoute: typeof HowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/what': {
+      id: '/what'
+      path: '/what'
+      fullPath: '/what'
+      preLoaderRoute: typeof WhatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/who': {
+      id: '/who'
+      path: '/who'
+      fullPath: '/who'
+      preLoaderRoute: typeof WhoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/why': {
+      id: '/why'
+      path: '/why'
+      fullPath: '/why'
+      preLoaderRoute: typeof WhyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  HowRoute: HowRoute,
+  WhatRoute: WhatRoute,
+  WhoRoute: WhoRoute,
+  WhyRoute: WhyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
