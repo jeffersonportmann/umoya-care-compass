@@ -52,25 +52,35 @@ function How() {
 
       <section className="relative overflow-hidden bg-secondary text-secondary-foreground">
         <Ornament className="-bottom-52 -left-52 h-[40rem] w-[40rem]" />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 py-28 md:grid-cols-2 md:px-10 md:py-36">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-16 px-6 py-24 md:grid-cols-[1.1fr_0.9fr] md:px-10 md:py-32">
           <div>
             <p className="eyebrow text-accent">Discreet private care in Camps Bay</p>
-            <h2 className="mt-6 text-5xl leading-tight md:text-6xl">Our 28 Day Care Plan</h2>
-            <div className="mt-12 grid gap-6 sm:grid-cols-2">
-              <div className="rounded-t-full border border-accent/40 px-6 pb-8 pt-14 text-center">
-                <p className="eyebrow opacity-70">Individuals</p>
-                <p className="mt-4 font-display text-3xl">CHF 100–180 000</p>
+            <h2 className="mt-5 text-5xl leading-[1.05] md:text-6xl">Our 28 Day<br /><em className="font-light italic text-accent">Care Plan</em></h2>
+            <p className="mt-6 max-w-md text-sm font-light leading-relaxed opacity-75">
+              One private home, one dedicated team, four weeks shaped entirely around you. Everything is included.
+            </p>
+            <dl className="mt-12 max-w-md border-y border-accent/30">
+              <div className="flex items-baseline justify-between gap-6 py-6">
+                <dt className="eyebrow opacity-70">Individuals</dt>
+                <dd className="font-display text-3xl md:text-4xl">CHF 100–180 000</dd>
               </div>
-              <div className="rounded-t-full border border-accent/40 px-6 pb-8 pt-14 text-center">
-                <p className="eyebrow opacity-70">Couples</p>
-                <p className="mt-4 font-display text-3xl">CHF 125–220 000</p>
+              <div className="flex items-baseline justify-between gap-6 border-t border-accent/20 py-6">
+                <dt className="eyebrow opacity-70">Couples</dt>
+                <dd className="font-display text-3xl md:text-4xl">CHF 125–220 000</dd>
               </div>
-            </div>
-            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="eyebrow mt-12 inline-block bg-primary px-8 py-4 text-primary-foreground transition hover:bg-primary/85">Start with a call</a>
+            </dl>
+            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="group eyebrow mt-10 inline-flex items-center gap-4 text-accent transition hover:opacity-80">
+              <span className="border-b border-accent/50 pb-1">Start with a call</span>
+              <span aria-hidden className="transition group-hover:translate-x-1">→</span>
+            </a>
           </div>
-          <div className="relative mx-auto w-full max-w-md">
-            <img src={heart} alt="Caring hands" loading="lazy" width={1024} height={1024} className="shape-arch aspect-[4/5] w-full object-cover" />
-            <div aria-hidden className="shape-arch absolute -inset-4 border border-accent/40" />
+          <div className="relative mx-auto w-full max-w-sm">
+            <div aria-hidden className="absolute -inset-6 rounded-[50%] border border-accent/25" />
+            <img src={heart} alt="Caring hands" loading="lazy" width={1024} height={1024} className="relative aspect-[3/4] w-full rounded-[50%] object-cover" />
+            <div className="absolute -bottom-4 left-1/2 flex h-24 w-24 -translate-x-1/2 flex-col items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg">
+              <span className="font-sans text-2xl font-medium leading-none">28</span>
+              <span className="eyebrow mt-1 text-[0.6rem]">days</span>
+            </div>
           </div>
         </div>
       </section>
