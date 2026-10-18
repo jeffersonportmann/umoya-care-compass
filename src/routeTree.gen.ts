@@ -16,7 +16,7 @@ import { Route as WhatRouteImport } from './routes/what'
 import { Route as WhoRouteImport } from './routes/who'
 import { Route as WhyRouteImport } from './routes/why'
 import { Route as WhoIndexRouteImport } from './routes/who.index'
-import { Route as WhoSlugRouteImport } from './routes/who.$slug_'
+import { Route as WhoSlugRouteImport } from './routes/who.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -54,7 +54,7 @@ const WhoIndexRoute = WhoIndexRouteImport.update({
   getParentRoute: () => WhoRoute,
 } as any)
 const WhoSlugRoute = WhoSlugRouteImport.update({
-  id: '/$slug_',
+  id: '/$slug',
   path: '/$slug',
   getParentRoute: () => WhoRoute,
 } as any)
@@ -86,7 +86,7 @@ export interface FileRoutesById {
   '/what': typeof WhatRoute
   '/who': typeof WhoRouteWithChildren
   '/why': typeof WhyRoute
-  '/who/$slug_': typeof WhoSlugRoute
+  '/who/$slug': typeof WhoSlugRoute
   '/who/': typeof WhoIndexRoute
 }
 export interface FileRouteTypes {
@@ -103,7 +103,7 @@ export interface FileRouteTypes {
     | '/what'
     | '/who'
     | '/why'
-    | '/who/$slug_'
+    | '/who/$slug'
     | '/who/'
   fileRoutesById: FileRoutesById
 }
@@ -167,8 +167,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhoIndexRouteImport
       parentRoute: typeof WhoRoute
     }
-    '/who/$slug_': {
-      id: '/who/$slug_'
+    '/who/$slug': {
+      id: '/who/$slug'
       path: '/$slug'
       fullPath: '/who/$slug'
       preLoaderRoute: typeof WhoSlugRouteImport
