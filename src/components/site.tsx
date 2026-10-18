@@ -129,11 +129,15 @@ export function Ornament({ className = "" }: { className?: string }) {
 export function SectionBreak({ tone = "light" }: { tone?: "light" | "dark" }) {
   const blend = tone === "dark" ? "from-background to-secondary" : "from-background to-card";
   return (
-    <div aria-hidden className={`relative flex h-40 items-center justify-center overflow-hidden bg-gradient-to-b ${blend}`}>
-      <div className="pattern-dots absolute inset-0 [mask-image:radial-gradient(ellipse_58%_70%_at_50%_45%,black,transparent)]" />
-      <div className="absolute h-px w-full max-w-4xl bg-gradient-to-r from-transparent via-accent/45 to-transparent" />
-      <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-accent/35">
-        <div className="absolute inset-[22%] rounded-full border border-accent/25" />
+    <div aria-hidden className={`relative flex h-56 items-center justify-center overflow-hidden bg-gradient-to-b ${blend}`}>
+      <svg className="absolute inset-x-0 bottom-0 h-3/4 w-full" viewBox="0 0 1440 240" preserveAspectRatio="none">
+        <path className="fill-primary/8" d="M0,240 L0,150 C240,86 470,168 720,138 C960,110 1200,52 1440,128 L1440,240 Z" />
+        <path className="fill-primary/12" d="M0,240 L0,198 C280,150 540,214 780,190 C1010,168 1230,132 1440,182 L1440,240 Z" />
+        <path className="fill-none stroke-accent/20" strokeWidth="1.5" d="M0,198 C280,150 540,214 780,190 C1010,168 1230,132 1440,182" />
+      </svg>
+      <div className="absolute h-px w-full max-w-3xl bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+      <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-accent/30">
+        <div className="absolute inset-[24%] rounded-full border border-accent/20" />
         <div className="h-1.5 w-1.5 rounded-full bg-accent" />
       </div>
     </div>
