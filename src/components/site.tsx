@@ -57,9 +57,9 @@ export function PageHero({ img, eyebrow, title, sub, tall, scrim = "soft" }: { i
   );
 }
 
-export function SiteFooter() {
+export function SiteFooter({ curve = false }: { curve?: boolean }) {
   return (
-    <footer className="bg-secondary text-secondary-foreground">
+    <footer className={`bg-secondary text-secondary-foreground ${curve ? "rounded-t-[2.5rem] md:rounded-t-[3.5rem]" : ""}`}>
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-10">
         <p className="eyebrow text-accent">Explore uMoya</p>
         <h2 className="mt-4 text-5xl md:text-7xl">Begin your journey.</h2>
@@ -99,7 +99,7 @@ export function Page({ children, seam = "none" }: { children: ReactNode; seam?: 
       <SiteHeader />
       {children}
       {seam === "light" && <SectionBreak />}
-      <SiteFooter />
+      <SiteFooter curve={seam === "light"} />
     </main>
   );
 }
