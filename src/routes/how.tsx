@@ -67,15 +67,21 @@ function How() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-28 text-center md:py-36">
-        <p className="eyebrow text-primary">What is included</p>
-        <h2 className="mt-6 text-5xl">Everything, so you can think of nothing.</h2>
-        <ul className="mt-14 flex flex-wrap justify-center gap-3">
-          {included.map((x) => (
-            <li key={x} className="rounded-full border border-border bg-card px-6 py-3 font-display text-xl">{x}</li>
+      <section className="relative mx-auto max-w-6xl overflow-hidden px-6 py-28 md:py-36">
+        <Ornament className="-left-56 -top-40 h-[34rem] w-[34rem]" />
+        <div className="relative text-center">
+          <p className="eyebrow text-primary">What is included</p>
+          <h2 className="mt-6 text-5xl">Everything, so you can think of nothing.</h2>
+        </div>
+        <ul className="relative mx-auto mt-16 grid max-w-4xl gap-x-20 sm:grid-cols-2">
+          {included.map((x, i) => (
+            <li key={x} className={`flex items-baseline gap-5 border-b border-accent/25 py-5 text-left ${i < 2 ? "sm:border-t" : ""} ${i % 2 === 0 ? "sm:border-r sm:pr-10" : "sm:pl-10"}`}>
+              <span aria-hidden className="mt-[0.35rem] inline-block h-1.5 w-1.5 shrink-0 rotate-45 bg-accent" />
+              <span className="font-display text-xl leading-relaxed">{x}</span>
+            </li>
           ))}
         </ul>
-        <p className="mt-10 text-sm font-light italic text-muted-foreground">Specific medical or psychiatric care can be coordinated upon request.</p>
+        <p className="relative mt-12 text-sm font-light italic text-muted-foreground">Specific medical or psychiatric care can be coordinated upon request.</p>
       </section>
     </Page>
   );
