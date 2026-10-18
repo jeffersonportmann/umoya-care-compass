@@ -6,7 +6,7 @@
 - [ ] KI-Platzhalterfotos (hero, healing, villa, bowl, mandala, el-*) durch echte uMoya-Bilder ersetzen
 - [ ] Selbst formulierte Texte bestätigen: 100% Confidential / Weekly Plan reviews / 1:1 Dedicated team, 24-Stunden-Antwort, isiZulu-Bedeutung, Tagesablauf, "Ihr sprecht direkt mit den Gründern", Stichworte in "What is included", neue Vergleichs-Stichwörter, neue Hero-Headline und -Subline
 - [ ] /who: Rahul-Foto ersetzen — das jetzige Gruppenfoto ist nicht Rahul; echtes Foto folgt vom Nutzer
-- [ ] Startseite-Titelbild: Höhe feinjustieren —用户 will es weder zu hoch noch zu kurz (aktuell 82 % der Bildschirmhöhe)
+- [ ] Startseite-Titelbild: Höhe feinjustieren — soll weder zu hoch noch zu kurz sein (aktuell 82 % der Bildschirmhöhe)
 
 ## Done
 - [x] Startseite-Headline: "What if the next 28 days belonged only to you?" — neugierig statt Symptom
