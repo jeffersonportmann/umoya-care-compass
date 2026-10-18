@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import logo from "../assets/umoya-logo.png.asset.json";
 
 export const EMAIL = "care@umoya.care";
 export const PHONE = "+41 76 235 63 63";
@@ -11,13 +12,16 @@ const nav = [
   { to: "/why", label: "Why" },
   { to: "/how", label: "How" },
   { to: "/who", label: "Who" },
+  { to: "/blog", label: "Blog" },
 ] as const;
 
 export function SiteHeader() {
   return (
     <header className="absolute inset-x-0 top-0 z-20">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-6 text-primary-foreground md:px-10">
-        <Link to="/" className="font-display text-2xl tracking-wide">uMoya</Link>
+        <Link to="/" aria-label="uMoya Home">
+          <img src={logo.url} alt="uMoya" className="h-14 w-auto md:h-16" />
+        </Link>
         <nav className="hidden gap-8 eyebrow md:flex">
           {nav.map((n) => (
             <Link key={n.to} to={n.to} className="opacity-75 transition hover:opacity-100" activeProps={{ className: "opacity-100 border-b border-accent pb-1" }} activeOptions={{ exact: true }}>
