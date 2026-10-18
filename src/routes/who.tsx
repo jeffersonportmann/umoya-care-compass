@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import hero from "@/assets/healing.jpg";
-import rahul from "@/assets/team-rahul.jpg";
 import shereen from "@/assets/team-shereen.jpg";
 import ravi from "@/assets/team-ravi.jpg";
 import vees from "@/assets/team-vees.jpg";
@@ -12,10 +11,10 @@ export const Route = createFileRoute("/who")({
 });
 
 const team = [
-  { n: "Rahul Singh", r: "CEO, Founder", l: "Zurich, Switzerland", img: rahul, d: "With a background in chemical engineering, Rahul is a lifelong student and teacher of the science of self. His curiosity about energy, nature and the principles that connect them continues to shape his thinking. He brings creativity, scientific curiosity and a distinctive perspective to the development of uMoya." },
-  { n: "Shereen Singh", r: "Head of Integrative Healing", l: "Zurich, Switzerland", img: shereen, d: "A compassionate holistic practitioner specialising in Reiki, energy healing and shamanic practices. Shereen brings warmth, intuition and a deeply personal approach to supporting people through their healing journeys." },
-  { n: "Dr Ravi Govender", r: "Head of Care and Clinical Advisory", l: "Cape Town, South Africa", img: ravi, d: "A psychiatrist with an analytical mind and a thoughtful approach to understanding complex human experiences. Ravi brings his clinical knowledge, experience and problem-solving abilities to uMoya's approach to care." },
-  { n: "Vees Moodley", r: "Head of Operations", l: "Cape Town, South Africa", img: vees, d: "A chemical engineer with extensive experience in managing global operations. Vees brings structure, practical thinking and attention to detail, helping ensure that every aspect of the uMoya experience is thoughtfully organised." },
+  { n: "Rahul Singh", init: "RS", r: "CEO, Founder", l: "Zurich, Switzerland", img: null, d: "With a background in chemical engineering, Rahul is a lifelong student and teacher of the science of self. His curiosity about energy, nature and the principles that connect them continues to shape his thinking. He brings creativity, scientific curiosity and a distinctive perspective to the development of uMoya." },
+  { n: "Shereen Singh", init: "SS", r: "Head of Integrative Healing", l: "Zurich, Switzerland", img: shereen, d: "A compassionate holistic practitioner specialising in Reiki, energy healing and shamanic practices. Shereen brings warmth, intuition and a deeply personal approach to supporting people through their healing journeys." },
+  { n: "Dr Ravi Govender", init: "RG", r: "Head of Care and Clinical Advisory", l: "Cape Town, South Africa", img: ravi, d: "A psychiatrist with an analytical mind and a thoughtful approach to understanding complex human experiences. Ravi brings his clinical knowledge, experience and problem-solving abilities to uMoya's approach to care." },
+  { n: "Vees Moodley", init: "VM", r: "Head of Operations", l: "Cape Town, South Africa", img: vees, d: "A chemical engineer with extensive experience in managing global operations. Vees brings structure, practical thinking and attention to detail, helping ensure that every aspect of the uMoya experience is thoughtfully organised." },
 ];
 
 function Who() {
@@ -33,18 +32,24 @@ function Who() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl space-y-28 px-6 pb-28 md:space-y-36 md:px-10">
+      <section className="mx-auto max-w-7xl space-y-24 px-6 pb-28 md:space-y-32 md:px-10">
         {team.map((p, i) => (
           <article key={p.n} className={`grid items-center gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-20 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
             <div className="relative mx-auto w-full max-w-sm">
-              <img src={p.img} alt={p.n} loading="lazy" className="shape-pebble relative aspect-[4/5] w-full object-cover" />
+              {p.img ? (
+                <img src={p.img} alt={p.n} loading="lazy" className="shape-pebble relative aspect-[4/5] w-full object-cover" />
+              ) : (
+                <div className="shape-pebble relative flex aspect-[4/5] w-full items-center justify-center bg-accent/10">
+                  <span className="font-display text-8xl leading-none text-primary/60">{p.init}</span>
+                </div>
+              )}
               <div aria-hidden className="shape-pebble absolute -inset-4 border border-accent/40" />
-              <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-background px-5 py-2 eyebrow text-muted-foreground shadow-sm">{p.l}</span>
             </div>
             <div>
               <p className="eyebrow text-primary">{p.r}</p>
-              <h2 className="mt-4 text-5xl">{p.n}</h2>
-              <p className="mt-6 max-w-lg font-light leading-relaxed text-muted-foreground">{p.d}</p>
+              <h2 className="mt-4 text-5xl md:text-6xl">{p.n}</h2>
+              <p className="eyebrow mt-4 text-muted-foreground/80">{p.l}</p>
+              <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-relaxed">{p.d}</p>
             </div>
           </article>
         ))}
