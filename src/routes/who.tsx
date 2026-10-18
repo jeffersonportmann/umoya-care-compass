@@ -16,7 +16,7 @@ const team = [
     n: "Rahul Singh",
     init: "RS",
     r: "CEO, Founder",
-    l: "Zurich, Switzerland",
+    l: "Cape Town, South Africa",
     img: null,
     d: "With a background in chemical engineering, Rahul is a lifelong student and teacher of the science of self. His curiosity about energy, nature and the principles that connect them continues to shape his thinking. He brings creativity, scientific curiosity and a distinctive perspective to the development of uMoya.",
     more: "He holds the first conversation with every guest, before anything is planned. From that conversation the shape of a stay begins — what the body has been carrying, what the week needs to look like, and where the work should start.",
@@ -25,7 +25,7 @@ const team = [
     n: "Shereen Singh",
     init: "SS",
     r: "Head of Integrative Healing",
-    l: "Zurich, Switzerland",
+    l: "Cape Town, South Africa",
     img: shereen,
     d: "A compassionate holistic practitioner specialising in Reiki, energy healing and shamanic practices. Shereen brings warmth, intuition and a deeply personal approach to supporting people through their healing journeys.",
     more: "She leads the healing programme — Reiki, sound, breath and time in nature — and stays close throughout the stay, adjusting each session as the nervous system begins to settle.",
@@ -46,7 +46,7 @@ const team = [
     l: "Cape Town, South Africa",
     img: vees,
     d: "A chemical engineer with extensive experience in managing global operations. Vees brings structure, practical thinking and attention to detail, helping ensure that every aspect of the uMoya experience is thoughtfully organised.",
-    more: "He runs the day-to-day between Cape Town and Zurich — arrivals, the house, the team and the quiet rhythm of each stay, so that nothing a guest needs to think about is left to chance.",
+    more: "He runs the day-to-day in Cape Town — arrivals, the house, the team and the quiet rhythm of each stay, so that nothing a guest needs to think about is left to chance.",
   },
 ];
 
