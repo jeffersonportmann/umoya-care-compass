@@ -52,6 +52,7 @@ export function PageHero({ img, eyebrow, title, sub, tall, scrim = "soft" }: { i
         <h1 className="animate-rise mt-6 max-w-4xl text-5xl leading-[0.95] md:text-8xl">{title}</h1>
         {sub && <div className="animate-rise mt-8 max-w-xl text-lg font-light opacity-90">{sub}</div>}
       </div>
+      <div aria-hidden className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/45 to-transparent" />
     </section>
   );
 }
@@ -92,11 +93,12 @@ export function SiteFooter() {
   );
 }
 
-export function Page({ children }: { children: ReactNode }) {
+export function Page({ children, seam = "none" }: { children: ReactNode; seam?: "light" | "none" }) {
   return (
     <main className="relative bg-background text-foreground">
       <SiteHeader />
       {children}
+      {seam === "light" && <SectionBreak tone="dark" />}
       <SiteFooter />
     </main>
   );
@@ -183,20 +185,20 @@ export function MountainRange({ className = "" }: { className?: string }) {
 
 /** Quiet band that closes one section and opens the next. */
 export function SectionBreak({ tone = "light" }: { tone?: "light" | "dark" }) {
-  const blend = tone === "dark" ? "from-background to-secondary" : "from-background to-card";
+  const fill = tone === "dark" ? "bg-secondary" : "bg-background";
   const wash = tone === "dark"
-    ? "bg-[radial-gradient(ellipse_72%_58%_at_50%_50%,color-mix(in_oklab,var(--color-primary)_30%,transparent),transparent_72%)]"
-    : "bg-[radial-gradient(ellipse_72%_58%_at_50%_50%,color-mix(in_oklab,var(--color-primary)_20%,transparent),transparent_72%)]";
+    ? "bg-gradient-to-b from-background via-secondary to-secondary"
+    : "bg-gradient-to-b from-transparent via-primary/8 to-transparent";
   return (
-    <div aria-hidden className={`relative flex h-44 items-center justify-center overflow-hidden bg-gradient-to-b ${blend}`}>
-      <div className={`absolute inset-0 ${wash}`} />
-      <div className="relative flex items-center gap-6">
-        <span className="h-px w-16 bg-gradient-to-r from-transparent to-accent/45 md:w-28" />
-        <span className="relative flex h-14 w-14 items-center justify-center rounded-full border border-accent/30">
+    <div aria-hidden className={`relative flex items-center justify-center overflow-hidden ${fill}`}>
+      <div className={`pointer-events-none absolute inset-0 ${wash}`} />
+      <div className="relative flex w-full max-w-3xl items-center gap-6 px-8 py-20 md:gap-10 md:px-10 md:py-24">
+        <span className="h-px flex-1 bg-gradient-to-r from-transparent to-accent/45" />
+        <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/30">
           <span className="absolute inset-[26%] rounded-full border border-accent/20" />
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
         </span>
-        <span className="h-px w-16 bg-gradient-to-l from-transparent to-accent/45 md:w-28" />
+        <span className="h-px flex-1 bg-gradient-to-l from-transparent to-accent/45" />
       </div>
     </div>
   );

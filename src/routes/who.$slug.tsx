@@ -36,8 +36,9 @@ function MemberPage() {
       />
 
       <section className="relative overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-gradient-to-b from-card to-transparent" />
         <Ornament className="-right-40 -top-24 h-[28rem] w-[28rem]" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 py-24 md:grid-cols-[0.85fr_1.15fr] md:gap-20 md:px-10">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 pt-20 pb-16 md:grid-cols-[0.85fr_1.15fr] md:gap-20 md:px-10">
           <div className="relative mx-auto w-full max-w-sm">
             {member.img ? (
               <img src={member.img} alt={member.n} className="shape-pebble relative aspect-[4/5] w-full object-cover" />

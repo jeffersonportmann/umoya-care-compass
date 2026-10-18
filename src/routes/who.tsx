@@ -1,4 +1,4 @@
-import { createFileRoute, Outlet } from "@tanstack/react-router";
+import { createFileRoute, Outlet, useLocation } from "@tanstack/react-router";
 import { Page } from "@/components/site";
 
 export const Route = createFileRoute("/who")({
@@ -6,8 +6,10 @@ export const Route = createFileRoute("/who")({
 });
 
 function WhoLayout() {
+  const path = useLocation({ select: (l) => l.pathname });
+  // The team list ends on a dark band; the individual profiles end on a light one.
   return (
-    <Page>
+    <Page seam={path === "/who" ? "none" : "light"}>
       <Outlet />
     </Page>
   );

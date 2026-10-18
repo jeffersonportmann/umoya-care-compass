@@ -88,7 +88,7 @@ export const Route = createFileRoute("/blog")({
 
 function BlogPage() {
   return (
-    <Page>
+    <Page seam="light">
       <PageHero
         img={hero}
         eyebrow="uMoya Journal"
