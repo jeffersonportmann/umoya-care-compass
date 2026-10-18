@@ -73,7 +73,7 @@ export function SiteHeader() {
               <Link
                 key={n.to}
                 to={n.to}
-                className="flex items-baseline justify-between gap-4 border-b border-secondary-foreground/15 py-4 font-display text-4xl leading-none transition hover:text-accent"
+                className="flex items-baseline justify-between gap-4 border-b border-secondary-foreground/15 py-5 font-display text-4xl leading-none transition hover:text-accent"
                 activeProps={{ className: "text-accent" }}
                 activeOptions={{ exact: true }}
               >
