@@ -47,7 +47,6 @@ export function PageHero({ img, eyebrow, title, sub, tall }: { img: string; eyeb
     <section className={`relative flex items-end overflow-hidden ${tall ? "min-h-[72vh]" : "min-h-[52vh]"}`}>
       <img src={img} alt="" className="absolute inset-0 h-full w-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-overlay via-overlay/40 to-overlay/40" />
-      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-background/85" />
       <div className={`relative mx-auto w-full max-w-7xl px-6 text-primary-foreground md:px-10 ${tall ? "pt-32 pb-14 md:pt-36 md:pb-20" : "pt-28 pb-10 md:pb-12"}`}>
         <p className="eyebrow animate-rise opacity-90">{eyebrow}</p>
         <h1 className="animate-rise mt-6 max-w-4xl text-5xl leading-[0.95] md:text-8xl">{title}</h1>
