@@ -38,7 +38,7 @@ function Index() {
       <PageHero
         tall
         img={hero}
-        eyebrow="One client at a time · Cape Town & Zurich"
+        eyebrow="One client at a time · Cape Town"
         title={<>When exhaustion runs deeper than <em className="italic">sleep</em> can fix.</>}
         sub={<>
           <p>A private place to stop. A small team devoted only to you. Time for your body and mind to remember how to rest.</p>
@@ -61,11 +61,11 @@ function Index() {
             </span>
           </h2>
           <p className="mx-auto mt-10 max-w-2xl font-light leading-relaxed text-muted-foreground md:text-lg">
-            For 28 days, one person — or one couple — lives in a private home with a small team of medical doctors and holistic healers devoted only to them. No groups. No schedule to perform. Nothing to organise. Only the space and care a deeply exhausted body and mind need to recover.
+            For 28 days, one person lives in a private home with a small team of medical doctors and holistic healers devoted only to them. You come alone, or with a partner — that choice is entirely yours. No groups. No schedule to perform. Nothing to organise. Only the space and care a deeply exhausted body and mind need to recover.
           </p>
           <div className="mt-14 grid gap-10 border-t border-border pt-12 sm:grid-cols-3">
             {[
-              ["One guest at a time", "A whole home and team, only for you"],
+              ["One guest at a time", "A whole home and team, only for you — alone, or with your partner"],
               ["Medicine and healing together", "Clinical care and deep healing in one hand"],
               ["28 days to reset", "A plan that evolves with you every week"],
             ].map(([t, d]) => (

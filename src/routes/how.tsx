@@ -9,7 +9,7 @@ export const Route = createFileRoute("/how")({
 });
 
 const steps = [
-  { t: "Understand.", d: ["Call or WhatsApp on " + PHONE + ".", "Email us at care@umoya.care.", "Let's have a video call to understand your needs.", "Optional face to face meeting in Zurich."] },
+  { t: "Understand.", d: ["Call or WhatsApp on " + PHONE + ".", "Email us at care@umoya.care.", "A video call to understand your needs, wherever you are.", "We listen first. Nothing is planned before we understand."] },
   { t: "Prepare.", d: ["We will work with you to prepare our 28 day program. This will serve as our roadmap, however we will continually adapt and improve the program based on our 360 degree feedback system."] },
   { t: "Finalise.", d: ["Finalise dates, home space, payments and agree logistics. Prepare full onboarding deck with name and contact details of your coordinator. Once you land in Cape Town, uMoya will take over."] },
   { t: "Implement, Adapt.", d: ["The 28 day plan is a guide. Every week we adapt and implement changes to our approach based on a 360 degree feedback system."] },
@@ -99,6 +99,9 @@ function How() {
                 <dd className="font-display text-3xl md:text-4xl">CHF 125–220 000</dd>
               </div>
             </dl>
+            <p className="mt-6 max-w-md text-sm font-light italic leading-relaxed opacity-60">
+              A partner is welcome, never required. Many guests come alone.
+            </p>
             <a href={WHATSAPP} target="_blank" rel="noreferrer" className="group eyebrow mt-10 inline-flex items-center gap-4 text-accent transition hover:opacity-80">
               <span className="border-b border-accent/50 pb-1">Start with a call</span>
               <span aria-hidden className="transition group-hover:translate-x-1">→</span>

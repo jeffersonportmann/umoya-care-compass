@@ -72,16 +72,16 @@ export function SiteFooter() {
             <a href={`mailto:${EMAIL}?subject=Inquiry:%20uMoya%20Care`} className="mt-3 block font-display text-2xl hover:text-accent">{EMAIL}</a>
           </div>
           <div>
-            <p className="eyebrow opacity-60">Client Office</p>
-            <p className="mt-3 font-light">Zurich, Switzerland</p>
+            <p className="eyebrow opacity-60">Care Home</p>
+            <p className="mt-3 font-light">Camps Bay, Cape Town</p>
           </div>
           <div>
             <p className="eyebrow opacity-60">Client Care</p>
-            <p className="mt-3 font-light">Cape Town, South Africa</p>
+            <p className="mt-3 font-light">Every day, around the clock</p>
           </div>
         </div>
         <div className="mt-16 flex flex-col justify-between gap-4 text-sm opacity-60 md:flex-row">
-          <span>© {new Date().getFullYear()} uMoya Cape Town · Swiss discretion. African heart.</span>
+          <span>© {new Date().getFullYear()} uMoya Cape Town · Quiet discretion. African heart.</span>
           <span className="flex gap-6">
             <a href="https://www.instagram.com/umoya.care/" target="_blank" rel="noreferrer">Instagram</a>
             <a href="https://www.facebook.com/umoya.carecapetown" target="_blank" rel="noreferrer">Facebook</a>
