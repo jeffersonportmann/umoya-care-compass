@@ -8,7 +8,7 @@ import shereen from "@/assets/team-shereen.jpg";
 import { Page, PageHero, meta, EMAIL, WHATSAPP, Ornament, SectionBreak, MountainRange } from "@/components/site";
 
 export const Route = createFileRoute("/")({
-  head: () => meta("uMoya Cape Town | Private 1:1 Healing Sanctuary", "One client at a time. A private villa in Cape Town and a medical and holistic team devoted only to you. Quiet, discreet recovery from burnout, crisis and exhaustion."),
+  head: () => meta("uMoya Cape Town | Private 1:1 Healing Sanctuary", "One client at a time. An entire private villa in Cape Town, yours alone for 28 days — alone, with a partner, family or pets."),
   component: Index,
 });
 
@@ -21,13 +21,13 @@ const voices = [
 const compare = [
   { from: "Care designed for many guests", fk: "shared lounges · set times · a front desk", to: "Care designed around one person", tk: "one home · your hours · your team" },
   { from: "A fixed programme to follow", fk: "the same schedule for every guest", to: "A plan that evolves with you every week", tk: "reviewed weekly · adjusted as you change" },
-  { from: "Medicine or holistic care", fk: "two worlds · separate referrals", to: "Medicine and holistic care as one team", tk: "doctors and healers · one table" },
+  { from: "Body or mind, cared for apart", fk: "two worlds · separate appointments", to: "Body, mind and spirit considered together", tk: "one team · one conversation" },
   { from: "Shared spaces and schedules", fk: "other guests · open doors", to: "A private home that is yours alone", tk: "your door · your kitchen · your pace" },
 ];
 
 const day = [
   { time: "Morning", d: "Waking slowly. Breathwork, then a breakfast prepared for your body." },
-  { time: "Midday", d: "A healing session, and a quiet clinical check-in." },
+  { time: "Midday", d: "A wellbeing session, and a quiet check-in." },
   { time: "Afternoon", d: "Nature, a sound bath — or simply nothing at all." },
   { time: "Evening", d: "A conversation with your care guide. Or silence. Your choice." },
 ];
@@ -41,7 +41,7 @@ function Index() {
         eyebrow="One client at a time · Cape Town"
         title={<>What if the next <em className="italic">28 days</em> belonged only to you?</>}
         sub={<>
-          <p>A private home in Cape Town. One guest at a time. A small team of doctors and healers devoted entirely to you — and a month in which nothing at all is asked of you.</p>
+          <p>An entire villa in Cape Town. Yours alone.</p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href={`mailto:${EMAIL}?subject=Confidential%20conversation`} className="eyebrow inline-block bg-primary px-8 py-4 text-primary-foreground transition hover:bg-primary/85">Start a quiet conversation</a>
             <Link to="/how" className="eyebrow inline-block border border-primary-foreground/60 px-8 py-4 transition hover:bg-primary-foreground hover:text-foreground">How it works</Link>
@@ -54,24 +54,21 @@ function Index() {
         <Ornament className="-left-48 -top-48 h-[32rem] w-[32rem]" />
         <div className="relative mx-auto max-w-4xl px-6 py-24 text-center md:px-10 md:py-32">
           <p className="eyebrow text-primary">What uMoya is</p>
-          <h2 className="mt-8 text-4xl leading-[1.15] md:text-6xl">
+          <h2 className="mt-8 text-5xl leading-[1.1] md:text-7xl">
             uMoya means <em className="italic text-accent">breath</em> — the quiet force that carries you.
-            <span className="mt-6 block text-3xl font-normal leading-snug text-foreground/90 md:text-4xl">
-              It is also the name of a private healing home in Cape Town.
-            </span>
           </h2>
-          <p className="mx-auto mt-10 max-w-2xl font-light leading-relaxed text-muted-foreground md:text-lg">
-            For 28 days, one person lives in a private home with a small team of medical doctors and holistic healers devoted only to them. You come alone, or with a partner — that choice is entirely yours. No groups. No schedule to perform. Nothing to organise. Only the space and care a deeply exhausted body and mind need to recover.
+          <p className="mx-auto mt-8 max-w-xl font-light leading-relaxed text-muted-foreground md:text-lg">
+            The whole villa is yours for 28 days. Come alone, with a partner, your family — even your pet.
           </p>
           <div className="mt-14 grid gap-10 border-t border-border pt-12 sm:grid-cols-3">
             {[
-              ["One guest at a time", "A whole home and team, only for you — alone, or with your partner"],
-              ["Medicine and healing together", "Clinical care and deep healing in one hand"],
-              ["28 days to reset", "A plan that evolves with you every week"],
+              ["The villa is yours", "not a room · the whole home"],
+              ["Your people, your choice", "alone · partner · family · pets"],
+              ["28 days", "a plan that moves with you"],
             ].map(([t, d]) => (
               <div key={t}>
-                <p className="font-display text-2xl leading-snug">{t}</p>
-                <p className="mt-2 font-light text-sm text-muted-foreground">{d}</p>
+                <p className="font-display text-3xl leading-snug">{t}</p>
+                <p className="mt-3 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">{d}</p>
               </div>
             ))}
           </div>
@@ -107,8 +104,7 @@ function Index() {
               <div aria-hidden className="absolute -inset-5 rounded-full border border-accent/40" />
               <div aria-hidden className="absolute -inset-10 rounded-full border border-accent/20" />
             </div>
-            <p>No amount of willpower switches it off. What it needs is safety, time and people who look at the whole of you — body, mind and spirit.</p>
-            <p>That is the only thing uMoya is built for.</p>
+            <p className="font-display text-3xl leading-snug">It needs safety. Time. Space.</p>
           </div>
         </div>
       </section>
@@ -148,12 +144,12 @@ function Index() {
           <div className="grid gap-16 md:grid-cols-[1fr_1.4fr] md:items-center">
             <div>
               <p className="eyebrow text-primary">The people beside you</p>
-              <h2 className="mt-6 text-5xl leading-tight">You don't have to choose between medicine and deeper healing.</h2>
+              <h2 className="mt-6 text-5xl leading-tight">Every part of you, held by one small team.</h2>
               <Link to="/who" className="eyebrow mt-10 inline-block text-primary hover:underline">Meet the team →</Link>
             </div>
             <div className="grid grid-cols-2 gap-6">
               {[
-                { img: ravi, n: "Dr Ravi Govender", r: "Clinical care & safety" },
+                { img: ravi, n: "Dr Ravi Govender", r: "Care advisory" },
                 { img: shereen, n: "Shereen Singh", r: "Integrative healing" },
               ].map((p, i) => (
                 <figure key={p.n} className={i === 1 ? "mt-16" : ""}>
