@@ -9,10 +9,10 @@ export const Route = createFileRoute("/how")({
 });
 
 const steps = [
-  { t: "Understand.", d: ["Call or WhatsApp on " + PHONE + ", or write to care@umoya.care.", "Then a video call, wherever you are, to understand your needs. We listen first — nothing is planned before we understand."] },
-  { t: "Prepare.", d: ["We will work with you to prepare our 28 day program. This will serve as our roadmap, however we will continually adapt and improve the program based on our 360 degree feedback system."] },
-  { t: "Finalise.", d: ["Finalise dates, home space, payments and agree logistics. Prepare full onboarding deck with name and contact details of your coordinator. Once you land in Cape Town, uMoya will take over."] },
-  { t: "Implement, Adapt.", d: ["The 28 day plan is a guide. Every week we adapt and implement changes to our approach based on a 360 degree feedback system."] },
+  { t: "Understand.", d: ["Call or WhatsApp on " + PHONE + ", or write to care@umoya.care.", "Then a video call, wherever you are. We listen first — nothing is planned before we understand."] },
+  { t: "Prepare.", d: ["Your 28 days are designed around what you actually need: rest, movement, therapy, silence.", "The plan reaches you in writing before you travel, and you change anything you want."] },
+  { t: "Finalise.", d: ["Dates, the villa, payments and travel agreed once. Your coordinator is named before you fly.", "From the moment you land, uMoya takes over."] },
+  { t: "Implement, Adapt.", d: ["The plan is a guide, not a schedule. Each week we take a 360 degree read — sleep, body, mood.", "And adjust. The week bends to you, never the other way round."] },
 ];
 
 type Included = { t: string; k: string };
