@@ -8,7 +8,7 @@ import shereen from "@/assets/team-shereen.jpg";
 import { Page, PageHero, meta, EMAIL, WHATSAPP, Ornament, SectionBreak, MountainRange } from "@/components/site";
 
 export const Route = createFileRoute("/")({
-  head: () => meta("uMoya Cape Town | Private 1:1 Healing Sanctuary", "One client at a time. A private villa in Cape Town and a medical and holistic team devoted only to you. Quiet, discreet recovery from burnout, crisis and exhaustion."),
+  head: () => meta("uMoya Cape Town | Private 1:1 Healing Sanctuary", "One client at a time. An entire private villa in Cape Town, yours alone for 28 days — alone, with a partner, family or pets."),
   component: Index,
 });
 
@@ -21,13 +21,13 @@ const voices = [
 const compare = [
   { from: "Care designed for many guests", fk: "shared lounges · set times · a front desk", to: "Care designed around one person", tk: "one home · your hours · your team" },
   { from: "A fixed programme to follow", fk: "the same schedule for every guest", to: "A plan that evolves with you every week", tk: "reviewed weekly · adjusted as you change" },
-  { from: "Medicine or holistic care", fk: "two worlds · separate referrals", to: "Medicine and holistic care as one team", tk: "doctors and healers · one table" },
+  { from: "Body or mind, cared for apart", fk: "two worlds · separate appointments", to: "Body, mind and spirit considered together", tk: "one team · one conversation" },
   { from: "Shared spaces and schedules", fk: "other guests · open doors", to: "A private home that is yours alone", tk: "your door · your kitchen · your pace" },
 ];
 
 const day = [
   { time: "Morning", d: "Waking slowly. Breathwork, then a breakfast prepared for your body." },
-  { time: "Midday", d: "A healing session, and a quiet clinical check-in." },
+  { time: "Midday", d: "A wellbeing session, and a quiet check-in." },
   { time: "Afternoon", d: "Nature, a sound bath — or simply nothing at all." },
   { time: "Evening", d: "A conversation with your care guide. Or silence. Your choice." },
 ];
@@ -144,12 +144,12 @@ function Index() {
           <div className="grid gap-16 md:grid-cols-[1fr_1.4fr] md:items-center">
             <div>
               <p className="eyebrow text-primary">The people beside you</p>
-              <h2 className="mt-6 text-5xl leading-tight">You don't have to choose between medicine and deeper healing.</h2>
+              <h2 className="mt-6 text-5xl leading-tight">Every part of you, held by one small team.</h2>
               <Link to="/who" className="eyebrow mt-10 inline-block text-primary hover:underline">Meet the team →</Link>
             </div>
             <div className="grid grid-cols-2 gap-6">
               {[
-                { img: ravi, n: "Dr Ravi Govender", r: "Clinical care & safety" },
+                { img: ravi, n: "Dr Ravi Govender", r: "Care advisory" },
                 { img: shereen, n: "Shereen Singh", r: "Integrative healing" },
               ].map((p, i) => (
                 <figure key={p.n} className={i === 1 ? "mt-16" : ""}>
