@@ -11,8 +11,10 @@
 - [ ] /who: Eigene Profilseiten je Teammitglied (/who/rahul-singh usw.) — Content noch intensiv ausbauen (Lebenslauf, Ansatz, Zitate)
 - [ ] /who: Rahul-Foto ersetzen — das jetzige Gruppenfoto ist nicht Rahul; echtes Foto folgt vom Nutzer
 - [ ] Startseite-Titelbild: Höhe feinjustieren — soll weder zu hoch noch zu kurz sein (aktuell 82 % der Bildschirmhöhe)
+- [ ] Glynis Overmeyer: Standort "Cape Town, South Africa" bestätigt? (von mir gesetzt, weil sie live-in im Haus ist)
 
 ## Done
+- [x] Glynis Overmeyer (Live-in Wellbeing Guide) neu dabei: Abschnitt "Beside you every day" auf /who, eigene Profilseite /who/glynis-overmeyer, Bild auf der Startseite
 - [x] Startseite-Headline: "What if the next 28 days belonged only to you?" — neugierig statt Symptom
 - [x] Startseite, Vergleich: zweispaltige, gleichmässige Tabelle mit kleinen Stichwörtern unter jeder Aussage
 - [x] Startseite: weicher brauner Übergang zwischen den Abschnitten (warmes Glow + Kreis-Motiv), kein Balken
