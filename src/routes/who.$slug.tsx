@@ -32,7 +32,9 @@ function MemberPage() {
         scrim="strong"
         eyebrow={`${member.r} · ${member.l}`}
         title={<><em className="italic">{first}</em> {member.n.split(" ").slice(1).join(" ")}</>}
-        sub="One of the four partners who hold uMoya together — and the people in it."
+        sub={member.kind === "partner"
+          ? "One of the four partners who hold uMoya together — and the people in it."
+          : "uMoya's live-in wellbeing guide — there throughout your stay, from the first days to the last."}
       />
 
       <section className="relative overflow-hidden">
@@ -58,7 +60,10 @@ function MemberPage() {
               <p>{member.more}</p>
             </div>
             <p className="mt-10 text-base leading-relaxed text-muted-foreground/80">
-              Rahul, Shereen, Ravi and Vees welcome every guest personally. If you would like to speak with {first}, mention it in your first conversation.
+              {member.kind === "partner"
+                ? "Rahul, Shereen, Ravi and Vees welcome every guest personally."
+                : "Glynis lives at the home and is there throughout your stay."}{" "}
+              If you would like to speak with {first}, mention it in your first conversation.
             </p>
             <a
               href={WHATSAPP}
@@ -80,10 +85,10 @@ function MemberPage() {
             <h2 className="font-display text-3xl md:text-4xl">The rest of the team</h2>
           </div>
           <Link to="/who" className="eyebrow text-primary transition hover:opacity-70">
-            ← Back to all four partners
+            ← Back to the team
           </Link>
         </div>
-        <div className="mt-12 grid gap-10 md:grid-cols-3">
+        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {others.map((m) => (
             <Link key={m.slug} to="/who/$slug" params={{ slug: m.slug }} className="group block">
               <div className="relative">

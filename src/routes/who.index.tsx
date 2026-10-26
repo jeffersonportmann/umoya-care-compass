@@ -4,11 +4,13 @@ import { PageHero, meta, Ornament } from "@/components/site";
 import { team } from "@/data/team";
 
 export const Route = createFileRoute("/who/")({
-  head: () => meta("Who is uMoya? | The People Behind uMoya", "Meet the four partners behind uMoya — Rahul Singh, Shereen Singh, Dr Ravi Govender and Vees Moodley."),
+  head: () => meta("Who is uMoya? | The People Behind uMoya", "Meet the four partners behind uMoya — Rahul Singh, Shereen Singh, Dr Ravi Govender and Vees Moodley — and Glynis Overmeyer, live-in wellbeing guide."),
   component: Who,
 });
 
 function Who() {
+  const partners = team.filter((m) => m.kind === "partner");
+  const guides = team.filter((m) => m.kind === "guide");
   return (
     <>
       <PageHero img={hero} eyebrow="WhoMoya? · Authentic private care" title={<>The people behind <em className="italic">uMoya.</em></>} sub="uMoya's core team is built on more than 200 years of trust & friendship." />
@@ -24,7 +26,7 @@ function Who() {
       </section>
 
       <section className="mx-auto max-w-7xl space-y-24 px-6 pb-28 md:space-y-32 md:px-10">
-        {team.map((p, i) => (
+        {partners.map((p, i) => (
           <article key={p.n} className={`grid items-center gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-20 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
             <div className="relative mx-auto w-full max-w-sm">
               {p.img ? (
@@ -52,6 +54,37 @@ function Who() {
           </article>
         ))}
       </section>
+
+      {guides.map((p) => (
+        <section key={p.slug} className="relative overflow-hidden">
+          <Ornament className="-right-44 top-10 h-[26rem] w-[26rem]" />
+          <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 py-24 md:grid-cols-[0.9fr_1.1fr] md:gap-20 md:px-10 md:py-32">
+            <div className="relative mx-auto w-full max-w-sm">
+              {p.img ? (
+                <img src={p.img} alt={p.n} loading="lazy" className="shape-pebble relative aspect-[4/5] w-full object-cover" />
+              ) : (
+                <div className="shape-pebble relative flex aspect-[4/5] w-full items-center justify-center bg-accent/10">
+                  <span className="font-display text-8xl leading-none text-primary/60">{p.init}</span>
+                </div>
+              )}
+              <div aria-hidden className="shape-pebble absolute -inset-4 border border-accent/40" />
+            </div>
+            <div>
+              <p className="eyebrow text-primary">Beside you every day</p>
+              <h2 className="mt-4 text-5xl md:text-6xl">{p.n}</h2>
+              <p className="eyebrow mt-4 text-muted-foreground/80">{p.r} · {p.l}</p>
+              <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-relaxed">{p.d}</p>
+              <Link
+                to="/who/$slug"
+                params={{ slug: p.slug }}
+                className="eyebrow mt-7 inline-flex items-center gap-3 text-primary transition hover:opacity-70"
+              >
+                Read more <span aria-hidden>→</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+      ))}
 
       <section className="relative overflow-hidden bg-secondary text-secondary-foreground">
         <Ornament className="-bottom-52 -right-52 h-[40rem] w-[40rem]" />

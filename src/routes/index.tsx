@@ -5,6 +5,7 @@ import bowl from "@/assets/bowl.jpg";
 import villa from "@/assets/villa.jpg";
 import ravi from "@/assets/team-ravi.jpg";
 import shereen from "@/assets/team-shereen.jpg";
+import glynis from "@/assets/team-glynis.jpg.asset.json";
 import { Page, PageHero, meta, EMAIL, WHATSAPP, Ornament, SectionBreak, MountainRange } from "@/components/site";
 
 export const Route = createFileRoute("/")({
@@ -147,10 +148,11 @@ function Index() {
               <h2 className="mt-6 text-5xl leading-tight">Every part of you, held by one small team.</h2>
               <Link to="/who" className="eyebrow mt-10 inline-block text-primary hover:underline">Meet the team →</Link>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
               {[
                 { img: ravi, n: "Dr Ravi Govender", r: "Care advisory" },
                 { img: shereen, n: "Shereen Singh", r: "Integrative healing" },
+                { img: glynis.url, n: "Glynis Overmeyer", r: "Live-in guide" },
               ].map((p, i) => (
                 <figure key={p.n} className={i === 1 ? "mt-16" : ""}>
                   <img src={p.img} alt={p.n} loading="lazy" className="shape-pebble aspect-[3/4] w-full object-cover" />
