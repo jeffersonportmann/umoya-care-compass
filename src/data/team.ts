@@ -2,6 +2,7 @@ import ravi from "@/assets/team-ravi.jpg";
 import shereen from "@/assets/team-shereen.jpg";
 import vees from "@/assets/team-vees.jpg";
 import glynis from "@/assets/team-glynis.jpg.asset.json";
+import glynisHero from "@/assets/team-glynis-hero.jpg.asset.json";
 
 export type TeamMember = {
   slug: string;
@@ -12,6 +13,8 @@ export type TeamMember = {
   img: string | null;
   /** Partners founded uMoya; guides are the live-in care team. */
   kind: "partner" | "guide";
+  /** Optional wide header image for the member's own page. */
+  hero?: string;
   /** Short intro shown on the team page. */
   d: string;
   /** Extended story shown on the member's own page (to be built out further). */
@@ -70,6 +73,7 @@ export const team: TeamMember[] = [
     r: "Live-in Wellbeing Guide",
     l: "Cape Town, South Africa",
     img: glynis.url,
+    hero: glynisHero.url,
     kind: "guide",
     d: "Glynis has a background in personal development, holistic wellbeing and organisational development, along with a lifelong connection to nature. Her experience includes Reiki, Emotional Freedom Technique (EFT), NLP, hypnotherapy, Kundalini Yoga and forest therapy.",
     more: "She also facilitates mindful nature walks, yoga sessions and women's circles, encouraging people to reconnect with themselves and find greater balance in their lives. As uMoya's live-in Wellbeing Guide, Glynis offers a warm, supportive presence throughout each guest's stay — personal conversations, regular check-ins and gentle guidance, so that guests feel heard and cared for while their privacy is respected.",

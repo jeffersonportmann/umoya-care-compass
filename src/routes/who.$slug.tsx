@@ -28,7 +28,7 @@ function MemberPage() {
   return (
     <>
       <PageHero
-        img={member.img ?? villa}
+        img={member.hero ?? member.img ?? villa}
         scrim="strong"
         eyebrow={`${member.r} · ${member.l}`}
         title={<><em className="italic">{first}</em> {member.n.split(" ").slice(1).join(" ")}</>}
