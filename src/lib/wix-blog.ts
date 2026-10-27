@@ -86,7 +86,7 @@ async function fetchPosts(): Promise<Post[]> {
 export const getPosts = createServerFn({ method: "GET" }).handler(() => fetchPosts());
 
 export const getPost = createServerFn({ method: "GET" })
-  .inputValidator((slug: string) => String(slug))
+  .validator((slug: string) => String(slug))
   .handler(async ({ data }) => {
     const all = await fetchPosts();
     const post = all.find((p) => p.slug === data) ?? null;
