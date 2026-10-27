@@ -1,7 +1,7 @@
 # Roadmap
 
 ## Open
-- [ ] Automatische Wix-Veröffentlichung: wartet auf bestätigte Wix-managed-Headless-Verknüpfung der bestehenden Website (Wix-CLI-Konfiguration mit Site-ID und OAuth-Client-ID) sowie geschützten Wix-CLI-Zugang und GitHub-CI-Einrichtung. Vollständiger Build liegt in dist/client und dist/server vor; aktueller Build OK, vorhandene Schlüssel in keinem der 35 Client-Dateien gefunden. Keine Veröffentlichung ausgeführt; unbeaufsichtigtes Wix release noch zu verifizieren.
+- [ ] Automatische Wix-Veröffentlichung: Wix-managed Headless vom Nutzer bestätigt; wartet auf Upload der bestehenden Wix-CLI-Konfiguration mit Site-ID und OAuth-Client-ID (ohne Schlüssel) sowie geschützten Wix-CLI-Zugang und GitHub-CI-Einrichtung. Vollständiger Build liegt in dist/client und dist/server vor; aktueller Build OK, vorhandene Schlüssel in keinem der 35 Client-Dateien gefunden. Keine Veröffentlichung ausgeführt; unbeaufsichtigtes Wix release noch zu verifizieren.
 - [ ] Handy-Ansicht: Menü-Button + großes Menü ist drin — Feinschliff (Abstände, Kontaktzeile) vom Nutzer gegenlesen lassen
 - [ ] /who Profilseiten: Übergänge (Hero → Inhalt, Inhalt → Team-Abschnitt → Footer) — Schlieren-Effekt entfernt, neu geprüft
 - [ ] /who Profilseiten: Zeile "The people beside …" entfernt (Nutzer-Wunsch)
