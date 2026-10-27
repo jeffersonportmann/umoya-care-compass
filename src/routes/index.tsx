@@ -193,6 +193,30 @@ function Index() {
         </div>
       </section>
 
+      {/* Healing sessions */}
+      <section className="relative overflow-hidden bg-card">
+        <Ornament className="-right-40 -top-40 h-[30rem] w-[30rem]" />
+        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center md:px-10 md:py-32">
+          <p className="eyebrow text-primary">The healing sessions</p>
+          <h2 className="mt-6 text-5xl leading-tight">A session follows you — <em className="italic text-accent">not a script.</em></h2>
+          <p className="mx-auto mt-8 max-w-xl font-light leading-relaxed text-muted-foreground md:text-lg">
+            There is no menu to choose from and no session that must go a certain way. Your team draws from many practices and lets each session find its own form — together with you.
+          </p>
+          <div className="mt-14 grid gap-10 border-t border-border pt-12 sm:grid-cols-3">
+            {[
+              ["Still or moving", "as your body asks"],
+              ["Words or silence", "as you feel safe"],
+              ["Held or open", "as your day unfolds"],
+            ].map(([t, d]) => (
+              <div key={t}>
+                <p className="font-display text-2xl leading-snug md:text-3xl">{t}</p>
+                <p className="mt-3 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Invitation */}
       <section className="relative overflow-hidden rounded-t-[50%_5rem]">
         <img src={villa} alt="Private villa in Cape Town" loading="lazy" width={1600} height={1008} className="absolute inset-0 h-full w-full object-cover" />
