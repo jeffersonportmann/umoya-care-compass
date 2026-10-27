@@ -178,8 +178,9 @@ function Index() {
           </div>
         </div>
         <div>
-          <p className="eyebrow text-primary">A day, gently</p>
+          <p className="eyebrow text-primary">A glimpse, not a plan</p>
           <h2 className="mt-6 text-5xl leading-tight">Nothing you have to achieve.</h2>
+          <p className="mt-4 max-w-md font-light text-muted-foreground">Your days will take their own shape. This is only one of the many ways a day might unfold.</p>
           <ol className="relative mt-12 space-y-10 border-l border-accent/50 pl-10">
             {day.map((d) => (
               <li key={d.time} className="relative">
