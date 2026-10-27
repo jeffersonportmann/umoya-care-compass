@@ -3,6 +3,8 @@ import shereen from "@/assets/team-shereen.jpg";
 import vees from "@/assets/team-vees.jpg";
 import glynis from "@/assets/team-glynis.jpg.asset.json";
 import glynisHero from "@/assets/team-glynis-hero.jpg.asset.json";
+import marlien from "@/assets/team-marlien.jpg.asset.json";
+import ashleigh from "@/assets/team-ashleigh.jpg.asset.json";
 
 export type TeamMember = {
   slug: string;
@@ -11,8 +13,8 @@ export type TeamMember = {
   r: string;
   l: string;
   img: string | null;
-  /** Partners founded uMoya; guides are the live-in care team. */
-  kind: "partner" | "guide";
+  /** Distinguishes founders, live-in guides and specialist practitioners. */
+  kind: "partner" | "guide" | "practitioner";
   /** Optional wide header image for the member's own page. */
   hero?: string;
   /** Short intro shown on the team page. */
@@ -77,6 +79,28 @@ export const team: TeamMember[] = [
     kind: "guide",
     d: "Glynis has a background in personal development, holistic wellbeing and organisational development, along with a lifelong connection to nature. Her experience includes Reiki, Emotional Freedom Technique (EFT), NLP, hypnotherapy, Kundalini Yoga and forest therapy.",
     more: "She also facilitates mindful nature walks, yoga sessions and women's circles, encouraging people to reconnect with themselves and find greater balance in their lives. As uMoya's live-in Wellbeing Guide, Glynis offers a warm, supportive presence throughout each guest's stay — personal conversations, regular check-ins and gentle guidance, so that guests feel heard and cared for while their privacy is respected.",
+  },
+  {
+    slug: "marlien-wright",
+    n: "Marlien Wright",
+    init: "MW",
+    r: "Kinesiologist | Integrative Health & Wellbeing",
+    l: "",
+    img: marlien.url,
+    kind: "practitioner",
+    d: "Marlien is a holistic wellbeing practitioner with a diverse background in kinesiology, nutrition, gut health, 12-Step counselling, yoga and Pilates. She is also the author of The Yoga Kitchen and The Mandala Kitchen.",
+    more: "Her approach combines kinesiology, psychosomatic bodywork, counselling and lifestyle guidance, recognising the connection between physical health, emotional wellbeing and the nervous system.\n\nWith a compassionate and practical approach, Marlien helps individuals explore underlying imbalances, reconnect with their bodies and develop greater self-awareness. She believes in supporting each person's natural capacity for healing while encouraging balance and lasting positive change.",
+  },
+  {
+    slug: "ashleigh-caradas",
+    n: "Ashleigh Caradas",
+    init: "AC",
+    r: "Registered Dietitian | Nutrition & Wellbeing",
+    l: "",
+    img: ashleigh.url,
+    kind: "practitioner",
+    d: "Ashleigh is a registered dietitian with over 20 years of experience in private practice. She holds a BSc from the University of the Witwatersrand and an Honours degree in Nutrition and Dietetics from the University of Cape Town.",
+    more: "Her work focuses on nutritional health, eating behaviours and the connection between food, emotions and wellbeing. With a compassionate, non-judgemental approach, she helps individuals develop healthier relationships with food and themselves.\n\nAlso a qualified yoga instructor, Ashleigh brings an understanding of the mind-body connection to her work.",
   },
 ];
 
