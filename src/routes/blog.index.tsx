@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero, meta } from "@/components/site";
-import { posts } from "@/data/blog";
+import { getPosts } from "@/lib/wix-blog";
 import hero from "@/assets/healing.jpg";
 
 export const Route = createFileRoute("/blog/")({
+  loader: () => getPosts(),
   head: () =>
     meta(
       "Journal — uMoya Cape Town",
@@ -13,6 +14,7 @@ export const Route = createFileRoute("/blog/")({
 });
 
 function BlogPage() {
+  const posts = Route.useLoaderData();
   return (
     <>
       <PageHero

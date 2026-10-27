@@ -1,12 +1,12 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { Page, meta, Ornament, WHATSAPP } from "@/components/site";
-import { findPost, posts } from "@/data/blog";
+import { getPost } from "@/lib/wix-blog";
 
 export const Route = createFileRoute("/blog/$slug")({
-  loader: ({ params }) => {
-    const post = findPost(params.slug);
+  loader: async ({ params }) => {
+    const { post, others } = await getPost({ data: params.slug });
     if (!post) throw notFound();
-    return { post };
+    return { post, others };
   },
   head: ({ loaderData }) => {
     if (!loaderData) return meta("Unavailable | uMoya", "This page is currently unavailable.");
@@ -29,8 +29,7 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function PostPage() {
-  const { post } = Route.useLoaderData();
-  const others = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const { post, others } = Route.useLoaderData();
 
   return (
     <Page seam="light">
