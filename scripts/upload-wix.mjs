@@ -3,8 +3,12 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { SITE_ID, validateFiles } from './static-policy.mjs';
 
-const apiKey = process.env.WIX_CLI_API_KEY;
-if (!apiKey) throw new Error('Missing GitHub Actions secret WIX_CLI_API_KEY');
+const apiKey = process.env.WIX_API_KEY;
+const siteId = process.env.WIX_SITE_ID;
+if (!apiKey) throw new Error('Missing GitHub Actions secret WIX_API_KEY');
+if (!siteId) throw new Error('Missing GitHub Actions secret WIX_SITE_ID');
+// Only the existing uMoya headless site may be replaced.
+if (siteId !== SITE_ID) throw new Error('WIX_SITE_ID does not match the existing uMoya site; upload refused');
 const files = [];
 const output = path.resolve('dist/static');
 async function walk(directory) {
@@ -15,7 +19,7 @@ async function walk(directory) {
   }
 }
 await walk(output);
-validateFiles(files, [apiKey, process.env.LOVABLE_API_KEY, process.env.WIX_API_KEY]);
+validateFiles(files, [apiKey, process.env.LOVABLE_API_KEY, process.env.WIX_BLOG_CONNECTION_KEY]);
 // Never forward CLI output: it may contain authentication details.
 function cli(args) {
   try { return execFileSync('npx', ['--yes', '@wix/cli@1.2.2', ...args], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim(); }
