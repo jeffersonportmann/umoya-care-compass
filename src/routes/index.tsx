@@ -27,10 +27,10 @@ const compare = [
 ];
 
 const day = [
-  { time: "Morning", d: "Waking slowly. Breathwork, then a breakfast prepared for your body." },
-  { time: "Midday", d: "A wellbeing session, and a quiet check-in." },
-  { time: "Afternoon", d: "Nature, a sound bath — or simply nothing at all." },
-  { time: "Evening", d: "A conversation with your care guide. Or silence. Your choice." },
+  { time: "Morning", d: "Waking slowly, if that is your rhythm. Breath, breakfast — or a morning that looks nothing like this." },
+  { time: "Midday", d: "Perhaps a wellbeing session. Perhaps a long walk, a swim, a book. Whatever feels right that day." },
+  { time: "Afternoon", d: "Nature, a sound bath, deep rest — or something we discover together as the weeks unfold." },
+  { time: "Evening", d: "A conversation with your care guide. Silence. Both are equally welcome." },
 ];
 
 function Index() {
@@ -178,8 +178,9 @@ function Index() {
           </div>
         </div>
         <div>
-          <p className="eyebrow text-primary">A day, gently</p>
+          <p className="eyebrow text-primary">A glimpse, not a plan</p>
           <h2 className="mt-6 text-5xl leading-tight">Nothing you have to achieve.</h2>
+          <p className="mt-4 max-w-md font-light text-muted-foreground">Your days will take their own shape. This is only one of the many ways a day might unfold.</p>
           <ol className="relative mt-12 space-y-10 border-l border-accent/50 pl-10">
             {day.map((d) => (
               <li key={d.time} className="relative">
