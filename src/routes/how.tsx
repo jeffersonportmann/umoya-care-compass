@@ -19,7 +19,8 @@ type Included = { t: string; k: string };
 
 const included: [Included, Included][] = [
   [{ t: "Live-in care guide", k: "one named coordinator · day and night" }, { t: "24/7 support", k: "someone answers, always" }],
-  [{ t: "Alternative therapy care", k: "Reiki · sound baths · breathwork" }, { t: "Traditional healer care", k: "isiZulu healing · ancestral ritual" }],
+  [{ t: "Alternative therapy care", k: "Reiki · somatic therapy · sound healing · regression" }, { t: "Traditional healer care", k: "African & shamanic practice · plant medicine" }],
+  [{ t: "Body, breath & movement", k: "yoga · kundalini · tai chi · forest walks" }, { t: "Creative & mind care", k: "art therapy · EFT · NLP · hypnotherapy" }],
   [{ t: "Sacred rituals and ceremonies", k: "sunrise walks · fire ceremony" }, { t: "Planned outings and visits", k: "Cape Point · vineyards · islands" }],
   [{ t: "An entire private villa", k: "the whole home is yours · pool · sea view" }, { t: "Private chef meals", k: "three meals a day · your pantry" }],
   [{ t: "Personal trainer & gym access", k: "daily movement · ocean runs" }, { t: "Airport and local transport", k: "car and driver · no driving yourself" }],
@@ -77,7 +78,7 @@ function How() {
             </div>
           ))}
         </div>
-        <p className="relative mt-12 text-center text-sm font-light italic text-muted-foreground">On request, we can connect you with independently licensed medical practitioners in Cape Town.</p>
+        <p className="relative mt-12 text-center text-sm font-light italic text-muted-foreground">Specific medical or psychiatric care can be coordinated upon request.</p>
       </section>
 
       <section className="relative overflow-hidden bg-secondary text-secondary-foreground">
