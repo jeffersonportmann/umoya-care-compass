@@ -199,7 +199,7 @@ export const posts: Post[] = [
     img: "https://static.wixstatic.com/media/nsplsh_6f5137593163552d526c67~mv2_d_5760_3840_s_4_2.jpg/v1/fill/w_800,h_600,fp_0.50_0.50,q_90,enc_auto/nsplsh_6f5137593163552d526c67~mv2_d_5760_3840_s_4_2.jpg",
     excerpt: "\u201cIf all you have is a hammer, everything looks like a nail.\u201d \u2014 Maslow's Hammer. A human being is not a body alone. You are body, mind, and spirit \u2014 a complex integrated system.",
     body: [
-      { type: "h", text: "If all you have is a hammer, everything looks like a nail.\"" },
+      { type: "p", text: "If all you have is a hammer, everything looks like a nail.\"" },
       { type: "p", text: " \u2014 Maslow's Hammer" },
       { type: "h", text: "The Blind Spot of Single Tools" },
       { type: "p", text: "When you possess only one tool, you perceive reality through that tool's lens." },
