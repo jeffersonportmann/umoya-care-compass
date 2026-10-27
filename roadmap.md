@@ -4,7 +4,7 @@
 - [ ] Handy-Ansicht: Menü-Button + großes Menü ist drin — Feinschliff (Abstände, Kontaktzeile) vom Nutzer gegenlesen lassen
 - [ ] /who Profilseiten: Übergänge (Hero → Inhalt, Inhalt → Team-Abschnitt → Footer) — Schlieren-Effekt entfernt, neu geprüft
 - [ ] /who Profilseiten: Zeile "The people beside …" entfernt (Nutzer-Wunsch)
-- [ ] Blog: Artikel vollständig auf der neuen Seite lesbar machen (heute nur Karten mit Link auf umoya.care)
+- [ ] Journal: Beitragsbilder sind noch die URLs von umoya.care (wixstatic) — später durch eigene Bilder ersetzen
 - [ ] E-Mail klären: care@umoya.care im Code, Originalseite nennt umoya.care@gmail.com bei "How"
 - [ ] KI-Platzhalterfotos (hero, healing, villa, bowl, mandala, el-*) durch echte uMoya-Bilder ersetzen
 - [ ] Selbst formulierte Texte bestätigen: 100% Confidential / Weekly Plan reviews / 1:1 Dedicated team, 24-Stunden-Antwort, isiZulu-Bedeutung, Tagesablauf, "Ihr sprecht direkt mit den Gründern", Stichworte in "What is included", neue Vergleichs-Stichwörter, neue Hero-Headline und -Subline
@@ -14,6 +14,10 @@
 - [ ] Glynis Overmeyer: Standort "Cape Town, South Africa" bestätigt? (von mir gesetzt, weil sie live-in im Haus ist)
 
 ## Done
+- [x] Journal: keine externen Links mehr — jede Karte führt auf eine eigene Unterseite /blog/$slug mit vollständigem Text (alle 8 Artikel von umoya.care übernommen)
+- [x] /how: Therapien in "What is included" ergänzt (somatic therapy, sound healing, regression, tai chi, art therapy, plant medicine, EFT, NLP, hypnotherapy, kundalini, forest walks)
+- [x] /how: Hinweis unten jetzt "Specific medical or psychiatric care can be coordinated upon request."
+- [x] /who: Dr Ravi Govender — Profilseite sagt jetzt "speak with Ravi" (zuvor stand nur "Dr")
 - [x] Glynis Overmeyer (Live-in Wellbeing Guide) neu dabei: Abschnitt "Beside you every day" auf /who, eigene Profilseite /who/glynis-overmeyer, Bild auf der Startseite
 - [x] Startseite-Headline: "What if the next 28 days belonged only to you?" — neugierig statt Symptom
 - [x] Startseite, Vergleich: zweispaltige, gleichmässige Tabelle mit kleinen Stichwörtern unter jeder Aussage
