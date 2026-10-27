@@ -2,9 +2,9 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { validateFiles } from './static-policy.mjs';
+import { fetchPublicPosts } from './wix-public-posts.mjs';
 
 const root = process.cwd();
-process.env.UMOYA_STATIC_EXPORT = 'true';
 const output = path.join(root, 'dist/static');
 await fs.rm(output, { recursive: true, force: true });
 await fs.cp(path.join(root, 'dist/client'), output, { recursive: true });
@@ -14,7 +14,7 @@ const context = { waitUntil() {}, passThroughOnException() {}, props: {} };
 const origin = 'http://localhost';
 const pending = ['/'];
 const visited = new Set();
-let posts;
+const posts = await fetchPublicPosts();
 while (pending.length) {
   const route = pending.shift();
   if (visited.has(route)) continue;
@@ -36,8 +36,6 @@ while (pending.length) {
 // Browser navigation reads the same published articles as the rendered pages.
 const blogResponse = await entry.fetch(new Request(origin + '/blog'), {}, context);
 if (!blogResponse.ok) throw new Error('Blog render failed');
-// The server loader also exports a JSON snapshot during static rendering.
-posts = globalThis.__UMOYA_STATIC_POSTS;
 if (!Array.isArray(posts) || !posts.length) throw new Error('No published Wix posts exported');
 await fs.writeFile(path.join(output, 'blog-data.json'), JSON.stringify(posts));
 for (const name of await fs.readdir(path.join(root, 'src/assets'))) {

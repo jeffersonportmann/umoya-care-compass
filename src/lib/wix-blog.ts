@@ -81,9 +81,6 @@ async function fetchPosts(): Promise<Post[]> {
     excerpt: p.excerpt ?? "",
     body: toBlocks(p.richContent?.nodes),
   }));
-  if (process.env["UMOYA_STATIC_EXPORT"] === "true") {
-    (globalThis as typeof globalThis & { __UMOYA_STATIC_POSTS?: Post[] }).__UMOYA_STATIC_POSTS = posts;
-  }
   return posts;
 }
 
