@@ -33,11 +33,13 @@ function MemberPage() {
       <PageHero
         img={member.hero ?? member.img ?? villa}
         scrim="strong"
-        eyebrow={`${member.r} · ${member.l}`}
+        eyebrow={member.l ? `${member.r} · ${member.l}` : member.r}
         title={<>{honorific}<em className="italic">{first}</em> {rest}</>}
         sub={member.kind === "partner"
           ? "One of the four partners who hold uMoya together — and the people in it."
-          : "uMoya's live-in wellbeing guide — there throughout your stay, from the first days to the last."}
+          : member.kind === "guide"
+            ? "uMoya's live-in wellbeing guide — there throughout your stay, from the first days to the last."
+            : "A compassionate, individual approach to health and wellbeing."}
       />
 
       <section className="relative overflow-hidden">
@@ -57,15 +59,17 @@ function MemberPage() {
           <div>
             <p className="eyebrow text-primary">{member.r}</p>
             <h2 className="mt-4 text-4xl md:text-5xl">{member.n}</h2>
-            <p className="eyebrow mt-4 text-muted-foreground/80">{member.l}</p>
+            {member.l && <p className="eyebrow mt-4 text-muted-foreground/80">{member.l}</p>}
             <div className="mt-8 space-y-6 border-l border-accent/40 pl-7 text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-relaxed">
               <p>{member.d}</p>
-              <p>{member.more}</p>
+              {member.more.split("\n\n").map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </div>
             <p className="mt-10 text-base leading-relaxed text-muted-foreground/80">
               {member.kind === "partner"
                 ? "Rahul, Shereen, Ravi and Vees welcome every guest personally."
-                : "Glynis lives at the home and is there throughout your stay."}{" "}
+                : member.kind === "guide"
+                  ? "Glynis lives at the home and is there throughout your stay."
+                  : ""}{" "}
               If you would like to speak with {first}, mention it in your first conversation.
             </p>
             <a

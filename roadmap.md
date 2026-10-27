@@ -15,6 +15,7 @@
 - [ ] Glynis Overmeyer: Standort "Cape Town, South Africa" bestätigt? (von mir gesetzt, weil sie live-in im Haus ist)
 
 ## Done
+- [x] Marlien Wright und Ashleigh Caradas mit bereitgestellten Fotos und vollständigen Biografien in Teamübersicht und eigenen Profilen ergänzt; Fotos, Navigation und drei Tests erfolgreich geprüft.
 - [x] Wix-Static-CI vorbereitet ohne Astro-Konfiguration: npm run build im Workflow, Export von 19 Seiten und 8 Artikeln lokal geprüft, 4 Sicherheitsprüfungen und Routing-Test bestanden; bestehende Blognavigation geprüft. Vollständiger Upload bleibt gesperrt, bis Wix die bestehende statische Veröffentlichung bestätigt.
 - [x] Journal: keine externen Links mehr — jede Karte führt auf eine eigene Unterseite /blog/$slug mit vollständigem Text (alle 8 Artikel von umoya.care übernommen)
 - [x] /how: Therapien in "What is included" ergänzt (somatic therapy, sound healing, regression, tai chi, art therapy, plant medicine, EFT, NLP, hypnotherapy, kundalini, forest walks)

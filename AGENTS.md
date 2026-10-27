@@ -12,3 +12,4 @@
 - Wix static deployments use the official complete-file drop API against the verified existing site, never provision a new site or generate an Astro configuration.
 - The static CI build exports published Wix articles as public JSON and pre-renders all linked pages; static browser navigation reads that snapshot because Wix static hosting cannot run server functions.
 - GitHub deployment credentials live only in protected Actions environment secrets; CLI tokens and authentication output must never be logged or written into deliverable files.
+- Team data distinguishes partners, live-in guides and specialist practitioners so adding a practitioner never implies founder status or live-in availability; unknown personal locations remain blank.
