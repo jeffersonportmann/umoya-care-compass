@@ -34,16 +34,12 @@ function PostPage() {
 
   return (
     <Page seam="light">
-      <article className="relative overflow-hidden">
+      <article className="relative overflow-hidden bg-secondary text-secondary-foreground">
         <Ornament className="-right-52 -top-40 h-[30rem] w-[30rem]" />
-        <div className="relative mx-auto max-w-3xl px-6 pt-36 pb-16 md:px-10 md:pt-44">
-          <p className="eyebrow text-primary">uMoya Journal · {post.date}</p>
+        <div className="relative mx-auto max-w-3xl px-6 pt-36 pb-24 md:px-10 md:pt-44 md:pb-28">
+          <p className="eyebrow text-accent">uMoya Journal · {post.date}</p>
           <h1 className="mt-6 text-4xl leading-[1.1] md:text-5xl">{post.title}</h1>
-          <img
-            src={post.img}
-            alt={post.title}
-            width={800}
-            height={600}
+...
             className="mt-10 aspect-[4/3] w-full border border-border object-cover"
           />
         </div>
