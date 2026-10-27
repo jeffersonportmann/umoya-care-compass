@@ -52,8 +52,8 @@ function imgUrl(raw: any): string {
 }
 
 async function fetchPosts(): Promise<Post[]> {
-  const lovableKey = process.env.LOVABLE_API_KEY;
-  const wixKey = process.env.WIX_API_KEY;
+  const lovableKey = process.env["LOVABLE_API_KEY"];
+  const wixKey = process.env["WIX_API_KEY"];
   if (!lovableKey) throw new Error("LOVABLE_API_KEY is not configured");
   if (!wixKey) throw new Error("WIX_API_KEY is not configured");
 
