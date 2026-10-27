@@ -39,13 +39,19 @@ function PostPage() {
         <div className="relative mx-auto max-w-3xl px-6 pt-36 pb-24 md:px-10 md:pt-44 md:pb-28">
           <p className="eyebrow text-accent">uMoya Journal · {post.date}</p>
           <h1 className="mt-6 text-4xl leading-[1.1] md:text-5xl">{post.title}</h1>
-...
-            className="mt-10 aspect-[4/3] w-full border border-border object-cover"
-          />
         </div>
       </article>
 
       <section className="relative overflow-hidden bg-card">
+        <div className="relative mx-auto max-w-3xl px-6 md:px-10">
+          <img
+            src={post.img}
+            alt={post.title}
+            width={800}
+            height={600}
+            className="-mt-16 aspect-[4/3] w-full border border-border object-cover shadow-xl md:-mt-20"
+          />
+        </div>
         <div className="relative mx-auto max-w-3xl px-6 py-16 md:px-10 md:py-20">
           {post.body.map((b, i) =>
             b.type === "h" ? (
