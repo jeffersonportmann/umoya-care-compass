@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Open
+- [ ] Marlien Wright und Ashleigh Caradas mit bereitgestellten Fotos und Biografien in Teamübersicht und eigenen Profilen ergänzen und prüfen.
 - [ ] Automatische Wix-Veröffentlichung aktivieren: Workflow und offizieller vollständiger statischer Drop für bestehende Website vorbereitet; wartet auf geschützte GitHub-Environment-Secrets (WIX_CLI_API_KEY, WIX_BLOG_CONNECTION_KEY, LOVABLE_API_KEY) und Git-Sync/Actions-Aktivierung durch Nutzer. Wix-Prüfung der aktuellen statischen Dateien liefert HTTP 500, daher kein Upload. CI-Build mit statischem Browser-Modus und Produktion noch nicht ausgeführt/verifiziert.
 - [ ] Handy-Ansicht: Menü-Button + großes Menü ist drin — Feinschliff (Abstände, Kontaktzeile) vom Nutzer gegenlesen lassen
 - [ ] /who Profilseiten: Übergänge (Hero → Inhalt, Inhalt → Team-Abschnitt → Footer) — Schlieren-Effekt entfernt, neu geprüft
