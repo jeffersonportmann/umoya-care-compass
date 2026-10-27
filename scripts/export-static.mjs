@@ -41,11 +41,19 @@ await fs.writeFile(path.join(output, 'blog-data.json'), JSON.stringify(posts));
 for (const name of await fs.readdir(path.join(root, 'src/assets'))) {
   if (!name.endsWith('.asset.json')) continue;
   const asset = JSON.parse(await fs.readFile(path.join(root, 'src/assets', name), 'utf8'));
-  const response = await fetch(new URL(asset.url, 'https://www.umoya.care'));
-  if (!response.ok || !response.headers.get('content-type')?.startsWith('image/')) throw new Error(`Missing media: ${name}`);
+  // The running preview serves every project asset; umoya.care is the fallback for older files.
+  let image = null;
+  for (const base of ['http://localhost:8080', 'https://www.umoya.care']) {
+    const response = await fetch(new URL(asset.url, base));
+    if (response.ok && response.headers.get('content-type')?.startsWith('image/')) {
+      image = Buffer.from(await response.arrayBuffer());
+      break;
+    }
+  }
+  if (!image) throw new Error(`Missing media: ${name}`);
   const destination = path.join(output, asset.url);
   await fs.mkdir(path.dirname(destination), { recursive: true });
-  await fs.writeFile(destination, Buffer.from(await response.arrayBuffer()));
+  await fs.writeFile(destination, image);
 }
 const files = [];
 async function walk(directory) {
