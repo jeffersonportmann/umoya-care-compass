@@ -65,10 +65,10 @@ function How() {
           <p className="eyebrow text-primary">What is included</p>
           <h2 className="mt-6 text-5xl">Everything, so you can think of nothing.</h2>
         </div>
-        <div className="relative mx-auto mt-16 max-w-3xl border-t border-accent/30 px-8 sm:px-12">
+        <div className="relative mx-auto mt-16 max-w-4xl border-t border-accent/30 px-8 sm:px-12">
           <span aria-hidden className="absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-accent/25 sm:block" />
           {included.map((row, i) => (
-            <div key={i} className="grid gap-y-6 border-b border-accent/20 py-6 sm:grid-cols-2 sm:gap-x-16">
+            <div key={i} className="grid gap-y-6 border-b border-accent/20 py-6 sm:grid-cols-2 sm:gap-x-12">
               {row.map((x) => (
                 <div key={x.t}>
                   <p className="font-display text-xl leading-snug tracking-wide">{x.t}</p>
