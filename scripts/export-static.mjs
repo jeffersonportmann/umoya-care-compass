@@ -4,6 +4,7 @@ import { pathToFileURL } from 'node:url';
 import { validateFiles } from './static-policy.mjs';
 
 const root = process.cwd();
+process.env.UMOYA_STATIC_EXPORT = 'true';
 const output = path.join(root, 'dist/static');
 await fs.rm(output, { recursive: true, force: true });
 await fs.cp(path.join(root, 'dist/client'), output, { recursive: true });

@@ -73,7 +73,7 @@ async function fetchPosts(): Promise<Post[]> {
     throw new Error(`Wix blog request failed [${res.status}]`);
   }
   const data = (await res.json()) as { posts?: any[] };
-  return (data.posts ?? []).map((p) => ({
+  const posts: Post[] = (data.posts ?? []).map((p) => ({
     slug: p.slug,
     title: p.title,
     date: fmtDate(p.firstPublishedDate),
@@ -81,6 +81,10 @@ async function fetchPosts(): Promise<Post[]> {
     excerpt: p.excerpt ?? "",
     body: toBlocks(p.richContent?.nodes),
   }));
+  if (process.env["UMOYA_STATIC_EXPORT"] === "true") {
+    (globalThis as typeof globalThis & { __UMOYA_STATIC_POSTS?: Post[] }).__UMOYA_STATIC_POSTS = posts;
+  }
+  return posts;
 }
 
 export const getPosts = createServerFn({ method: "GET" }).handler(() => fetchPosts());
