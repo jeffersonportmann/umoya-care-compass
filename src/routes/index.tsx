@@ -27,9 +27,9 @@ const compare = [
 ];
 
 const day = [
-  { time: "Morning", d: "Waking slowly, if that is your rhythm. Breath, breakfast — or a morning that looks nothing like this." },
-  { time: "Midday", d: "Perhaps a wellbeing session. Perhaps a long walk, a swim, a book. Whatever feels right that day." },
-  { time: "Afternoon", d: "Nature, a sound bath, deep rest — or something we discover together as the weeks unfold." },
+  { time: "Morning", d: "Waking slowly, if that is your rhythm. Breathwork, a Reiki session, breakfast prepared for your body — or a morning that looks nothing like this." },
+  { time: "Midday", d: "Perhaps a kinesiology or nutrition session. Perhaps a long walk, a swim, a book. Whatever the body asks for that day." },
+  { time: "Afternoon", d: "Sound healing, yoga or Pilates, deep rest — or something we discover together as the weeks unfold." },
   { time: "Evening", d: "A conversation with your care guide. Silence. Both are equally welcome." },
 ];
 
@@ -190,30 +190,9 @@ function Index() {
               </li>
             ))}
           </ol>
-        </div>
-      </section>
-
-      {/* Healing sessions */}
-      <section className="relative overflow-hidden bg-card">
-        <Ornament className="-right-40 -top-40 h-[30rem] w-[30rem]" />
-        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center md:px-10 md:py-32">
-          <p className="eyebrow text-primary">The healing sessions</p>
-          <h2 className="mt-6 text-5xl leading-tight">A session follows you — <em className="italic text-accent">not a script.</em></h2>
-          <p className="mx-auto mt-8 max-w-xl font-light leading-relaxed text-muted-foreground md:text-lg">
-            There is no menu to choose from and no session that must go a certain way. Your team draws from many practices and lets each session find its own form — together with you.
+          <p className="mt-12 max-w-md border-t border-border pt-8 font-light text-muted-foreground">
+            A session follows you, not a script. Your team draws from Reiki, somatic bodywork, sound, breath, nutrition and time in nature — and lets each session find its own form.
           </p>
-          <div className="mt-14 grid gap-10 border-t border-border pt-12 sm:grid-cols-3">
-            {[
-              ["Still or moving", "as your body asks"],
-              ["Words or silence", "as you feel safe"],
-              ["Held or open", "as your day unfolds"],
-            ].map(([t, d]) => (
-              <div key={t}>
-                <p className="font-display text-2xl leading-snug md:text-3xl">{t}</p>
-                <p className="mt-3 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">{d}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
