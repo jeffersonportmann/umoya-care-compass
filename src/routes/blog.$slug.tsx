@@ -1,10 +1,10 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { Page, meta, Ornament, WHATSAPP } from "@/components/site";
-import { getPost } from "@/lib/wix-blog";
+import { loadPost } from "@/lib/blog-source";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: async ({ params }) => {
-    const { post, others } = await getPost({ data: params.slug });
+    const { post, others } = await loadPost(params.slug);
     if (!post) throw notFound();
     return { post, others };
   },

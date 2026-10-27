@@ -73,7 +73,7 @@ async function fetchPosts(): Promise<Post[]> {
     throw new Error(`Wix blog request failed [${res.status}]`);
   }
   const data = (await res.json()) as { posts?: any[] };
-  return (data.posts ?? []).map((p) => ({
+  const posts: Post[] = (data.posts ?? []).map((p) => ({
     slug: p.slug,
     title: p.title,
     date: fmtDate(p.firstPublishedDate),
@@ -81,6 +81,7 @@ async function fetchPosts(): Promise<Post[]> {
     excerpt: p.excerpt ?? "",
     body: toBlocks(p.richContent?.nodes),
   }));
+  return posts;
 }
 
 export const getPosts = createServerFn({ method: "GET" }).handler(() => fetchPosts());
