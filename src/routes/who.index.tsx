@@ -55,10 +55,10 @@ function Who() {
         ))}
       </section>
 
-      {careTeam.map((p) => (
+      {careTeam.map((p, i) => (
         <section key={p.slug} className="relative overflow-hidden">
           <Ornament className="-right-44 top-10 h-[26rem] w-[26rem]" />
-          <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 py-24 md:grid-cols-[0.9fr_1.1fr] md:gap-20 md:px-10 md:py-32">
+          <div className={`relative mx-auto grid max-w-6xl items-center gap-14 px-6 py-24 md:grid-cols-[0.9fr_1.1fr] md:gap-20 md:px-10 md:py-32 ${(partners.length + i) % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
             <div className="relative mx-auto w-full max-w-sm">
               {p.img ? (
                 <img src={p.img} alt={p.n} loading="lazy" className="shape-pebble relative aspect-[4/5] w-full object-cover" />
