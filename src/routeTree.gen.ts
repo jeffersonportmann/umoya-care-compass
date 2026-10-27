@@ -15,6 +15,7 @@ import { Route as HowRouteImport } from './routes/how'
 import { Route as WhatRouteImport } from './routes/what'
 import { Route as WhoRouteImport } from './routes/who'
 import { Route as WhyRouteImport } from './routes/why'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as WhoIndexRouteImport } from './routes/who.index'
 import { Route as WhoSlugRouteImport } from './routes/who.$slug'
 
@@ -48,6 +49,11 @@ const WhyRoute = WhyRouteImport.update({
   path: '/why',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
 const WhoIndexRoute = WhoIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -61,40 +67,59 @@ const WhoSlugRoute = WhoSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/how': typeof HowRoute
   '/what': typeof WhatRoute
   '/who': typeof WhoRouteWithChildren
   '/why': typeof WhyRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/who/$slug': typeof WhoSlugRoute
   '/who/': typeof WhoIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/how': typeof HowRoute
   '/what': typeof WhatRoute
   '/why': typeof WhyRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/who/$slug': typeof WhoSlugRoute
   '/who': typeof WhoIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/blog': typeof BlogRoute
+  '/blog': typeof BlogRouteWithChildren
   '/how': typeof HowRoute
   '/what': typeof WhatRoute
   '/who': typeof WhoRouteWithChildren
   '/why': typeof WhyRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/who/$slug': typeof WhoSlugRoute
   '/who/': typeof WhoIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/blog' | '/how' | '/what' | '/who' | '/why' | '/who/$slug' | '/who/'
+    | '/'
+    | '/blog'
+    | '/how'
+    | '/what'
+    | '/who'
+    | '/why'
+    | '/blog/$slug'
+    | '/who/$slug'
+    | '/who/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog' | '/how' | '/what' | '/why' | '/who/$slug' | '/who'
+  to:
+    | '/'
+    | '/blog'
+    | '/how'
+    | '/what'
+    | '/why'
+    | '/blog/$slug'
+    | '/who/$slug'
+    | '/who'
   id:
     | '__root__'
     | '/'
@@ -103,13 +128,14 @@ export interface FileRouteTypes {
     | '/what'
     | '/who'
     | '/why'
+    | '/blog/$slug'
     | '/who/$slug'
     | '/who/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BlogRoute: typeof BlogRoute
+  BlogRoute: typeof BlogRouteWithChildren
   HowRoute: typeof HowRoute
   WhatRoute: typeof WhatRoute
   WhoRoute: typeof WhoRouteWithChildren
@@ -160,6 +186,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
     '/who/': {
       id: '/who/'
       path: '/'
@@ -177,6 +210,16 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 interface WhoRouteChildren {
   WhoSlugRoute: typeof WhoSlugRoute
   WhoIndexRoute: typeof WhoIndexRoute
@@ -191,7 +234,7 @@ const WhoRouteWithChildren = WhoRoute._addFileChildren(WhoRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BlogRoute: BlogRoute,
+  BlogRoute: BlogRouteWithChildren,
   HowRoute: HowRoute,
   WhatRoute: WhatRoute,
   WhoRoute: WhoRouteWithChildren,
