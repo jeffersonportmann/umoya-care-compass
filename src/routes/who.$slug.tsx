@@ -22,7 +22,10 @@ export const Route = createFileRoute("/who/$slug")({
 
 function MemberPage() {
   const { member } = Route.useLoaderData();
-  const first = member.n.split(" ")[0];
+  const honorific = /^Dr\s/.test(member.n) ? "Dr " : "";
+  const bare = member.n.replace(/^Dr\s+/, "");
+  const first = bare.split(" ")[0];
+  const rest = bare.split(" ").slice(1).join(" ");
   const others = team.filter((m) => m.slug !== member.slug);
 
   return (
@@ -31,7 +34,7 @@ function MemberPage() {
         img={member.hero ?? member.img ?? villa}
         scrim="strong"
         eyebrow={`${member.r} · ${member.l}`}
-        title={<><em className="italic">{first}</em> {member.n.split(" ").slice(1).join(" ")}</>}
+        title={<>{honorific}<em className="italic">{first}</em> {rest}</>}
         sub={member.kind === "partner"
           ? "One of the four partners who hold uMoya together — and the people in it."
           : "uMoya's live-in wellbeing guide — there throughout your stay, from the first days to the last."}
