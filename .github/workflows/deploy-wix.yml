@@ -6,9 +6,18 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: umoya-wix-production
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: wix-production
+    timeout-minutes: 20
 
     steps:
       - name: Repository auschecken
@@ -17,11 +26,39 @@ jobs:
       - name: Node.js einrichten
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # Die offizielle Wix CLI verlangt Node >= 24.18
+          node-version: 24
           cache: npm
 
       - name: Abhängigkeiten installieren
         run: npm ci
 
+      - name: Sicherheitsregeln testen
+        run: node --test scripts/static-policy.test.mjs
+
       - name: Website bauen
         run: npm run build
+        env:
+          VITE_STATIC_EXPORT: 'true'
+
+      # npm run build erzeugt dist/client (nur Startseite + Assets) und dist/server.
+      # Dieser Schritt rendert alle Seiten nach dist/static – das ist der Upload-Ordner.
+      - name: Vollständigen statischen Build erzeugen (dist/static)
+        run: node scripts/export-static.mjs
+        env:
+          LOVABLE_API_KEY: ${{ secrets.LOVABLE_API_KEY }}
+          WIX_API_KEY: ${{ secrets.WIX_BLOG_CONNECTION_KEY }}
+
+      - name: Build-Ordner prüfen
+        run: |
+          test -f dist/static/index.html
+          test -d dist/static/assets
+          echo "Dateien im Upload: $(find dist/static -type f | wc -l)"
+
+      - name: Vollständigen Build zu Wix hochladen
+        run: node scripts/upload-wix.mjs
+        env:
+          WIX_API_KEY: ${{ secrets.WIX_API_KEY }}
+          WIX_SITE_ID: ${{ secrets.WIX_SITE_ID }}
+          LOVABLE_API_KEY: ${{ secrets.LOVABLE_API_KEY }}
+          WIX_BLOG_CONNECTION_KEY: ${{ secrets.WIX_BLOG_CONNECTION_KEY }}
