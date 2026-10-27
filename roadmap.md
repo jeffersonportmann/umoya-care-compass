@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Open
+- [ ] Automatische Veröffentlichung des vollständigen Builds: Wix-Hosting-Unterstützung und geeignetes Veröffentlichungsziel klären; ausschließlich geschützte Secrets verwenden.
 - [ ] Handy-Ansicht: Menü-Button + großes Menü ist drin — Feinschliff (Abstände, Kontaktzeile) vom Nutzer gegenlesen lassen
 - [ ] /who Profilseiten: Übergänge (Hero → Inhalt, Inhalt → Team-Abschnitt → Footer) — Schlieren-Effekt entfernt, neu geprüft
 - [ ] /who Profilseiten: Zeile "The people beside …" entfernt (Nutzer-Wunsch)
