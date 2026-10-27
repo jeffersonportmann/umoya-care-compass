@@ -15,6 +15,7 @@ import { Route as HowRouteImport } from './routes/how'
 import { Route as WhatRouteImport } from './routes/what'
 import { Route as WhoRouteImport } from './routes/who'
 import { Route as WhyRouteImport } from './routes/why'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as WhoIndexRouteImport } from './routes/who.index'
 import { Route as WhoSlugRouteImport } from './routes/who.$slug'
@@ -49,6 +50,11 @@ const WhyRoute = WhyRouteImport.update({
   path: '/why',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogRoute,
+} as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -74,16 +80,17 @@ export interface FileRoutesByFullPath {
   '/why': typeof WhyRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/who/$slug': typeof WhoSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/who/': typeof WhoIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/blog': typeof BlogRouteWithChildren
   '/how': typeof HowRoute
   '/what': typeof WhatRoute
   '/why': typeof WhyRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/who/$slug': typeof WhoSlugRoute
+  '/blog': typeof BlogIndexRoute
   '/who': typeof WhoIndexRoute
 }
 export interface FileRoutesById {
@@ -96,6 +103,7 @@ export interface FileRoutesById {
   '/why': typeof WhyRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/who/$slug': typeof WhoSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/who/': typeof WhoIndexRoute
 }
 export interface FileRouteTypes {
@@ -109,16 +117,17 @@ export interface FileRouteTypes {
     | '/why'
     | '/blog/$slug'
     | '/who/$slug'
+    | '/blog/'
     | '/who/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/blog'
     | '/how'
     | '/what'
     | '/why'
     | '/blog/$slug'
     | '/who/$slug'
+    | '/blog'
     | '/who'
   id:
     | '__root__'
@@ -130,6 +139,7 @@ export interface FileRouteTypes {
     | '/why'
     | '/blog/$slug'
     | '/who/$slug'
+    | '/blog/'
     | '/who/'
   fileRoutesById: FileRoutesById
 }
@@ -186,6 +196,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof BlogRoute
+    }
     '/blog/$slug': {
       id: '/blog/$slug'
       path: '/$slug'
@@ -212,10 +229,12 @@ declare module '@tanstack/react-router' {
 
 interface BlogRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 const BlogRouteChildren: BlogRouteChildren = {
   BlogSlugRoute: BlogSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
