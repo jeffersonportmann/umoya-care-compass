@@ -4,7 +4,7 @@ import { PageHero, meta, Ornament } from "@/components/site";
 import { team } from "@/data/team";
 
 export const Route = createFileRoute("/who/")({
-  head: () => meta("Who is uMoya? | The People Behind uMoya", "Meet uMoya's four partners, live-in wellbeing guide Glynis Overmeyer, kinesiologist Marlien Wright and registered dietitian Ashleigh Caradas."),
+  head: () => meta("Who is uMoya? | The People Behind uMoya", "Meet uMoya's four partners, live-in guide Glynis Overmeyer, kinesiologist Marlien Wright, registered dietitian Ashleigh Caradas and Reiki Master Gerritt Bruwer."),
   component: Who,
 });
 
@@ -70,7 +70,7 @@ function Who() {
               <div aria-hidden className="shape-pebble absolute -inset-4 border border-accent/40" />
             </div>
             <div>
-              <p className="eyebrow text-primary">{p.kind === "guide" ? "Beside you every day" : "Integrative care & wellbeing"}</p>
+              <p className="eyebrow text-primary">{p.kind === "guide" ? "Beside you every day" : "Integrative care"}</p>
               <h2 className="mt-4 text-5xl md:text-6xl">{p.n}</h2>
               <p className="eyebrow mt-4 text-muted-foreground/80">{p.r}{p.l ? ` · ${p.l}` : ""}</p>
               <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl md:leading-relaxed">{p.d}</p>

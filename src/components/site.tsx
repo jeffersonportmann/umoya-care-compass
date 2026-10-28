@@ -140,7 +140,6 @@ export function SiteFooter({ curve = false }: { curve?: boolean }) {
             <a href="https://www.facebook.com/umoya.carecapetown" target="_blank" rel="noreferrer">Facebook</a>
           </span>
         </div>
-        <p className="mt-8 max-w-3xl text-xs font-light leading-relaxed opacity-50">uMoya is a private wellbeing retreat. Our offering supports rest and personal wellbeing and does not replace medical diagnosis, treatment or therapy. No healing outcome is promised. Any medical care is provided separately by independently licensed practitioners in South Africa, upon request.</p>
       </div>
     </footer>
   );

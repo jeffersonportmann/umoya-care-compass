@@ -9,4 +9,12 @@ describe("specialist team members", () => {
   it("lists Ashleigh as a practitioner rather than a founder or live-in guide", () => {
     expect(findMember("ashleigh-caradas")?.kind).toBe("practitioner");
   });
+
+  it("lists Gerritt as a specialist practitioner rather than a founder or live-in guide", () => {
+    expect(findMember("gerritt-bruwer")?.kind).toBe("practitioner");
+  });
+
+  it("leaves Gerritt's unspecified location blank", () => {
+    expect(findMember("gerritt-bruwer")?.l).toBe("");
+  });
 });

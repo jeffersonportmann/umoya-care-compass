@@ -15,6 +15,7 @@
 - [ ] Glynis Overmeyer: Standort "Cape Town, South Africa" bestätigt? (von mir gesetzt, weil sie live-in im Haus ist)
 
 ## Done
+- [x] Footer-Absatz entfernt, Rollen von Glynis/Marlien/Ashleigh gekürzt und wiederholtes “wellbeing” reduziert; Gerritt Bruwer als Reiki Master mit Foto und vollständigem Text ergänzt.
 - [x] Vollständiges statisches Paket (21 Seiten, 8 Artikel, 61 Dateien) mit Tagesabschnitt inklusive Heilsitzungen und neuen Teamprofilen als ZIP bereitgestellt; Asset-Abruf im Export nutzt jetzt zuerst die laufende Vorschau, damit neue Fotos nicht erst auf umoya.care liegen müssen.
 - [x] Marlien Wright und Ashleigh Caradas mit bereitgestellten Fotos und vollständigen Biografien in Teamübersicht und eigenen Profilen ergänzt; Fotos, Navigation und drei Tests erfolgreich geprüft.
 - [x] Wix-Static-CI vorbereitet ohne Astro-Konfiguration: npm run build im Workflow, Export von 19 Seiten und 8 Artikeln lokal geprüft, 4 Sicherheitsprüfungen und Routing-Test bestanden; bestehende Blognavigation geprüft. Vollständiger Upload bleibt gesperrt, bis Wix die bestehende statische Veröffentlichung bestätigt.
