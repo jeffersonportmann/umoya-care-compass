@@ -38,8 +38,8 @@ function MemberPage() {
         sub={member.kind === "partner"
           ? "One of the four partners who hold uMoya together — and the people in it."
           : member.kind === "guide"
-            ? "uMoya's live-in wellbeing guide — there throughout your stay, from the first days to the last."
-            : "A compassionate, individual approach to health and wellbeing."}
+            ? "uMoya's live-in guide — there throughout your stay, from the first days to the last."
+            : "A compassionate, individual approach to care."}
       />
 
       <section className="relative overflow-hidden">
